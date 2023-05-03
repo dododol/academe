@@ -5,7 +5,8 @@ public class integerExample {
 	public static void main(String[] args) {
 		// 정수 타입 : byte, short, int(기본형), lng
 		//byteMethod();
-		shortMethod();
+		//shortMethod();
+		intMethod();
 	}
 	public static void byteMethod() {
 		// byte : 1byte 제공
@@ -40,6 +41,16 @@ public class integerExample {
 		//       범위를 벗어난 값을 저장하면 오류
 		//       연산된 데이터가 범위를 벗어나면 순환적용된 결과 반환
 		//       (0, 1, 2, ...2147483647, -2147483648, -2147483647, ...-1)
+		
+		int num = 200;
+		int num1 = 100000000;
+		long num2 = 1000000L;
+		
+		int res = num1 * num1;
+		System.out.println(res);
+		
+		long res1 = num1 * num2;
+		System.out.println(res1);
 		
 	}
 
