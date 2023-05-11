@@ -1,0 +1,39 @@
+package chap04.sec01;
+
+public class Sdf {
+	
+}
+	
+	
+	public static void main(String[] args) {
+		study ss = new study();
+		
+		ss.method01();
+		
+		
+		
+		
+		int v1 = 15;
+		if(v1>10) {
+			int v2;
+			v2 = v1 - 10;
+		} System.out.println(v1);
+	}
+
+
+class study {
+	public void method01() {
+	
+
+
+		long var1 = 2L;
+		float var2 = 1.8f;
+		double var3 = 2.5;
+		String var4 = "3.9";
+		int result = int(var1 + var2 + var3 + var4)
+				System.out.println(result);
+ 
+
+
+}
+}

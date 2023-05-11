@@ -1,0 +1,14 @@
+package chap02.sec03;
+
+import java.io.IOException;
+
+public class CastExample02 {
+	
+	public static void main(String[] args) throws IOException{
+		int ch1 = System.in.read(); 	// 한글자 입력
+		
+		System.out.println(ch1);
+		
+	}
+
+}

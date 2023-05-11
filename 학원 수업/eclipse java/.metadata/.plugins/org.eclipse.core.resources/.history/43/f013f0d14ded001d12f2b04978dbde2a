@@ -1,0 +1,125 @@
+package chap04.sec01;
+
+import java.util.Scanner;
+
+public class IfStatement {
+	static Scanner sc = new Scanner(System.in);	// 멤버필드 | 멤버 변수
+	public static void main(String[] args) {
+		// method1();
+		// method2();
+		// method3();
+		 method4();
+	}
+	
+	public static void method1() {
+		// 사용자 이름과 점수를 입력 받아 60점 이상이면
+		//	"이름 합격입니다" 메시지 출력
+		String message = "";
+		System.out.print("이름 입력 : ");
+		String name = sc.nextLine();
+		System.out.print("점수 입력 : ");
+		int score = sc.nextInt();
+		
+		if(score >= 60) {
+			message = name + "은(는) 합격입니다.";
+			System.out.println(message);
+		}
+	}
+	public static void method2() {
+		// 사용자 이름과 점수를 입력 받아 60점 이상이면
+		//	"이름 합격입니다" 메시지 출력
+		// 60점 이하이면 "이름 불합격입니다" 메시지 출력
+		
+		String message = "";
+		System.out.print("이름 입력 : ");
+		String name = sc.nextLine();
+		System.out.print("점수입력 : ");
+		int score = sc.nextInt();
+		
+		if(score >= 60) {
+			message = name + "은(는) 합격입니다";
+		}else {
+			message = name + "은(는) 불합격입니다";
+		}
+		System.out.println(message);
+	}
+
+	public static void method3() {
+		/* [문제1] 월을 입력받아
+		   3~5월 : "봄 입니다"
+		   6~8월 : "여름 입니다"
+		   9~11월 : "가을 입니다"
+		   12~2월 : "겨울 입니다" 를 출력하는 프로그램 작성 */
+		
+		
+		System.out.print("월 입력 : ");
+		int month = sc.nextInt();
+		
+		if(month >= 3 && month <= 5) {
+			System.out.print("봄 입니다");
+		}else if(month >= 6 && month <= 8) {
+			System.out.print("여름 입니다");
+		}else if(month >= 9 && month <= 11){
+			System.out.println("가을 입니다");
+		}else if(month >= 12 && month <=2) {
+			System.out.println("겨울 입니다");
+		}
+		
+	}
+	
+	public static void method4() {
+	
+/*	  [문제2] 체중과 키를 입력하여 BMI지수를 구하고 BMI지수에 따른 평가를 출력하는 프로그램 작성
+	  
+	  BMI지수 = 체중(kg) / (키(m) * 키(m))
+	  
+	      BMI지수                         판정
+	  ---------------------------
+	    0.0  ~ 18.4       저체중
+	    18.5 ~ 22.9       정   상
+	    23.0 ~ 24.9       과체중
+	    25.0 ~ 29.9       비   만
+	    30.0 ~ 그 이상              고도비만*/
+	
+		System.out.print("체중 입력: ");
+		double kg = sc.nextDouble();
+		
+		System.out.print("키 입력: ");
+		double cm = sc.nextDouble();
+		
+		double m = cm/100;
+		double BMI = kg / (m * m);
+		
+		if(0.0 <= BMI && BMI <= 18.4) {
+			System.out.print("저체중");
+		}else if(18.5 <= BMI && BMI <= 22.9) {
+			System.out.print("정   상");
+		}else if(23.0 <= BMI && BMI <= 24.9) {
+			System.out.print("과체중");
+		}else if(25.0 <= BMI && BMI <= 29.9) {
+			System.out.print("비만");
+		}else if(30.0 <= BMI) {
+			System.out.print("고도비만");
+		}
+				
+	}
+}
+
+/* [문제1] 월을 입력받아
+  3~5월 : "봄 입니다"
+  6~8월 : "여름 입니다"
+  9~11월 : "가을 입니다"
+  12~2월 : "겨울 입니다" 를 출력하는 프로그램 작성
+  
+  [문제2] 체중과 키를 입력하여 BMI지수를 구하고 BMI지수에 따른 평가를 출력하는 프로그램 작성
+  
+  BMI지수 = 체중(kg) / (키(m) * 키(m))
+  
+      BMI지수                         판정
+  ---------------------------
+    0.0  ~ 18.4       저체중
+    18.5 ~ 22.9       정   상
+    23.0 ~ 24.9       과체중
+    25.0 ~ 29.9       비   만
+    30.0 ~ 그 이상              고도비만
+  */

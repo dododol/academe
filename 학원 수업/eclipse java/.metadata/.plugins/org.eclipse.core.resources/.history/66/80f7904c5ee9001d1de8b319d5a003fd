@@ -1,0 +1,9 @@
+package chap02.sec03;
+import java.util.Scanner;
+public class CastExample01 {
+	
+	public static void main(String[] args) {
+		// 키보드로 글자 하나를 입력 받아 그 글자의 유니코드를 출력하시오.
+	}
+
+}
