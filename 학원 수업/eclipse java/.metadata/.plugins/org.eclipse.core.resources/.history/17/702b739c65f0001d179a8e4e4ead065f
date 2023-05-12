@@ -1,0 +1,31 @@
+package chapter05.sec02;
+
+public class OneDimArrayExample {
+
+	public static void main(String[] args) {
+		OneDimAarray od = new OneDimAarray();
+		od.method1();
+		
+
+	}
+
+}
+
+class OneDimAarray {
+	
+	public void method1() {
+		// 정수 5개를 저장하는 배열을 생성하고 10, 20, 30, 40, 50을 저장한 후 출력하시오
+		
+		int[] num1 = null;
+		num1 = new int[5];
+		
+		char[] num2 = new char[5];
+		boolean[] num3 = new boolean[5];
+		
+		for(int i=0; i<num2.length; i++) {
+			System.out.print(num3[i]+",");
+			
+		}
+				
+	}
+}
