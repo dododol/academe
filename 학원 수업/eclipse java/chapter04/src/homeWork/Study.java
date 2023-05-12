@@ -8,7 +8,7 @@ public class Study {
 //		ss.method01();
 //		ss.method02();
 //		ss.method03();
-		ss.method04();
+		ss.method08();		//1,2,3,4,5
 	}
 
 }
@@ -60,6 +60,82 @@ class qustn{
 		
 		System.out.println("3. 전화번호 : ");
 		int num2 = sc.nextInt();
+		
+	}
+	
+	public void method05() {
+		int pencils = 534;
+		int studentes = 30;
+		
+		//학생 1명이 가지는 연필 개수
+		int pencilsPerStudent = (pencils / studentes);
+		System.out.println(pencilsPerStudent);
+		
+		//남은 연필 개수
+		 int pencilsLeft = (pencils % studentes);
+		 System.out.println(pencilsLeft);
+		
+	}
+	
+	public void method06() {
+		boolean stop = false;
+		int a=0;
+		while(!stop) {
+			a++;
+			System.out.println(stop);
+			if (a==10) {
+				stop = true;
+			}
+		}
+	}
+	
+	public void method07() {
+		int var1 =5;
+		int var2 = 2;
+		double var3 = var1 / var2;
+		int var4 = (int) (var3 * var2);
+		System.out.println(var4);
+	}
+	
+	public void method0() {
+		float var1 = 10f;
+		float var2 = var1 / 100;
+		if(var2 ==0.1) {
+			System.out.println("10%입니다.");
+		} else {
+			System.out.println("10%가 아닙니다.");
+		}
+	}
+	
+	public void method080() {
+		int t =5;
+		int b= 10;
+		int h = 7;
+		double area = (double)(t+b)*h/2;
+		System.out.println(area);
+	}
+	
+	public void method08() {
+		Scanner sc = new Scanner(System.in);
+		
+			System.out.print("첫 번째 수 : ");
+			double num = Double.parseDouble(sc.nextLine());
+			
+			System.out.print("두 번재 수 : ");
+			double num2 = Double.parseDouble(sc.nextLine());
+			
+			System.out.print("---------------");
+			
+			double i = 0;
+			i = num/num2;
+			b = 
+			if(num/num2 != 0) {
+				System.out.println("\n결과 : " + i);
+			} else if {
+				System.out.println("\n결과 : " + )
+			}
+			
+		
 		
 	}
 }
