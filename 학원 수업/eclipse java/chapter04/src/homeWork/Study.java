@@ -115,7 +115,7 @@ class qustn{
 		System.out.println(area);
 	}
 	
-	public void method08() {
+	public void method081() {
 		Scanner sc = new Scanner(System.in);
 		
 			System.out.print("첫 번째 수 : ");
@@ -126,16 +126,17 @@ class qustn{
 			
 			System.out.print("---------------");
 			
-			double i = 0;
-			i = num/num2;
-			b = 
-			if(num/num2 != 0) {
-				System.out.println("\n결과 : " + i);
-			} else if {
-				System.out.println("\n결과 : " + )
+			
+			if(num2 != 0) {
+				System.out.println("\n결과 : " + (num/num2));
+			} else {
+				System.out.println("\n결과 : 무한대");
 			}
 			
-		
+			
+	}
+	
+	public void method08() {
 		
 	}
 }
