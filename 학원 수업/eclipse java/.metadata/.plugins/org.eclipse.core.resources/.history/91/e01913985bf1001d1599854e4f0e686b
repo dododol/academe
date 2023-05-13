@@ -266,13 +266,11 @@ class qustn{
 	}
 	
 	public void method09() {
-
-		int sum = 0;
 		
-			for(int i = 1; i<=100; i++) {
-				sum = sum + i;
+		for(int i=0, j=100; i<=50 && j>=50; i++, j--) {
+			System.out.println(i);
 		}
-			
-			System.out.println("1~100 гу : " + sum);
+		
+		
 	}
 }

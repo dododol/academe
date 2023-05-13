@@ -273,6 +273,6 @@ class qustn{
 				sum = sum + i;
 		}
 			
-			System.out.println("1~100 гу : " + sum);
+			System.out.println("1~100 гу : num");
 	}
 }
