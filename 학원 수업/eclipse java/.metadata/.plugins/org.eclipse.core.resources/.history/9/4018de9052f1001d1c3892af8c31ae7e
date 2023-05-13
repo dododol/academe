@@ -248,8 +248,8 @@ class qustn{
 		}
 	}
 	
-	public void method0933() {
-		char grade = 'A';
+	public void method09() {
+		char grade = 'a';
 		
 		switch(grade) {
 		case 'A':
@@ -263,10 +263,5 @@ class qustn{
 			default:
 				System.out.println("º’¥‘¿‘¥œ¥Ÿ.");
 		}
-	}
-	
-	public void method09() {
-		
-		
 	}
 }

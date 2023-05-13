@@ -205,7 +205,7 @@ class qustn{
 		} 
 	}
 	
-	public void method0913() {
+	public void method09() {
 		
 		int num = (int) (Math.random()*6) + 1;
 		
@@ -214,59 +214,20 @@ class qustn{
 			System.out.println("1이 나왔습니다.");
 			break;
 		case 2 :
-			System.out.println("2가 나왔습니다.");
+			System.out.println("2이 나왔습니다.");
 			break;
 		case 3 :
 			System.out.println("3이 나왔습니다.");
 			break;
 		case 4 :
-			System.out.println("4가 나왔습니다.");
+			System.out.println("4이 나왔습니다.");
 			break;
 		case 5 :
-			System.out.println("5가 나왔습니다.");
+			System.out.println("5이 나왔습니다.");
 			break;
 		case 6 :
 			System.out.println("6이 나왔습니다.");
 			break;
 		}
-	}
-
-	public void method039() {
-		int time = (int) (Math.random() * 4) + 8;
-		System.out.println("[현재시각: " + time + " 시]");
-		
-		switch(time) {
-		case 8:
-			System.out.println("출근합니다.");	
-		case 9:
-			System.out.println("회의를 합니다.");
-		case 10:
-			System.out.println("업무를 합니다.");
-		default:
-			System.out.println("외근합니다.");
-			
-		}
-	}
-	
-	public void method0933() {
-		char grade = 'A';
-		
-		switch(grade) {
-		case 'A':
-		case 'a':
-			System.out.println("우수 회원입니다.");
-			break;
-		case 'B':
-		case 'b':
-			System.out.println("일반 회원입니다.");
-			break;
-			default:
-				System.out.println("손님입니다.");
-		}
-	}
-	
-	public void method09() {
-		
-		
 	}
 }

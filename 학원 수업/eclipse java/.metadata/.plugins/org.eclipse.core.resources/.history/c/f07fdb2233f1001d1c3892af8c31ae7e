@@ -115,13 +115,28 @@ class qustn{
 		System.out.println(area);
 	}
 	
-	public void method08() {
+	public void method081() {
 		Scanner sc = new Scanner(System.in);
-		int number=sc.nextInt();
-		int number2=sc.nextInt();		
-		System.out.println("첫 번째 수 : " + number);
 		
-		System.out.println("두 번째 수 : " + number2);
+			System.out.print("첫 번째 수 : ");
+			double num = Double.parseDouble(sc.nextLine());
+			
+			System.out.print("두 번재 수 : ");
+			double num2 = Double.parseDouble(sc.nextLine());
+			
+			System.out.print("---------------");
+			
+			
+			if(num2 != 0) {
+				System.out.println("\n결과 : " + (num/num2));
+			} else {
+				System.out.println("\n결과 : 무한대");
+			}
+			
+			
+	}
+	
+	public void method08() {
 		
 	}
 }
