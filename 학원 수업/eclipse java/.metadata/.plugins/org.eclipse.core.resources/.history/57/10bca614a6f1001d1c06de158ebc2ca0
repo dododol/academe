@@ -7,7 +7,7 @@ public class HomeWork {
 	public static void main(String[] args) {
 		
 		HomeWork1 ss = new HomeWork1();
-		ss.method03();
+		ss.method02();
 
 	}
 
@@ -43,10 +43,10 @@ class HomeWork1 {
 
 		// 2. 주사위를 50번던져 나온 각각의 눈의 횟수를 구하고 이를 히스토그램으로 출력하시오
 		
-		int[] count = new int[6];
+		int[] count = new int[50];
 
         for (int i = 0; i < 50; i++) {
-            int dice = (int) (Math.random() * 6) + 1;
+            int dice = (int) (Math.random() * 50) + 1;
             count[dice-1]++;
         }
 
@@ -58,27 +58,6 @@ class HomeWork1 {
             System.out.printf("(%d)%n", count[i]);
         }
 	}	
-	
-	public void method03() {
-		
-		// 3. 정수 10개를 배열에 저장 한 후 최대값과 최소값을 구하시오.
-		
-        int[] number = { 3, 5, 1, 2, 8, 4, 7, 6, 9, 10 };
-
-        int min = number[0];
-        int max = number[0];
-
-        for (int i = 1; i < number.length; i++) {
-            if (number[i] < min) {
-                min = number[i];
-            } else if (number[i] > max) {
-                max = number[i];
-            }
-        }
-
-        System.out.println("최소값: " + min);
-        System.out.println("최대값: " + max);
-	}
 
 		
 }
