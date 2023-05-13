@@ -275,6 +275,4 @@ class qustn{
 			
 			System.out.println("1~100 гу : " + sum);
 	}
-	
-	
 }
