@@ -7,7 +7,7 @@ public class HomeWork {
 	public static void main(String[] args) {
 		
 		HomeWork1 ss = new HomeWork1();
-		ss.method02();
+		ss.method03();
 
 	}
 
