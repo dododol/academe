@@ -1,0 +1,30 @@
+package chap05.sec05;
+
+public class ArrayConversionEx {
+	public static void main(String[] args) {
+		ArrayConversion ss=new ArrayConversion();
+		ss.histogram();
+	}
+
+}
+
+class ArrayConversion{
+	private int[] dice = new int[6];	//주사위 각 눈의 경우의 수
+	
+	public ArrayConversion() {
+		for(int i=0; i<50; i++) {
+			int rnd = (int)(Math.random()*6);
+			dice[rnd]++;
+		}
+	}
+	
+	public void histogram() {
+		for ( int i = 0; i < dice.length; i++) {
+			System.out.print((i+1)+" : ");
+			for(int j = 0; j < dice[i]; j++) {
+				System.out.print("*");
+			}
+			System.out.println("("+dice[i]+")");
+		}
+	}
+}

@@ -1,0 +1,26 @@
+package chapter05.sec03;
+
+import java.util.Random;
+
+public class WordScambleEx {
+
+	public static void main(String[] args) {
+		WordScamble ss=new WordScamble();
+		String str = ss.WordSelection();
+		System.out.println(str);
+
+	}
+
+}
+
+
+class WordScamble{
+	private String[] word = {"hope", "apple", "banana", "orange", "love"};	// private로 생성하면 이 클래스 안에서만 사용
+
+	public String WordSelection() {
+		Random rnd=new Random();
+		int idx = rnd.nextInt(5);	// 0~4 사이의 정수형 난수발생
+		return word[idx];
+		
+	}
+}

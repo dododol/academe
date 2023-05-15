@@ -29,7 +29,7 @@ class HomeWork1 {
 
 	        for (int i = 0; i < money.length; i++) {
 	            Count[i] = change / money[i]; // 해당 화폐단위의 맷수 계산
-	            change %= money[i]; // 계산 후 거스름돈에서 해당 화폐단위를 뺀 나머지를 다음 계산에 사용
+	            change = change % money[i]; // 계산 후 거스름돈에서 해당 화폐단위를 뺀 나머지를 다음 계산에 사용
 	        }
 
 	        System.out.println("거스름돈의 화폐단위별 맷수:");

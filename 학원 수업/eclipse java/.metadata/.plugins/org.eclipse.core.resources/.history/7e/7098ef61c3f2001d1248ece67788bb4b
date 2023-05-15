@@ -1,0 +1,10 @@
+package chapter05.sec04;
+
+public class TwoDimArrayExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

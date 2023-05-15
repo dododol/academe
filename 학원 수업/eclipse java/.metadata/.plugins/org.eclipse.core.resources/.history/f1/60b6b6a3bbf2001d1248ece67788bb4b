@@ -1,0 +1,63 @@
+package chapter05.sec03;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class WordScambleEx {
+
+	public static void main(String[] args) {
+		WordScamble ss=new WordScamble();
+		String str = ss.WordSelection();
+		String question = ss.shuffle(str);
+		System.out.print("제시어 : " + question);
+		ss.answer(question);
+
+	}
+
+}
+
+class WordScamble{
+	private String[] word = {"hope", "apple", "banana", "orange", "love"};	// private로 생성하면 이 클래스 안에서만 사용
+
+	public String WordSelection() {
+		Random rnd=new Random();
+		int idx = rnd.nextInt(5);	// 0~4 사이의 정수형 난수발생
+		return word[idx];
+		
+	}
+	
+	public String shuffle(String str) {
+		char[] ch = str.toCharArray();		//to CharArray 메소드를 사용하면 자동으로 문자열을 문자 배열로 바꿔준다.
+		
+				for(int i=0; i<1000; i++) {
+					int r = (int)(Math.random()*ch.length);
+					char temp=ch[0];
+					ch[0]=ch[r];
+					ch[r]=temp;		// 문자열을 출력하려고 했지만 문자 배열이 나온다.
+				}
+				return(new String(ch));		//34열에 있는 문제를 다시 문자열로 변환 
+	}
+	
+	public void answer(String question) {
+		Scanner sc = new Scanner(System.in);
+		int count=0;
+		
+		while(true) {
+			System.out.print("\n정답 : ");
+			String str = sc.nextLine();
+			count++;
+			
+			if(str.equals(question)) {
+				System.out.println("********************");
+				System.out.println("정답입니다");
+				System.out.println("시도횟수 : " + count);
+				System.out.println("********************");
+				break;
+			} else {
+				System.out.println("********************");
+				System.out.println("정답이 아닙니다");
+			}
+		}
+		
+	}
+}
