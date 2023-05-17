@@ -27,7 +27,7 @@ class Student{
 		this.stdID = stdID;						
 		this.stdName = stdName;
 	}											// private 수정하기 위해서는 : getter setter 이용	
-												// 사용자가 사용자 메소드를 만들어서 클래스를 초기화시켜야 오류가 적다. 안만들면 프로그램이 자동으로 만든다
+												// 사용자가 생성자 메소드를 만들어서 클래스를 초기화시켜야 오류가 적다. 안만들면 프로그램이 자동으로 만든다
 	public void setStdID(long stdID)
 	{
 		this.stdID = stdID;
