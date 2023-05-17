@@ -56,55 +56,55 @@ public class HomeWork {
 		}
 
 		
-		public void method03() {
-			
-			
-		//	[문제3] 컴퓨터와 가위바위보 게임을 하려고 한다. 이를 프로그램하시오(난수 사용)
-			
-			System.out.print("무엇을 낼거니? : ");
-			String user = sc.nextLine();
-			
-			int i = (int) (Math.random() * 3) +1;
-			switch (user) {
-			
-			case "가위" :
-				if (i == 1) {
-					System.out.println("com : 가위");
-					System.out.print("비겼습니다");					
-				}else if ( i == 2 ) {
-					System.out.println("com : 바위");
-					System.out.print("졌습니다");
-				}else if ( i == 3 ) {
-					System.out.println("com : 보");
-					System.out.print("이겼습니다");					
-				} break;
-			case "바위" :
-				if (i == 1) {
-					System.out.println("com : 가위");
-					System.out.print("이겼습니다");
-				}else if (i == 2) {
-					System.out.println("com : 바위");
-					System.out.print("비겼습니다");
-				}else if (i == 3) {
-					System.out.println("com : 보");
-					System.out.print("졌습니다");
-				} break;
-				
-			case " 보 " : 
-				if (i == 1) {
-					System.out.println("com : 가위");
-					System.out.print("졌습니다");
-				}else if (i == 2) {
-					System.out.println("com : 바위");
-					System.out.print("이겼습니다");
-				}else if (i == 3) {
-					System.out.println("com : 보");
-					System.out.print("비겼습니다");
-				}break;
-			}
-			
-			
-		}
+//		public void method03() {
+//			
+//			
+//		//	[문제3] 컴퓨터와 가위바위보 게임을 하려고 한다. 이를 프로그램하시오(난수 사용)
+//			
+//			System.out.print("무엇을 낼거니? : ");
+//			String user = sc.nextLine();
+//			
+//			int i = (int) (Math.random() * 3) +1;
+//			switch (user) {
+//			
+//			case "가위" :
+//				if (i == 1) {
+//					System.out.println("com : 가위");
+//					System.out.print("비겼습니다");					
+//				}else if ( i == 2 ) {
+//					System.out.println("com : 바위");
+//					System.out.print("졌습니다");
+//				}else if ( i == 3 ) {
+//					System.out.println("com : 보");
+//					System.out.print("이겼습니다");					
+//				} break;
+//			case "바위" :
+//				if (i == 1) {
+//					System.out.println("com : 가위");
+//					System.out.print("이겼습니다");
+//				}else if (i == 2) {
+//					System.out.println("com : 바위");
+//					System.out.print("비겼습니다");
+//				}else if (i == 3) {
+//					System.out.println("com : 보");
+//					System.out.print("졌습니다");
+//				} break;
+//				
+//			case " 보 " : 
+//				if (i == 1) {
+//					System.out.println("com : 가위");
+//					System.out.print("졌습니다");
+//				}else if (i == 2) {
+//					System.out.println("com : 바위");
+//					System.out.print("이겼습니다");
+//				}else if (i == 3) {
+//					System.out.println("com : 보");
+//					System.out.print("비겼습니다");
+//				}break;
+//			}
+//			
+//			
+//		}
 
 		//2023-05-11
 		
