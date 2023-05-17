@@ -1,0 +1,44 @@
+package chapter05.sec06;
+
+public class ObjectArrayExample {
+
+	public static void main(String[] args) {
+//		Books[] book = new Books[3];
+//		book[0] = new Books("왕초보 영어", "EBS", 15000);
+//		book[1] = new Books("경제학 입문", "박정호", 30000);		
+//		book[2] = new Books("소크라테스 변론", "김유원", 10000);			//String을 제외한 모든 클래스는 new연산사에 의해서 생성자메소드가 호출되어야 객체가 생성된다
+		Books[] book = {new Books("왕초보 영어","EBS", 15000),
+						new Books("경제학 입문", "박정호", 30000),
+						new Books("소크라테스 변론", "김유원", 10000)};
+		
+	
+		System.out.println("--------------------------------");
+		for(Books b : book) {
+			System.out.println(b);
+			System.out.println("--------------------------------");
+		}
+		
+	}
+
+}
+
+class Books{ //책이름, 저자, 가격
+	private String title;	//외부클래스에서 접급x 여기서는 Books클래스에서만 사용가능
+	private String writer;
+	private int price;
+
+	public Books() {}					//c언어라면 이름이 같은 메소드가 두개 생성된 때부터 오류이다. 하지만 자바에서는 오버로딩을 이용해서 사용가능
+	public Books(String title, String writer, int price) {		//오버로딩 : 한 클래스 안에서 같은 이름의 메소드 여러개 사용가능
+		this.title = title;
+		this.writer = writer;
+		this.price = price;
+	}
+	
+	@Override		//재정의
+	public String toString() {
+		return "책이름 : " + title + "\n저자 : " + writer + "\n가격 : " + price;
+	}
+
+}
+
+//생성자메소드 - 객체초기화(멤버변수초기화)

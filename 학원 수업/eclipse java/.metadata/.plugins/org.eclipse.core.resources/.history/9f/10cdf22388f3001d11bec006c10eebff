@@ -1,0 +1,18 @@
+package chapter05.sec06;
+
+public class ArrayCopyExample {
+
+	public static void main(String[] args) {
+		ArrayCopy ac = new ArrayCopy();
+		new ArrayCopyExample().abc();		//그냥 abc();라고 하면 에러발생
+	}
+
+	public void abc() {
+		System.out.println("일만 메소드");
+	}
+	
+}
+
+class ArrayCopy {
+	
+}
