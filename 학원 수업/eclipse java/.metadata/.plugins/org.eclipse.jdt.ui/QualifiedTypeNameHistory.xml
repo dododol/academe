@@ -5,7 +5,8 @@
 <fullyQualifiedTypeName name="chapter06.sec03.Animal"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="chapter05.sec07.LimitedSpeed"/>
 </qualifiedTypeNameHistroy>
