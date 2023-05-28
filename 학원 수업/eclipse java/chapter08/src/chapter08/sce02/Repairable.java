@@ -46,11 +46,11 @@ class SCV extends GroundUnit implements Repairable {
 	
 	public void repair(Repairable r) {
 		if(r instanceof Unit) {
-			Unit u = (Unit)r;
-			while(u.hitpoint != u.MAX_HP)
-				u.hitpoint++;
+			Unit uu = (Unit)r;
+			while(uu.hitpoint != uu.MAX_HP)
+				uu.hitpoint++;
 		}
-		System.out.println(u.toString() + "의 수리가 끝났습니다.");
+		System.out.println(uu.toString() + "의 수리가 끝났습니다.");
 	}
 }
 
