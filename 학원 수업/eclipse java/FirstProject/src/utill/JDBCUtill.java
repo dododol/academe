@@ -23,7 +23,7 @@ public class JDBCUtill {	// 커밋, 롤백 JDBCUtill에 기술
 		return instance;
 	}
 	
-	private String url = "jdbc:oracle:thin:@localhost:xe";
+	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	private String user = "PC15";
 	private String passwd = "java";
 	
@@ -84,8 +84,8 @@ public class JDBCUtill {	// 커밋, 롤백 JDBCUtill에 기술
 		while(rs.next()) {
 			row = new HashMap<> ();
 			for(int i = 0; i < columnCount; i++) {
-				String key = rsmd.getColumnLabel(i);
-				Object value = rs.getObject(i);
+				String key = rsmd.getColumnLabel(i+1);
+				Object value = rs.getObject(i+1);
 				row.put(key, value);
 			}
 		}
