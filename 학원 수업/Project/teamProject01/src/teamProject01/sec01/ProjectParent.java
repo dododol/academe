@@ -150,7 +150,7 @@ public abstract class ProjectParent {
 class DAOConnection {
 			/* 방화벽 전까지는 localhost로 수정해서 사용해야함 확인요망 */
 	private final String URL = "jdbc:oracle:thin:@192.168.35.55:1521:xe";
-	private final String USER = "pc13"; // 방화벽 전까지..
+	private final String USER = "pc15"; // 방화벽 전까지..
 	private final String PASSWD = "java";
 
 	private static DAOConnection instance = null;

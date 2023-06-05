@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import utill.JDBCUtill;
+import util.JDBCUtil;
+import util.JDBCUtill;
 
 public class LoginDAO {
 	
@@ -16,7 +17,7 @@ public class LoginDAO {
 		return instance;
 	}
 	
-	JDBCUtill jdbc = JDBCUtill.getInstance();
+	JDBCUtil jdbc = JDBCUtil.getInstance();
 	
 	public Map<String, Object> login(String id, String pass) {
 		String sql="SELECT * FROM TBL_MEMBER WHERE MEM_ID = ? ";
