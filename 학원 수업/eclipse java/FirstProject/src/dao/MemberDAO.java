@@ -19,4 +19,18 @@ public class MemberDAO {
 	public int update(String sql){
 		return jdbc.update(sql);
 	}
+	
+	public List<Map<String, Object>> searchAll(){
+		String sql="SELECT * FROM tbl_member ";
+		return jdbc.selectList(sql);
+	}
+	
+	public Map<String, Object> searchOne(String id){
+		String sql="SELECT * FROM tbl_member WHERE mem_id = ? ";
+		List<Object> param=new ArrayList<Object>();
+		param.add(id);
+		
+		return jdbc.selectOne(sql, param);
+	}
+	
 }

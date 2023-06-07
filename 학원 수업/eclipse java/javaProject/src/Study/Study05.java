@@ -97,6 +97,18 @@ public class Study05 {
 			System.out.println(Arrays.deepToString(str[i]) + " ");
 		}
 		
+		
+		  for(int i=0; i<str.length; i++) {
+		         System.out.print("[ ");
+		         for(int j=0; j<str[i].length; j++) {
+		            if(j%2==0) {
+		               str[i][j]="*";
+		            }
+		            System.out.print("'"+str[i][j]+"' ");      // System.out.print(Arrays.toString(str[i]) + " ");
+		         }
+		         System.out.print(" ]");
+		         System.out.println();
+		      }
 	}
 
 }

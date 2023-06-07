@@ -1,10 +1,6 @@
-package dao;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 package service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -25,6 +21,16 @@ public class MemberService {
 	Scanner sc=new Scanner(System.in);
 	MemberDAO dao=MemberDAO.getInstance();
 	
+	public List<Map<String, Object>> searchAll(){
+		return dao.searchAll();
+	}
+	
+	public Map<String, Object> searchOne(){
+		System.out.print("회원 아이디 : ");
+		String mid = sc.next();
+		return dao.searchOne(mid);
+	}
+	
 	public int update() {
 		int res=0;
 		String mid ="";
@@ -32,8 +38,7 @@ public class MemberService {
 		String pw="";
 		String jumin="";
 		int mileage =0;
-		String updateSql="UPDATE tbl_member ";
-		updateSql+=" SET ";
+		String updateSql="UPDATE tbl_member SET ";
 		while (true) {
 			System.out.print("회원 아이디 : ");
 			mid = sc.next();
@@ -67,11 +72,12 @@ public class MemberService {
 		if(flag.equalsIgnoreCase("y")) {
 			System.out.print("마일리지 : ");
 			mileage = sc.nextInt();
-			updateSql+="  MEM_MILEAGE = "+mileage+" ,";
+			updateSql+=" MEM_MILEAGE = "+mileage+" ,";
 		}		
 		int len=updateSql.length();
 		updateSql=updateSql.substring(0,len-2);
 		updateSql=updateSql+" WHERE MEM_ID = '"+mid+"'";
 		return dao.update(updateSql);
 	}
+}
 }

@@ -39,7 +39,7 @@ import service.MemberService;
 //        }
 //    . 그 이외의 query : 커서(쿼리로 영향받은 행(row)의 집합)의 행의 수(정수)
 public class PreparedStatmentExample01 {
-	private Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 
 	private String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 	private String user = "SEM";
@@ -50,7 +50,7 @@ public class PreparedStatmentExample01 {
 	private ResultSet rs = null;
 	private int rowCount = 0;
 	
-	MemberService memberService=MemberService.getInstance();
+	static MemberService  memberService=MemberService.getInstance();
 
 	public static void main(String[] args) {
 		PreparedStatmentExample01 ps01=new PreparedStatmentExample01();
@@ -64,7 +64,20 @@ public class PreparedStatmentExample01 {
 			System.out.println("자료가 저장되지 않았습니다. ");
 		}
 		*/
-		ps01.update();
+		//ps01.update();
+		while(true) {
+			System.out.println("[1. 전체조회]");
+			System.out.println("[2. 개별조회]");
+			System.out.println("--------------");
+			System.out.print("선택-> : ");
+			int choice = sc.nextInt();
+		
+			switch (choice) {
+				case 1 : searchAll(); break;
+				case 2 : searchOne(); break;
+				default : System.out.println("선택번호를 잘못 입력 했습니다");
+			} 
+		}
 	}
 
 	public int insert(String sql) {
@@ -119,5 +132,36 @@ public class PreparedStatmentExample01 {
 			System.out.println("자료 갱신에 실패했습니다");
 		}
 	}
+	
+	public static void searchAll() {
+		List<Map<String, Object>> result=memberService.searchAll();
+		System.out.println("            [[ 회원  LIST ]]");
+		System.out.println(" ID \t회원명 \t  주민번호 \t\t  마일리지");
+		System.out.println("-----------------------------------------");
+		for(int i=0; i<result.size(); i++) {
+			String mid=(String)result.get(i).get("MEM_ID");
+			String name=(String)result.get(i).get("MEM_NAME");
+			String jumin=(String)result.get(i).get("MEM_JUMIN");
+		    int mileage=Integer.parseInt(String.valueOf(result.get(i).get("MEM_MILEAGE")));
+		System.out.print(mid+"\t"+name+" \t "+jumin+"  ");	
+		System.out.printf("%5d\n", mileage);
+		}
+	}
+	
+	public static void searchOne() {
+		Map<String, Object> result=memberService.searchOne();
+		if(result!=null) {
+			System.out.println("            [[ 회원  LIST ]]");
+			System.out.println(" ID \t회원명 \t  주민번호 \t\t  마일리지");
+			System.out.println("-----------------------------------------");
+			String mid=(String)result.get("MEM_ID");
+			String name=(String)result.get("MEM_NAME");
+			String jumin=(String)result.get("MEM_JUMIN");
+		    int mileage=Integer.parseInt(String.valueOf(result.get("MEM_MILEAGE")));
+		    System.out.print(mid+"\t"+name+" \t "+jumin+"  ");	
+		    System.out.printf("%5d\n", mileage);
+		}else {
+			System.out.println("해당 회원은 등록되지 않은 회원입니다.. ");
+		}
+	}
 }
-

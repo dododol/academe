@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,13 +23,44 @@ public class JDBCUtil {
 	}
 	
 	private String url="jdbc:oracle:thin:@localhost:1521:xe";
-	private String user="SEM";
+	private String user="temp_project";
 	private String passwd="java";
 	
 	private Connection conn;
 	private PreparedStatement pstmt=null;
 	private Statement stmt=null;
 	private ResultSet rs=null;
+	
+	public List<Map<String, Object>> selectList(String sql){
+		//SELECT * FROM tbl_member
+		List<Map<String, Object>> list=null;
+	    try {
+	    	conn=DriverManager.getConnection(url,user,passwd);
+	    	pstmt=conn.prepareStatement(sql);
+	    	rs=pstmt.executeQuery();
+	    	//컬럼의 수, 컬럼명
+	    	ResultSetMetaData rsmd=rs.getMetaData();
+	    	int columnCount=rsmd.getColumnCount();
+	    	while(rs.next()) {
+	    		if(list==null) list=new ArrayList<>();
+	    		Map<String, Object> row=new HashMap<>();
+	    		for(int i=0; i<columnCount; i++) {
+	    			String key=rsmd.getColumnLabel(i+1);
+	    	//or	String key=rsmd.getColumnName(i);
+	    			Object value=rs.getObject(i+1);
+	    			row.put(key, value);
+	    		}
+	    		list.add(row);
+	    	}
+	    }catch(SQLException e) {
+	    	e.printStackTrace();
+	    }finally {
+	    	if(rs!=null) try{rs.close();}catch(Exception e) {}
+	    	if(pstmt!=null) try{pstmt.close();}catch(Exception e) {}
+	    	if(conn!=null) try{conn.close();}catch(Exception e) {}    	
+	    }
+	    return list;
+	}
 	
 	public Map<String, Object> selectOne(String sql){
 		//정적쿼리 사용한경우
@@ -116,3 +148,21 @@ public class JDBCUtil {
 		return result;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
