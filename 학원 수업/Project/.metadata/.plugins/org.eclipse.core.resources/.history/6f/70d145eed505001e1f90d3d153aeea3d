@@ -147,62 +147,62 @@ public abstract class ProjectParent {
 
 }
 
-class DAOConnection {
-			/* 방화벽 전까지는 localhost로 수정해서 사용해야함 확인요망 */
-	private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-	private final String USER = "pc15"; // 방화벽 전까지..
-	private final String PASSWD = "java";
-
-	private static DAOConnection instance = null;
-
-	private DAOConnection() {
-	}
-
-	public static DAOConnection getInstance() {
-		if (instance == null)
-			instance = new DAOConnection();
-		return instance;
-	}
-
-	protected static Connection conn = null;
-	protected Statement stmt = null;
-	protected PreparedStatement pstmt = null;
-	protected ResultSet rs = null;
-
-	public void connectConn() {
-		/*
-		 * 여기서 clearConsole 호출하거나 connetConn 불러오기 전에 clearConsole 호출할것
-		 */
-
-		try {
-			conn = DriverManager.getConnection(URL, USER, PASSWD);
-			stmt = conn.createStatement();
-			System.out.println("연결되었습니다.");
-		} catch (SQLException e) {
-			System.out.println("아주 심각한 오류가 발생했어용");
-		}
-	}
-
-	public void disconectConn() {
-		if (rs != null)
-			try {
-				rs.close();
-			} catch (Exception e) {
-			}
-		if (stmt != null)
-			try {
-				stmt.close();
-			} catch (Exception e) {
-			}
-		if (pstmt != null)
-			try {
-				pstmt.close();
-			} catch (Exception e) {
-			}
-		if (conn != null)
-			try {
-				conn.close();
-			} catch (Exception e) {
-			}
-	}
-}
+//class DAOConnection {
+//			/* 방화벽 전까지는 localhost로 수정해서 사용해야함 확인요망 */
+//	private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+//	private final String USER = "pc15"; // 방화벽 전까지..
+//	private final String PASSWD = "java";
+//
+//	private static DAOConnection instance = null;
+//
+//	private DAOConnection() {
+//	}
+//
+//	public static DAOConnection getInstance() {
+//		if (instance == null)
+//			instance = new DAOConnection();
+//		return instance;
+//	}
+//
+//	protected static Connection conn = null;
+//	protected Statement stmt = null;
+//	protected PreparedStatement pstmt = null;
+//	protected ResultSet rs = null;
+//
+//	public void connectConn() {
+//		/*
+//		 * 여기서 clearConsole 호출하거나 connetConn 불러오기 전에 clearConsole 호출할것
+//		 */
+//
+//		try {
+//			conn = DriverManager.getConnection(URL, USER, PASSWD);
+//			stmt = conn.createStatement();
+//			System.out.println("연결되었습니다.");
+//		} catch (SQLException e) {
+//			System.out.println("아주 심각한 오류가 발생했어용");
+//		}
+//	}
+//
+//	public void disconectConn() {
+//		if (rs != null)
+//			try {
+//				rs.close();
+//			} catch (Exception e) {
+//			}
+//		if (stmt != null)
+//			try {
+//				stmt.close();
+//			} catch (Exception e) {
+//			}
+//		if (pstmt != null)
+//			try {
+//				pstmt.close();
+//			} catch (Exception e) {
+//			}
+//		if (conn != null)
+//			try {
+//				conn.close();
+//			} catch (Exception e) {
+//			}
+//	}
+//}

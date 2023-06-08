@@ -1,11 +1,32 @@
 package teamProject01.sec01;
 
+public class BookSearch {
+	
+	public static void main(String[] args) {
+		BookSearch1 bk=new BookSearch1();
+//		bk.connectConn();
+		
+	}
+
+}
+
+class BookSearch1 extends Parent {
+	
+	public void select() {
+		
+	}
+}
+
+
+/*
+package teamProject01.sec01;
+
 import java.sql.SQLException;
 
 
 
 
-class Select {
+public class Select {
    
    public static void main(String[] args) {
       SS s1=new SS();
@@ -48,4 +69,4 @@ class SS extends Parent{
    }
 }
 
-//1 Á¤»ó  2 Æó±â
+*/
