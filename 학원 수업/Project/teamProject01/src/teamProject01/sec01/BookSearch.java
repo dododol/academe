@@ -9,40 +9,43 @@ class Select {
    
    public static void main(String[] args) {
       SS s1=new SS();
-      s1.select();
+      String sql="insert ~~~";
+      s1.select(sql);
       
    }
 }
    
-class SS extends Parent{
-   public void select() {
+class SS {
+	JDBCUtil jdbc = JDBCUtil.getInstance();
+	public void select(String sql) {
 
       try {
-         connectConn();
-         String sql = " select * from emp where empno=? and deptno=? ";
-         daoConn.pstmt = daoConn.conn.prepareStatement(sql);
+    	 jdbc.connectConn();
          
-         String a=sc.next();
-         String b=sc.next();
+         jdbc.daoConn.pstmt = jdbc.daoConn.conn.prepareStatement(sql);
          
-         daoConn.pstmt.setString(1, a);
-         daoConn.pstmt.setString(2, b);
          
-         daoConn.rs = daoConn.pstmt.executeQuery();
+         String a=jdbc.sc.next();
+         String b=jdbc.sc.next();
          
-         while (daoConn.rs.next()) {
-            System.out.print("사원번호 : "+daoConn.rs.getString("EMPNO")+"\t");
-            System.out.print("사원이름 : "+daoConn.rs.getString(2)+"\t");
-            System.out.print("업무 : "+daoConn.rs.getString(3)+"\t");
-            System.out.print("급여 : "+daoConn.rs.getInt(4)+"\t");
-            System.out.print("부서번호 : "+daoConn.rs.getString("DEPTNO")+"\t");
+         jdbc.daoConn.pstmt.setString(1, a);
+         jdbc.daoConn.pstmt.setString(2, b);
+         
+         jdbc.daoConn.rs = jdbc.daoConn.pstmt.executeQuery();
+         
+         while (jdbc.daoConn.rs.next()) {
+            System.out.print("사원번호 : "+jdbc.daoConn.rs.getString("EMPNO")+"\t");
+            System.out.print("사원이름 : "+jdbc.daoConn.rs.getString(2)+"\t");
+            System.out.print("업무 : "+jdbc.daoConn.rs.getString(3)+"\t");
+            System.out.print("급여 : "+jdbc.daoConn.rs.getInt(4)+"\t");
+            System.out.print("부서번호 : "+jdbc.daoConn.rs.getString("DEPTNO")+"\t");
             System.out.println();
             System.out.println("----------------------------------------------------------------------------------");
          }
       } catch (SQLException e) {
          e.printStackTrace();
       } finally {
-         disconnectConn();
+    	 jdbc.disconnectConn();
       }
 
    }
