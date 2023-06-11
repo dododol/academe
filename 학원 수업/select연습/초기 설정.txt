@@ -1,0 +1,29 @@
+다운받아야 하는 것들 : java, sql developer, eclipse
+
+오라클 다운 시 비밀번호 java(혹은 외울 수 있을만한 것)으로 설정
+
+cmd창에서 실행
+sqlplus sys/java@localhost:1521 as sysdba
+create user practice identified by java;
+grant connect, resource to practice;
+
+sql developer
+테이블 생성
+CREATE TABLE PRACTICE
+   (	P_ID CHAR(4) NOT NULL, 
+	P_NAME VARCHAR2(15), 
+	P_ADDRESS VARCHAR2(50), 
+	 CONSTRAINT "XPK연습" PRIMARY KEY ("P_ID")
+     );
+
+테이블 데이터 삽입
+insert into practice values(1,'연습01','대전시 동구 옆집');
+insert into practice values(2,'연습02','대전시 동구 앞집');
+insert into practice values(3,'연습03','대전시 동구 뒷집');
+insert into practice values(4,'연습04','대전시 유성구 옆집');
+insert into practice values(5,'연습05','대전시 유성구 앞집');
+insert into practice values(6,'연습06','대전시 유성구 뒷집');
+insert into practice values(7,'연습07','대전시 중구 옆집');
+insert into practice values(8,'연습08','대전시 중구 앞집');
+insert into practice values(9,'연습09','대전시 대덕구 옆집');
+insert into practice values(10,'연습10','대전시 대덕구 앞집');
