@@ -1,0 +1,61 @@
+package teamProject01.sec01;
+
+import java.sql.SQLException;
+
+
+
+
+class Select {
+   
+   public static void main(String[] args) {
+      SS s1=new SS();
+      String sql="insert ~~~";
+      s1.select(sql);
+      
+   }
+}
+   
+class SS {
+	JDBCUtil jdbc = JDBCUtil.getInstance();
+	public void select(String sql) {
+
+      try {
+    	 jdbc.connectConn();
+         
+         jdbc.daoConn.pstmt = jdbc.daoConn.conn.prepareStatement(sql);
+         
+         
+         String a=jdbc.sc.next();
+         String b=jdbc.sc.next();
+         
+         jdbc.daoConn.pstmt.setString(1, a);
+         jdbc.daoConn.pstmt.setString(2, b);
+         
+         jdbc.daoConn.rs = jdbc.daoConn.pstmt.executeQuery();
+         
+         while (jdbc.daoConn.rs.next()) {
+            System.out.print("책번호 : "+jdbc.daoConn.rs.getString("BK_NO")+"\t");
+            System.out.print("등록일자 : "+jdbc.daoConn.rs.getString(2)+"\t");
+            System.out.print("분류코드 : "+jdbc.daoConn.rs.getString(3)+"\t");
+            System.out.print("서가코드 : "+jdbc.daoConn.rs.getInt(4)+"\t");
+            System.out.print("제목 : "+jdbc.daoConn.rs.getString(5)+"\t");
+            System.out.print("저자 : "+jdbc.daoConn.rs.getString(6)+"\t");
+            System.out.print("출판사 : "+jdbc.daoConn.rs.getString(7)+"\t");
+            System.out.print("대출자 : "+jdbc.daoConn.rs.getString(8)+"\t");
+            System.out.print("예약자 : "+jdbc.daoConn.rs.getString(9)+"\t");
+            System.out.print("빌린횟수 : "+jdbc.daoConn.rs.getString(10)+"\t");
+            System.out.print("추천수 : "+jdbc.daoConn.rs.getString(11)+"\t");
+            System.out.print("책상태 : "+jdbc.daoConn.rs.getString("BK_STM")+"\t");
+            System.out.println();
+            System.out.println("----------------------------------------------------------------------------------");
+         }
+      } catch (SQLException e) {
+         e.printStackTrace();
+      } finally {
+    	 jdbc.disconnectConn();
+      }
+
+   }
+}
+
+//1 정상  2 폐기
