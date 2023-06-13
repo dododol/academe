@@ -72,7 +72,7 @@ class SS {
             }
          }else if(searchList.size()==0) {
             System.out.println("검색된 도서가 없습니다.");
-         }else if(searchList.size()>10) {
+         }else if(searchList.size()>1000) {
             System.out.println("검색된 자료가 너무 많습니다. ");
          }
       
@@ -82,4 +82,5 @@ class SS {
    }
 }
 }
+
 

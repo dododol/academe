@@ -158,8 +158,8 @@ class JDBCUtil{
 
 class DAOConnection {
 	/* 방화벽 전까지는 localhost로 수정해서 사용해야함 확인요망 */
-	private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-	private final String USER = "project1"; // 방화벽 전까지..
+	private final String URL = "jdbc:oracle:thin:@192.168.35.55:1521:xe";
+	private final String USER = "pc13_p2"; // 방화벽 전까지..
 	private final String PASSWD = "java";
 
 	private static DAOConnection instance = null;
@@ -186,10 +186,10 @@ class DAOConnection {
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWD);
 			stmt = conn.createStatement();
-//			stmt.execute(" select ascii_seq.nextval from dual ");
-//			stmt.execute(" alter sequence ascii_seq increment by -1 ");
-//			stmt.execute(" select ascii_seq.nextval from dual ");
-//			stmt.execute(" alter sequence ascii_seq increment by 1 ");
+			stmt.execute(" select ascii_seq.nextval from dual ");
+			stmt.execute(" alter sequence ascii_seq increment by -1 ");
+			stmt.execute(" select ascii_seq.nextval from dual ");
+			stmt.execute(" alter sequence ascii_seq increment by 1 ");
 			
 			System.out.println("연결되었습니다.");
 		} catch (SQLException e) {
