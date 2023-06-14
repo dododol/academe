@@ -76,7 +76,7 @@ public class JDBCUtil {
 	    	int columnCount=rsmd.getColumnCount();
 	    	while(rs.next()) {
 	    		row=new HashMap<>();
-	    		for(int i=0; i<columnCount; i++) {
+	    		for(int i=1; i<=columnCount; i++) {
 	    			String key=rsmd.getColumnLabel(i);
 	    	//or	String key=rsmd.getColumnName(i);
 	    			Object value=rs.getObject(i);
@@ -147,7 +147,28 @@ public class JDBCUtil {
 		}
 		return result;
 	}
+	
+	public int update(String sql, List<Object> param) {
+		int result=0;
+		try {
+			conn=DriverManager.getConnection(url,user,passwd);
+			pstmt=conn.prepareStatement(sql);
+			for(int i=0; i<param.size(); i++) {
+				pstmt.setObject(i+1, param.get(i));
+			}
+			
+			result=pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+	    	if(rs!=null) try{rs.close();}catch(Exception e) {}
+	    	if(pstmt!=null) try{pstmt.close();}catch(Exception e) {}
+	    	if(conn!=null) try{conn.close();}catch(Exception e) {}    				
+		}
+		return result;
+	}
 }
+
 
 
 

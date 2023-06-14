@@ -35,9 +35,10 @@
 <fullyQualifiedTypeName name="sec06.exam02.hankook.SnowTire"/>
 <fullyQualifiedTypeName name="sec06.exam02.kumho.BigWidthTire"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="kr.or.ddit.controller.NoticeController"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="kr.or.ddit.util.View"/>
+<fullyQualifiedTypeName name="sec01.exam07.pack1.A"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
