@@ -28,7 +28,6 @@ class JDBCUtil{
 	
 	
 	static Map<String, Object> loginUser = null;
-	String sql;
 		/*
 		 * daoConnì„ ë§Œë“  ìˆœê°„ protected static Connection conn = null; protected Statement
 		 * stmt = null; protected PreparedStatement pstmt = null; protected ResultSet rs
@@ -157,15 +156,9 @@ class JDBCUtil{
 }
 
 class DAOConnection {
-<<<<<<< HEAD
 	/* ë°©í™”ë²½ ì „ê¹Œì§€ëŠ” localhostë¡œ ìˆ˜ì •í•´ì„œ ì‚¬ìš©í•´ì•¼í•¨ í™•ì¸ìš”ë§ */
 	private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-	private final String USER = "project1"; // ë°©í™”ë²½ ì „ê¹Œì§€..
-=======
-	/* ¹æÈ­º® Àü±îÁö´Â localhost·Î ¼öÁ¤ÇØ¼­ »ç¿ëÇØ¾ßÇÔ È®ÀÎ¿ä¸Á */
-	private final String URL = "jdbc:oracle:thin:@192.168.35.55:1521:xe";
-	private final String USER = "pc13_p2"; // ¹æÈ­º® Àü±îÁö..
->>>>>>> 8295353958db8875a3eb702491b3b6e88674d3d3
+	private final String USER = "pcpcpc17"; // ë°©í™”ë²½ ì „ê¹Œì§€..
 	private final String PASSWD = "java";
 
 	private static DAOConnection instance = null;
