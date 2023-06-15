@@ -71,9 +71,15 @@ class SS {
                System.out.println("----------------------------------------------");
             }
          }else if(searchList.size()==0) {
+<<<<<<< HEAD
             System.out.println("ê²€ìƒ‰ëœ ë„ì„œê°€ ì—†ìŠµë‹ˆë‹¤.");
          }else if(searchList.size()>10) {
             System.out.println("ê²€ìƒ‰ëœ ìžë£Œê°€ ë„ˆë¬´ ë§ŽìŠµë‹ˆë‹¤. ");
+=======
+            System.out.println("°Ë»öµÈ µµ¼­°¡ ¾ø½À´Ï´Ù.");
+         }else if(searchList.size()>1000) {
+            System.out.println("°Ë»öµÈ ÀÚ·á°¡ ³Ê¹« ¸¹½À´Ï´Ù. ");
+>>>>>>> 8295353958db8875a3eb702491b3b6e88674d3d3
          }
       
       } catch (SQLException e) {
@@ -82,3 +88,8 @@ class SS {
    }
 }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8295353958db8875a3eb702491b3b6e88674d3d3

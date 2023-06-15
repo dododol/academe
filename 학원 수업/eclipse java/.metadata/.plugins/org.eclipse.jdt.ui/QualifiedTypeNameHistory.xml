@@ -25,15 +25,20 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="service.LoginService"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="util.ProdView"/>
 <fullyQualifiedTypeName name="util.JDBCUtil"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="controller.Controller"/>
 <fullyQualifiedTypeName name="dao.OrderDAO"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="sec06.exam02.hankook.SnowTire"/>
+<fullyQualifiedTypeName name="sec06.exam02.kumho.BigWidthTire"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="kr.or.ddit.controller.NoticeController"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="kr.or.ddit.util.View"/>
+<fullyQualifiedTypeName name="sec01.exam07.pack1.A"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

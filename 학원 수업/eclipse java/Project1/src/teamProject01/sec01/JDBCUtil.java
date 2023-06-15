@@ -157,9 +157,15 @@ class JDBCUtil{
 }
 
 class DAOConnection {
+<<<<<<< HEAD
 	/* Î∞©ÌôîÎ≤Ω Ï†ÑÍπåÏßÄÎäî localhostÎ°ú ÏàòÏ†ïÌï¥ÏÑú ÏÇ¨Ïö©Ìï¥ÏïºÌï® ÌôïÏù∏ÏöîÎßù */
 	private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
 	private final String USER = "project1"; // Î∞©ÌôîÎ≤Ω Ï†ÑÍπåÏßÄ..
+=======
+	/* πÊ»≠∫Æ ¿¸±Ó¡ˆ¥¬ localhost∑Œ ºˆ¡§«ÿº≠ ªÁøÎ«ÿæﬂ«‘ »Æ¿Œø‰∏¡ */
+	private final String URL = "jdbc:oracle:thin:@192.168.35.55:1521:xe";
+	private final String USER = "pc13_p2"; // πÊ»≠∫Æ ¿¸±Ó¡ˆ..
+>>>>>>> 8295353958db8875a3eb702491b3b6e88674d3d3
 	private final String PASSWD = "java";
 
 	private static DAOConnection instance = null;
@@ -186,10 +192,10 @@ class DAOConnection {
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWD);
 			stmt = conn.createStatement();
-//			stmt.execute(" select ascii_seq.nextval from dual ");
-//			stmt.execute(" alter sequence ascii_seq increment by -1 ");
-//			stmt.execute(" select ascii_seq.nextval from dual ");
-//			stmt.execute(" alter sequence ascii_seq increment by 1 ");
+			stmt.execute(" select ascii_seq.nextval from dual ");
+			stmt.execute(" alter sequence ascii_seq increment by -1 ");
+			stmt.execute(" select ascii_seq.nextval from dual ");
+			stmt.execute(" alter sequence ascii_seq increment by 1 ");
 			
 			System.out.println("Ïó∞Í≤∞ÎêòÏóàÏäµÎãàÎã§.");
 		} catch (SQLException e) {
