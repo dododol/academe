@@ -20,7 +20,7 @@ public class BookSearch {
       
    }
 }
-   
+   // ê²€ìƒ‰
 class SS {
    JDBCUtil jdbc = JDBCUtil.getInstance();
    public void selectBKNO() {
@@ -36,7 +36,7 @@ class SS {
          
          jdbc.daoConn.pstmt = jdbc.daoConn.conn.prepareStatement(sql);
          
-         System.out.print("°Ë»öÇÒ µµ¼­ ÀÔ·Â : ");
+         System.out.print("ê²€ìƒ‰í•  ë„ì„œ ì…ë ¥ : ");
          String a = jdbc.sc.nextLine();
          
          jdbc.daoConn.pstmt.setString(1, "%"+a+"%");
@@ -55,25 +55,25 @@ class SS {
            searchList.add(search);
 //           System.out.println(search);
          }
-         //Ã¥¹øÈ£ ¼­°¡ÄÚµå ´ëÃâÀÚ ¿¹¾àÀÚ
-         //Á¦¸ñ ÀúÀÚ ÃâÆÇ»ç
+         //ì±…ë²ˆí˜¸ ì„œê°€ì½”ë“œ ëŒ€ì¶œì ì˜ˆì•½ì
+         //ì œëª© ì €ì ì¶œíŒì‚¬
          if(searchList.size()>0 && searchList.size()<10) {
             for(int i=0; i < searchList.size(); i++) {
-               System.out.print("Ã¥¹øÈ£ : " + searchList.get(i).get("BK_NO") + "   |   ");
-               System.out.print("¼­°¡ÄÚµå : " + searchList.get(i).get("BK_SHFCODE") + "   |   ");
-               System.out.print("´ëÃâÀÚ : " + searchList.get(i).get("BK_LDSNO") + "   |   ");
-               System.out.print("¿¹¾àÀÚ : " + searchList.get(i).get("BK_RSVSNO") + "   |   ");
+               System.out.print("ì±…ë²ˆí˜¸ : " + searchList.get(i).get("BK_NO") + "   |   ");
+               System.out.print("ì„œê°€ì½”ë“œ : " + searchList.get(i).get("BK_SHFCODE") + "   |   ");
+               System.out.print("ëŒ€ì¶œì : " + searchList.get(i).get("BK_LDSNO") + "   |   ");
+               System.out.print("ì˜ˆì•½ì : " + searchList.get(i).get("BK_RSVSNO") + "   |   ");
                System.out.println();
-               System.out.print("Á¦¸ñ : " + searchList.get(i).get("BK_TITLE")+"   |   ");
-               System.out.print("ÀúÀÚ : " + searchList.get(i).get("BK_WRITER")+"   |   ");
-               System.out.print("ÃâÆÇ»ç : " + searchList.get(i).get("BK_PUB")+"   |   ");
+               System.out.print("ì œëª© : " + searchList.get(i).get("BK_TITLE")+"   |   ");
+               System.out.print("ì €ì : " + searchList.get(i).get("BK_WRITER")+"   |   ");
+               System.out.print("ì¶œíŒì‚¬ : " + searchList.get(i).get("BK_PUB")+"   |   ");
                System.out.println();
                System.out.println("----------------------------------------------");
             }
          }else if(searchList.size()==0) {
-            System.out.println("°Ë»öµÈ µµ¼­°¡ ¾ø½À´Ï´Ù.");
+            System.out.println("ê²€ìƒ‰ëœ ë„ì„œê°€ ì—†ìŠµë‹ˆë‹¤.");
          }else if(searchList.size()>10) {
-            System.out.println("°Ë»öµÈ ÀÚ·á°¡ ³Ê¹« ¸¹½À´Ï´Ù. ");
+            System.out.println("ê²€ìƒ‰ëœ ìë£Œê°€ ë„ˆë¬´ ë§ìŠµë‹ˆë‹¤. ");
          }
       
       } catch (SQLException e) {
@@ -82,4 +82,3 @@ class SS {
    }
 }
 }
-
