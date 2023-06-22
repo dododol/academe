@@ -7,15 +7,49 @@ public class StudyMiddleTest {
 		
 			String[] names = new String[] {"이은솔", "김석호", "박민주", "김소원", "김재성", "황수빈"};
 			
+			
 //			2. 7과목의 이름을 저장할 수 있는 변수 subjects를 선언 및 생성하고, 국어, 영어, 수학, 사회, 과학, Java, Oracle로 초기화한다. (5점)
+			
+			String[] subjects = new String[] {"국어", "영어", "수학", "사회", "과학", "Java", "Oracle"};
 			
 //			3. 6명의 7과목의 점수(정수)를 저장할 수 있는 변수 score를 선언 및 생성한다. (5점)
 //			(단, names와 subjects의 길이를 이용한다.)
+
+			int[][] score = new int[names.length][subjects.length];
+
 			
 //			4. score의 모든 요소에 50~100 사이의 임의의 값(정수)을 저장한다. (5점)
 			
+			for (int i = 0; i < names.length; i++) {
+			    for (int j = 0; j < subjects.length; j++) {
+			        score[i][j] = (int)(Math.random() * 51) + 50;
+			    }
+			}
+			
+			// 잘 모르겠어서 검색과 chatGPT사용해서 풀었습니다.
+			
+			
 //			5. 학생별 합계를 저장할 수 있는 변수 nameSum을 선언 및 생성한다. (5점)
 //			(단, names의 길이를 이용한다.)
+			
+			int nameSum = 0;
+			
+			for(int i = 0; i < score.length; i++) {
+				nameSum += i;
+			}
+			// 합계를 저장할 수 있는 변수 선언만 생각해서 위의 식으로 만들었는데 chatgpt로 찾아본 답은 아래와 같습니다.
+			
+			/*
+			int nameSum = 0;
+
+			for (int i = 0; i < score.length; i++) {
+			    int studentSum = 0; // 각 학생의 점수 합을 저장할 변수 선언
+			    for (int j = 0; j < score[i].length; j++) {
+			        studentSum += score[i][j]; // 각 과목 점수를 학생의 점수 합에 누적
+			    }
+			    nameSum += studentSum; // 각 학생의 점수 합을 전체 학생 점수 합에 누적
+			}
+			*/
 			
 //			6. nameSum의 요소에 훈련생별 합계를 저장한다. (5점)
 			
