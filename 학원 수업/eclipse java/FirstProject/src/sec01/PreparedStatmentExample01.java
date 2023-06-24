@@ -13,31 +13,31 @@ import java.util.Scanner;
 import service.LoginService;
 import service.MemberService;
 
-//µ¿Àû query¸í·É¾î °´Ã¼
-//  ->ÀÚ¹ÙÀÇ ½ÇÇà½Ã°£¿¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ¸¦ ÀÔ·Â¹Þ¾Æ Äõ¸® ½ÇÇà
-// 1)º¯¼ö¿¡ ÇÒ´çµÉ °ª ´ë½Å ?¸¦ ±â¼úÇÏ¿© Äõ¸® ±¸¼º
-// ex) tbl_member¿¡ ½Å±ÔÈ¸¿øµî·Ï
+//ï¿½ï¿½ï¿½ï¿½ queryï¿½ï¿½É¾ï¿½ ï¿½ï¿½Ã¼
+//  ->ï¿½Ú¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ô·Â¹Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 1)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ex) tbl_memberï¿½ï¿½ ï¿½Å±ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½
 //   sql="insert into tbl_member values(?, ?, ?, ?, ?)"
-// 2)queryÀÇ ?¿¡ ´ëÀÀÇÏ´Â µ¥ÀÌÅÍ mapping(setter¸Þ¼­µå:
-//   ¸í·É¾î°´Ã¼º¯¼ö.setµ¥ÀÌÅÍÅ¸ÀÔ(?¼ø¹ø, °ª) 
+// 2)queryï¿½ï¿½ ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ mapping(setterï¿½Þ¼ï¿½ï¿½ï¿½:
+//   ï¿½ï¿½É¾î°´Ã¼ï¿½ï¿½ï¿½ï¿½.setï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½(?ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½) 
 //  ex) PreparedStatement ps=conn.preparedStatement(sql);
 //      ps.setString(1, "a002") ->mem_id
 //      ps.setString(2, "09876") ->mem_pass
-//      ps.setString(3, "Á¤¸ùÁÖ") ->mem_name
+//      ps.setString(3, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½") ->mem_name
 //      ps.setString(4, "951230-1234567") ->mem_jumin
 //      ps.setInt(5, 1000) ->mem_mileage
-//  3)Äõ¸® ½ÇÇà
-//    . select ¹® : executeQuery()
-//    . ±× ÀÌ¿ÜÀÇ query : executeUpdate() 
-//  4)½ÇÇà°á°ú 
-//    . select ¹® : ResultSet °´Ã¼¿¡ ÀúÀå
+//  3)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//    . select ï¿½ï¿½ : executeQuery()
+//    . ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ query : executeUpdate() 
+//  4)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+//    . select ï¿½ï¿½ : ResultSet ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //    ex) ResultSet rs=executeQuery();
 //        while(rs.next()){
 //              String mid=rs.getString("MEM_ID");
 //                              :
 //              int mileage=rs.getInt("MEM_MILEAGE");
 //        }
-//    . ±× ÀÌ¿ÜÀÇ query : Ä¿¼­(Äõ¸®·Î ¿µÇâ¹ÞÀº Çà(row)ÀÇ ÁýÇÕ)ÀÇ ÇàÀÇ ¼ö(Á¤¼ö)
+//    . ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ query : Ä¿ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(row)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
 public class PreparedStatmentExample01 {
 	private static Scanner sc = new Scanner(System.in);
 
@@ -59,23 +59,24 @@ public class PreparedStatmentExample01 {
 		PreparedStatmentExample01 ps01=new PreparedStatmentExample01();
 		int result = ps01.insert(sql);
 		if (result != 0) {
-			System.out.println("ÀÚ·á°¡ ¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù. ");
+			System.out.println("ï¿½Ú·á°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ");
 		} else {
-			System.out.println("ÀÚ·á°¡ ÀúÀåµÇÁö ¾Ê¾Ò½À´Ï´Ù. ");
+			System.out.println("ï¿½Ú·á°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½. ");
+			System.out.println("ï¿½Ú·á°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½. ");
 		}
 		*/
 		//ps01.update();
 		while(true) {
-			System.out.println("[1. ÀüÃ¼Á¶È¸]");
-			System.out.println("[2. °³º°Á¶È¸]");
+			System.out.println("[1. ï¿½ï¿½Ã¼ï¿½ï¿½È¸]");
+			System.out.println("[2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸]");
 			System.out.println("--------------");
-			System.out.print("¼±ÅÃ-> : ");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½-> : ");
 			int choice = sc.nextInt();
 		
 			switch (choice) {
 				case 1 : searchAll(); break;
 				case 2 : searchOne(); break;
-				default : System.out.println("¼±ÅÃ¹øÈ£¸¦ Àß¸ø ÀÔ·Â Çß½À´Ï´Ù");
+				default : System.out.println("ï¿½ï¿½ï¿½Ã¹ï¿½È£ï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ ï¿½ß½ï¿½ï¿½Ï´ï¿½");
 			} 
 		}
 	}
@@ -83,26 +84,26 @@ public class PreparedStatmentExample01 {
 	public int insert(String sql) {
 		String mid ="";
 		while (true) {
-			System.out.print("È¸¿ø ¾ÆÀÌµð : ");
+			System.out.print("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ : ");
 			mid = sc.next();
 			LoginService loginService = LoginService.getInstance();
 			Map<String, Object>map = loginService.isDuplicate(mid);
 			if (map != null) {
-				System.out.println("¾ÆÀÌµð°¡ Áßº¹µÇ¾ú½À´Ï´Ù...");
+				System.out.println("ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½...");
 			}else {
 				break;
 			}
 		}
-		System.out.print("È¸¿ø¸í : ");
+		System.out.print("È¸ï¿½ï¿½ï¿½ï¿½ : ");
 		String mname = sc.next();
 
-		System.out.print("ºñ¹Ð¹øÈ£ : ");
+		System.out.print("ï¿½ï¿½Ð¹ï¿½È£ : ");
 		String pw = sc.next();
 
-		System.out.print("ÁÖ¹Îµî·Ï¹øÈ£ : ");
+		System.out.print("ï¿½Ö¹Îµï¿½Ï¹ï¿½È£ : ");
 		String jumin = sc.next();
 
-		System.out.print("¸¶ÀÏ¸®Áö : ");
+		System.out.print("ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ : ");
 		int mileage = sc.nextInt();
 
 		try {
@@ -127,16 +128,16 @@ public class PreparedStatmentExample01 {
 	public void update() {	
 		int res=memberService.update();
 		if (res>0) {
-			System.out.println("ÀÚ·á°¡ Á¤»óÀûÀ¸·Î °»½ÅµÇ¾ú½À´Ï´Ù");
+			System.out.println("ï¿½Ú·á°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÅµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 		}else {
-			System.out.println("ÀÚ·á °»½Å¿¡ ½ÇÆÐÇß½À´Ï´Ù");
+			System.out.println("ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½");
 		}
 	}
 	
 	public static void searchAll() {
 		List<Map<String, Object>> result=memberService.searchAll();
-		System.out.println("            [[ È¸¿ø  LIST ]]");
-		System.out.println(" ID \tÈ¸¿ø¸í \t  ÁÖ¹Î¹øÈ£ \t\t  ¸¶ÀÏ¸®Áö");
+		System.out.println("            [[ È¸ï¿½ï¿½  LIST ]]");
+		System.out.println(" ID \tÈ¸ï¿½ï¿½ï¿½ï¿½ \t  ï¿½Ö¹Î¹ï¿½È£ \t\t  ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½");
 		System.out.println("-----------------------------------------");
 		for(int i=0; i<result.size(); i++) {
 			String mid=(String)result.get(i).get("MEM_ID");
@@ -151,8 +152,8 @@ public class PreparedStatmentExample01 {
 	public static void searchOne() {
 		Map<String, Object> result=memberService.searchOne();
 		if(result!=null) {
-			System.out.println("            [[ È¸¿ø  LIST ]]");
-			System.out.println(" ID \tÈ¸¿ø¸í \t  ÁÖ¹Î¹øÈ£ \t\t  ¸¶ÀÏ¸®Áö");
+			System.out.println("            [[ È¸ï¿½ï¿½  LIST ]]");
+			System.out.println(" ID \tÈ¸ï¿½ï¿½ï¿½ï¿½ \t  ï¿½Ö¹Î¹ï¿½È£ \t\t  ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½");
 			System.out.println("-----------------------------------------");
 			String mid=(String)result.get("MEM_ID");
 			String name=(String)result.get("MEM_NAME");
@@ -161,7 +162,7 @@ public class PreparedStatmentExample01 {
 		    System.out.print(mid+"\t"+name+" \t "+jumin+"  ");	
 		    System.out.printf("%5d\n", mileage);
 		}else {
-			System.out.println("ÇØ´ç È¸¿øÀº µî·ÏµÇÁö ¾ÊÀº È¸¿øÀÔ´Ï´Ù.. ");
+			System.out.println("ï¿½Ø´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ô´Ï´ï¿½.. ");
 		}
 	}
 }
