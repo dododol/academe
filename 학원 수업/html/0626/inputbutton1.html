@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+   /* 함수정의 */
+   function mypro(){
+      
+      //아이디와 이름입력 한 값을 가져오기
+      // var idvalue = document.getElementById('id').value;
+      // var namevalue = document.getElementById('name').value;
+      
+      idvalue = document.querySelector('#id').value;
+      namevalue = document.querySelector('#name').value;
+      
+      //id=result인 요소에 출력
+      
+      var res = "이름 : "+ namevalue +"<br>";
+      res += "아이디 :" + idvalue + "<br>"  
+      
+      document.getElementById('result').innerHTML = res; 
+      
+      //
+      //return 을 할수도 있고 안할수도 있다.
+      //리턴을 하거나 안하거나 함수의 정의 형태가 바뀌지 않는다.
+   }
+</script>
+
+
+</head>
+<body>
+<pre>
+버튼을 클릭하면 기능으로 부여하여 실행되도록 한다
+기능을 부여하기 위하여 onclick="함수이름()" 을 수행한다
+
+</pre>
+<form action="inputbutton1.jsp" method ="post">
+ 아이디 <input type="text" id="id" name="id"><br> 
+ 이름<input type="text" id="name" name="name"><br>
+<!--    <input type="button" value="확인" onclick="alert('hello~~')"> -->
+
+
+   <input type="button" value="확인" onclick="mypro()"><!-- 함수호출 -->
+   <input type="submit">
+   <input type="reset">
+   
+    
+</form>
+
+<br>
+<div id="result"></div>
+
+
+</body>
+</html>
+
+
+</head>
+<body>
+<pre>
+버튼을 클릭하면 기능을 부여하여 실행되도록 한다
+기능을 부여하기 위하여 onclick="함수이름()" 을 수행한다
+
+
+<form action = "inputbutton1.jsp" method = "post">
+
+	아이디 <input type="text" id="id" name="id"> <br>
+	이름 <input type = "text" id="name" name="name"> <br>
+<!-- 	<input type="button" value="확인" onclick="alert('hello~~')"> -->
+	
+	<input type="button" value="확인" onclick="">
+	<input type="submit">
+	<input type="reset">
+	
+</form>
+
+<br>
+<div id = "result"></div>
+
+
+</body>
+</html>
