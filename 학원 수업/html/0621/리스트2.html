@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+ol {
+	border: 1px solid blue;
+}
+
+#o1 {
+	list-style-type: decimal;
+}
+
+#o2 {
+	list-style-type: lower-alpha;
+}
+
+#o3 {
+	list-style-type: lower-roman;
+}
+
+#o4 {
+	list-style-type: hangul;
+}
+
+div {
+	border: 2px dotted green;  
+	width: 22%;
+	height: 200px;
+	
+	float: left;
+	/*margin-left: 10px;
+	margin-top : 10px;
+	margin-right : 10px;
+	margin-bottom : 10px;*/
+	
+	 margin : 10px; 
+	
+	/* margin : 10px 20px;			위아래 10 양옆 20 */
+	/* margin : 10px 20px 30px 40px; 	시계방향으로 위 오른 아래 왼 */
+	/* margin : 10px 20px 30px;		 위 10 양옆 20 아래 30 */  
+	
+}
+
+	hr {
+		clear : both;
+	}
+	
+	dl{
+		border-color : blue;
+		border-width : 2px;
+		border-style : dashed;
+		margin : 10px;
+	}
+	dt{
+		border : 2px dotted green;
+		margin : 10px;
+	}
+	dd {
+		border : 2px solid red;
+		margin : 10px;
+		margin-left : 50px;
+	}
+</style>
+
+</head>
+<body>
+
+
+	<div>
+		<h3>list-style-type: decimal</h3>
+		<ol ID="o1">
+
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JAVASCRIPT</li>
+			<li>JQUERY</li>
+
+		</ol>
+	</div>
+
+	<div>
+		<h3>list-style-type: lower-alpha;</h3>
+		<ol ID="o2">
+
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JAVASCRIPT</li>
+			<li>JQUERY</li>
+
+		</ol>
+	</div>
+
+	<div>
+		<h3>list-style-type: lower-roman;</h3>
+		<ol ID="o3">
+
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JAVASCRIPT</li>
+			<li>JQUERY</li>
+
+		</ol>
+	</div>
+
+	<div>
+		<h3>list-style-type: hangul;</h3>
+		<ol ID="o4">
+
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JAVASCRIPT</li>
+			<li>JQUERY</li>
+
+		</ol>
+	</div>
+
+	<div>
+		<h3>list-style-type:</h3>
+		<ol>
+
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JAVASCRIPT</li>
+			<li>JQUERY</li>
+
+		</ol>
+	</div>
+	
+	
+	<hr color = "red">
+	
+	<dl>
+		<dt>HTML</dt>
+		<dt>문서의 구조, 내용으로 작성</dt>
+
+		<dt>CSS</dt>
+		<dt>문서의 스타일</dt>
+
+		<dt>JAVASCRIPT</dt>
+		<dt>문서의 동작을 구현</dt>
+	
+	</dl>
+
+</body>
+</html>
