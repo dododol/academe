@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="inputattr1.jsp" method="post">
+
+	<input type="text" name="id" value="a001" readonly="readonly"><br>
+	<input title="홍길동" pattern="[가-힣]{2,5}" name="name" required="required" placeholder="이름입력" value="홍길동">	<br>
+	<input type="password" placeholder="비밀번호입력" required="required" name="pass"> <br>
+	<input title="kkk123@kkk.cc" type="text" name="email" placeholder="이메일입력"> <br>
+	<input type="text" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" name="tel" placeholder="전화번호입력" value="010-1234-1234" title="010-1234-1234"><br>
+
+<br>
+<input type="submit">
+
+</form>
+</body>
+
+</html>
