@@ -5,44 +5,45 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 
-// Class : Å¬·¡½ºÀÇ Á¤º¸ ¹ÝÈ¯
+// Class : Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 
 public class ClassExample {
 	public static void main(String[] args) throws Exception{
 		
 		Class c1 = Member.class;
 		Class c2 = Byte.class;
-//		System.out.println("Å¬·¡½º ÀÌ¸§ : " + c2.getName());
-//		System.out.println("Å¬·¡½ºÀÌ¸§(¾àÄª) : " + c2.getSimpleName());
-//		System.out.println("¼Ò¼Ó ÆÐÅ°Áö¸í : " + c2.getPackage());
+//		System.out.println("Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ : " + c2.getName());
+//		System.out.println("Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½(ï¿½ï¿½Äª) : " + c2.getSimpleName());
+//		System.out.println("ï¿½Ò¼ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ : " + c2.getPackage());
+//		System.out.println("ï¿½Ò¼ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ : " + c2.getPackage());
 
-		// »ý¼ºÀÚ ¸Þ¼Òµå - ¹è¿­·Î ¹ÝÈ¯
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½ - ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½È¯
 		Constructor[] constructors = c1.getConstructors();
 		Member member = null;
 		for(Constructor c : constructors) {
 			member = (Member)c.newInstance("1");
 			System.out.println(member.toString());
 		}
-		System.out.println("»ý¼ºÀÚ¸Þ¼Òµå");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸Þ¼Òµï¿½");
 		for(Constructor c : constructors) {
 			
 		}
 		
-		// ¸â¹öÇÊµå - ¹è¿­·Î ¹ÝÈ¯
-		Field[] fields = c1.getFields();	// public field ¸¸ ¹ÝÈ¯
-		Field[] fieldInher=c1.getDeclaredFields();	// »ó¼Ó¹ÞÀº ÇÊµå¸¸ ¹ÝÈ¯
+		// ï¿½ï¿½ï¿½ï¿½Êµï¿½ - ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½È¯
+		Field[] fields = c1.getFields();	// public field ï¿½ï¿½ ï¿½ï¿½È¯
+		Field[] fieldInher=c1.getDeclaredFields();	// ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½ ï¿½Êµå¸¸ ï¿½ï¿½È¯
 		
 		for(Field field : fields) {
-			System.out.println("ÇÊµå¸í : " + field.getName());
-			System.out.println("ÇÊµåÅ¸ÀÔ : " + field.getType());
+			System.out.println("ï¿½Êµï¿½ï¿½ : " + field.getName());
+			System.out.println("ï¿½Êµï¿½Å¸ï¿½ï¿½ : " + field.getType());
 		}
 		
-		// ¸Þ¼Òµå - ¹è¿­·Î ¹ÝÈ¯
-		Method[] methods = c1.getDeclaredMethods();	// »ó¼Ó¹ÞÀº ¸Þ¼Òµå Á¦¿ÜÇÑ ¸Þ¼Òµå ¹ÝÈ¯
+		// ï¿½Þ¼Òµï¿½ - ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½È¯
+		Method[] methods = c1.getDeclaredMethods();	// ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½ ï¿½ï¿½È¯
 		
 		for(Method method : methods) {
-			System.out.println("¸Þ¼Òµå¸í : " + method.getName());
-			System.out.println("¹ÝÈ¯Å¸ÀÔ : " + method.getReturnType());
+			System.out.println("ï¿½Þ¼Òµï¿½ï¿½ : " + method.getName());
+			System.out.println("ï¿½ï¿½È¯Å¸ï¿½ï¿½ : " + method.getReturnType());
 		}
 		
 		System.out.println(member.getModifiers());
