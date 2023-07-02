@@ -16,6 +16,7 @@ public class ClassExample {
 //		System.out.println("Ŭ�����̸�(��Ī) : " + c2.getSimpleName());
 //		System.out.println("�Ҽ� ��Ű���� : " + c2.getPackage());
 //		System.out.println("�Ҽ� ��Ű���� : " + c2.getPackage());
+//		System.out.println("�Ҽ� ��Ű���� : " + c2.getPackage());
 
 		// ������ �޼ҵ� - �迭�� ��ȯ
 		Constructor[] constructors = c1.getConstructors();
