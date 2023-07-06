@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/myscript.js"></script>   <!-- 외부 스크립트 활용 -->
+<style>
+div{
+border: 1px dotted red;
+margin: 20px;
+padding: 20px;
+width: 30%;
+height: 50px;
+}
+</style>
+</head>
+<body>
+수량: <input type="text" id="qty">
+가격: <input type="text" id="price">
+<input type="button" value="확인" onclick="calc()">   <!-- script에 funtion calc() 활용하면 내부 스크립트 -->
+<br>
+<br>
+<p>script에서 실행된 결과값을 출력</p>
+<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function calc(){
+	// 입력한 값 가져오기   (input id를 통해)
+	var vqty = document.getElementById('qty').value;
+	var vprice = document.getElementById('price').value;
+	
+	var res = vqty * vprice;
+	
+	var str = "수량 : "+vqty + "<br>";
+	str += "가격 : "+ vprice + "<br>";
+	str += "총 금액 : "+ res + "<br>";
+	
+//	document.write(str);
+	console.log(str);
+	
+	var vresult = document.getElementById('result');
+	
+	vresult.innerHTML = str;
+	
+}
+</script>
+<style>
+div{
+border: 1px dotted red;
+margin: 20px;
+padding: 20px;
+width: 30%;
+height: 50px;
+}
+</style>
+</head>
+<body>
+수량: <input type="text" id="qty">
+가격: <input type="text" id="price">
+<input type="button" value="확인" onclick="calc()">
+<br>
+<br>
+<p>script에서 실행된 결과값을 출력</p>
+<div id="result"></div>
+</body>
+</html>
