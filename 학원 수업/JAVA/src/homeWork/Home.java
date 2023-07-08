@@ -282,7 +282,7 @@ public class Home {
 		
 		// 문제 15. 변수 str1의 값이 "Hello"인 경우 "str1은 Hello입니다"를 출력해주세요.
 
-		if(str1 == "Hello") {
+		if(str1.equals("Hello")) {
 			System.out.println("str1은 Hello입니다");
 		}
 		
@@ -327,7 +327,7 @@ public class Home {
 		
 		// 문제 20. flag1의 값이 false면 "flag1은 false입니다"를 출력해주세요.
 
-		if(flag1 == false) {
+		if(!flag1) {
 			System.out.println("flag1은 false입니다");
 		}
 		
