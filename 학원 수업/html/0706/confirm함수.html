@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+//function proc1() { }
+//proc1 = function() { }
+
+proc1 = () => {
+	
+	sum =  0;
+	str = "";
+	
+	while(true) {
+		//su1입력
+		su1 = parseInt(prompt("su1 입력"));
+
+		//su2입력
+		su2 = parseInt(prompt("su2 입력"));
+		
+		//더하기 값 100 이상이면 출력변수에 누적
+		sum = su1 + su2;
+		
+		if((su1+su2) >= 100) str += `${su1} ${su2} <br>`
+		
+		
+		//계속할래?  안할래? - confirm()
+		cont = confirm("계속할래??")
+			
+		if( !cont ) break;
+		
+	}
+	
+	//출력
+	//result1 검색 - str
+	document.querySelector('#result1').innerHTML = str;
+	
+}
+
+proc2 = () =>{
+	
+	str ="";
+	
+	while(true){
+		//입력 - 구구단수
+		gugu = prompt("구구단을 말해봐");
+		
+		//구구단 출력
+		str += `****${gugu}단****<br>`;
+		
+		//for() str +=
+		for(i=1; i<=9; i++) {
+			str += `${gugu} * ${i} = ${gugu * i} <br>`
+		}
+			
+		//계속 할래?
+		cont = confirm("계속할래??")
+					
+		//비교 - false - -  break
+		if( !cont ) break;
+		
+	}
+	
+	//출력 - result2검색 = str
+	document.querySelector('#result2').innerHTML = str;
+}
+
+</script>
+
+</head>
+<body>
+
+<h3>두 수를 입력하여 합이 100 이상인 경우만 출력<br>
+confirm()함수를 이용하여 종료한다
+</h3>
+<input type="button" value="확인" onclick="proc1()">
+<br>
+<div id="result1"></div>
+
+<br>
+<hr color="red">
+<h3></h3>
+<input type="button" value="확인" onclick="proc2()">
+<br>
+<div id="result2"></div>
+<br>
+
+</body>
+</html>
