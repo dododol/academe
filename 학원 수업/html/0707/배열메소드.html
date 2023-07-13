@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/style.css">
+
+<script>
+
+// arr = [];
+const arr = ["사과", "바나나", "복숭아", "사과", "참외", "수박", "사과"];
+// arr = new Array("사과", "바나나", "복숭아", "사과", "참외", "수박", "사과");
+
+/* function proc1() { }
+proc1 = function() { } */
+proc1 = () => {
+	
+	//idx = arr.indexOf("사과");
+	//idx = arr.lastIndexOf("자두");
+	
+	//alert(idx + "번째")
+	
+	
+	//과일 이름 입력하기
+	a=prompt("과일을 입력하세요");
+	
+	//입력한 과일 찾기
+	idx=arr.indexOf(a);
+	
+	//비교하기 - -1 ?
+	str = "찾는과일 : " + a + "<br>";
+	if(idx == -1) {
+		str += "배열요소가 아닙니다"
+	}else {
+		str += idx + "번째 있습니다<br>"
+	}
+		
+	//
+	
+	document.getElementById('result1').innerHTML = str;
+		
+}
+
+proc2 = () => {
+	   
+	   cnt = 0;
+	   idx = 0;
+	   
+	   //입력
+	   fruits = prompt("과일이름을 입력하세요"); 
+	   str = "찾는 과일 = " + fruits + "<br>";
+	   while(true){ 
+	         
+	       //배열에서 검색
+	       idx = arr.indexOf(fruits, idx);
+	      
+	      //비교 - break
+	      if(idx == -1) break
+	      
+	      cnt++;
+	      str += idx + "번째 "
+	      
+	      //다음번 찾기
+	      idx++;
+	   }
+	   
+	   if(cnt > 0) {
+		   str += "있습니다"	   
+	   }else{
+		   str += "없습니다"
+	   }
+	   
+	   //출력
+	   document.getElementById('result2').innerHTML = str;
+	   
+	}
+
+//function proc3() {
+proc3 = () => {
+		
+	str = `원래배열 : ${arr} <br>`
+//	arr.push(1,2,100,200,10.5);
+	
+	while(true) {
+		input = prompt("입력");
+		arr.push(input)
+	
+		cont = confirm("계속??");
+		
+		if(!cont) break;
+	}
+	str += `추가후 배열 : ${arr} <br>`
+	
+	document.getElementById('result3').innerHTML = str;
+	
+}
+
+proc4 = () => {
+	
+	str = `원래배열 : ${arr} <br>`;
+	
+	vpop = arr.pop();
+	
+	str += `꺼낸값 : ${vpop} <br>`;
+	
+	str += `꺼낸 후 배열 : ${arr} <br>`
+	
+	document.getElementById('result4').innerHTML = str;
+}
+
+
+
+</script>
+
+</head>
+<body>
+
+<h3>const arr = ["사과", "바나나", "복숭아", "사과", "참외", "수박", "사과"];<br>
+사과 찾기, 입력한 과일 찾기, 뒤에서부터 검색하여 찾기</h3>
+<input type="button" value="확인" onclick="proc1()">
+<br>
+<div class="ddres" id="result1"></div>
+<br>
+<hr color="red">
+
+<h3>const arr = ["사과", "바나나", "복숭아", "사과", "참외", "수박", "사과"];<br>
+같은 과일 이름 찾기 찾기</h3>
+<input type="button" value="확인" onclick="proc2()">
+<br>
+<div class="ddres" id="result2"></div>
+<br>
+<hr color="red">
+
+<h3>const arr = ["사과", "바나나", "복숭아", "사과", "참외", "수박", "사과"];<br>
+배열에 요소추가/삭제</h3>
+<input type="button" value="push" onclick="proc3()">
+<input type="button" value="pop" onclick="proc4()">
+<br>
+<div class="ddres" id="result3"></div>
+<div class="ddres" id="result4"></div>
+<br>
+<hr color="red">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

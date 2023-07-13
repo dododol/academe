@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성자</title>
+    <script>
+        function $(x){
+            return document.querySelector(x);
+        }
+
+        function Rect(width, height){
+            this.width = width;
+            this.height = height;
+
+            this.getArea = ()=>{
+                return this.width*this.height;
+            }
+
+            this.getCircum = ()=>{
+                return (parseInt(width)+parseInt(height))*2;
+            }
+
+        }
+
+        //원래의 객체를 통해서 생성되는 각각의 객체가 공통으로 사용할 수 있는 메소드를 추가한다.
+        Rect.prototype.getName = ()=>{
+            return this.name;
+        }
+
+        function proc1(){
+            rect = new Rect(4,7);
+
+            // 메소드 추가
+            // rect.getName = function(){}
+            rectPrint(rect, '#result1');
+            rect2 = new Rect(7,9);
+            // rect2.getName = function(){}
+            rectPrint(rect2, '#result2');
+            rect3 = new Rect(9,12);
+            // rect3.getName = function(){}
+            rectPrint(rect3, '#result3');
+        }
+
+        proc2 = () =>{
+
+            rect4 = new Rect(5,8);
+            rect4.name = "사각형";
+            addNamePrint(rect4,'#result4');
+
+            rect5 = new Rect(8,2);
+            rect5.name ="네모네모";
+            addNamePrint(rect5,'#result5');
+
+        }
+
+        function rectPrint(rect, result){
+            str = `가로 : ${rect.width}<br>세로 : ${rect.height}<br>면적 : ${rect.getArea()}<br>둘레 : ${rect.getCircum()}`;
+            $(result).innerHTML = str;
+        }
+        function addNamePrint(rect, result){
+            str = `이름 : ${rect.name}<br>가로 : ${rect.width}<br>세로 : ${rect.height}<br>면적 : ${rect.getArea()}<br>둘레 : ${rect.getCircum()}`;
+            $(result).innerHTML = str;
+        }
+
+
+    </script>
+</head>
+<body>
+    <h3>
+        생성된 rect객체의 정보를 출력해보자</h3>
+    <input type="button" value="1번" onclick="proc1()">
+    <br>
+    <div id="result1"></div>
+    <br>
+    <div id="result2"></div>
+    <br>
+    <div id="result3"></div>
+    <br>
+    <h3>원래의 객체를 통해서 생성되는 각각의 객체가 공통으로 사용할 수 있는 메소드를 추가한다.<br> Rect.prototype.getName = ()=>{
+        return this.name;
+    };
+</h3>
+<input type="button" value="2번" onclick="proc2()">
+<div id="result4"></div>
+<br>
+<div id="result5"></div>
+<br>
+    <div id="result6"></div>
+</body>
+</html>
