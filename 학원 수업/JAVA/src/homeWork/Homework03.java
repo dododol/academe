@@ -40,34 +40,83 @@ public class Homework03 {
 	// # 생성자를 작성해주세요
 	// 8. 기본생성자를 만들어주세요.
 	
-	
+	public Homework03() {
+		
+	}
 	
 	// 9. 이름을 입력받을 수 있는 커스텀 생성자를 만들어주세요.
 	// 그리고 입력받아온 이름을 초기화해주세요.
 	
+	public Homework03(String name) {
+		this.name = name;
+	}
+	
 	// 10. 이름, 나이를 입력받을 수 있는 커스텀 생성자를 만들어주세요.
 	// 그리고 입력받아온 이름, 나이를 초기화해주세요.
+	
+	public Homework03(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
 	
 	// 11. 이름, 나이, 성별을 입력받을 수 있는 커스텀 생성자를 만들어주세요. 
 	// 그리고 입력받아온 이름, 나이, 성별을 초기화해주세요.
 	
+	public Homework03(String name, int age, String gender) {
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+	}
 	
 	// # 함수를 작성해주세요.
 	// 12. 이름을 출력할 수 있는 함수를 만들어주세요.
 	
+	public String getName() {
+		return name;
+	}
+	
 	// 13. 나이를 출력할 수 있는 함수를 만들어주세요.
+	
+	public int getAge() {
+		return age;
+	}
 	
 	// 14. 성별을 출력할 수 있는 함수를 만들어주세요.
 	
+	public String getGender() {
+		return gender;
+	}
+	
 	// 15. 주소를 출력할 수 있는 함수를 만들어주세요.
+	
+	public String getAddr() {
+		return addr;
+	}
 	
 	// 16. 핸드폰번호를 출력할 수 있는 함수를 만들어주세요.
 	
+	public String getTel() {
+		return tel;
+	}
+	
 	// 17. 이메일을 출력할 수 있는 함수를 만들어주세요.
+	
+	public String getEmail() {
+		return email;
+	}
 	
 	// 18. 취미를 출력할 수 있는 함수를 만들어주세요.
 	
+	public String getHobby() {
+		return hobby;
+	}
+	
 	// 19. 이름, 나이, 성별을 출력할 수 있는 함수를 만들어주세요.
+	
+	public Object[] aa(){
+		Object[] b = {getName(),getAge(),getGender()};
+		return b;
+	}
 	
 	// 20. 주소, 핸드폰번호, 이메일, 취미를 출력할 수 있는 함수를 만들어주세요.
 	
