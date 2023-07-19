@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script>
+
+	
+	// 문자배열
+	arr = ["Hello", "Happy", "Merry Christmas", "javaScript",
+		"공부합니다", "디디아이티"];
+
+proc1 = () => {
+	
+	rand = parseInt(Math.random() * arr.length);
+	
+	// 문자열 선택 : arr[rand]
+	
+	// p태그생성
+	vp = document.createElement('p');
+	
+	// textNode생성
+	vtext = document.createTextNode(arr[rand]);
+		
+	// p태그에 vtext를 추가
+	vp.appendChild(vtext);
+	
+	// p태그를 result1번에 추가 - result1을 검색
+	vresult = document.getElementById('result1')//result1을 검색
+
+	// p태그를 result1번에 추가
+	vresult.appendChild(vp);
+}
+
+delProc = () => {
+	
+	// result1의 첫번째(마지막)자식을 선택
+	// 부모.removeChild(자식)
+	vresult.removeChild(vresult.firstChild);
+	
+	
+}
+
+proc2 = () => {
+	
+	// random발생
+	rand = parseInt(Math.random() * arr.length);
+		
+	// p태그 생성
+	vp = document.createElement('p');
+	
+	// textNode생성 - arr[rand]
+	tNode = document.createTextNode(arr[rand]);
+		
+	// input button을 생성한다.
+	vinput = document.createElement('input');
+	vinput.type="button";
+	vinput.value="삭제";
+/* 	vinput.onclick= function() {
+		this.parentNode.remove();
+	} */
+	vinput.onclick = removeP;		//removeP 함수이름, 주소를 대입
+	
+	// p태그에 tNode를 추가한다
+	vp.appendChild(tNode);
+	
+	// p태그에 vinput을 추가한다.
+	vp.appendChild(vinput);
+	
+	// result2를 검색
+	vres2 = document.querySelector('#result2');
+		
+	// vres2에 p태그를 추가한다
+	vres2.appendChild(vp);
+	
+}
+
+removeP = function() {
+	
+	this.parentNode.remove();
+	
+}
+
+
+proc3 = () => {
+	
+	// P태그를 생성
+	 vp = document.createElement('p');
+		
+	// input file을 생성
+	vfile = document.createElement('input');
+	vfile.type="file"
+	
+	// input button 생성 - 삭제
+	vinput = document.createElement('input');
+	vinput.type="button";
+	vinput.value="삭제"
+	vinput.onclick = function() {
+		this.parentNode.remove();
+		
+	}
+		
+	// p태그에 vfile을 추가
+	vp.appendChild(vfile);
+	
+	// p태그에 vinput을 추가
+	vp.appendChild(vinput)
+	
+	// result3을 검색
+	vres3 = document.getElementById('result3')
+	
+	// result3에 p태그를 추가
+	vres3.appendChild(vp);
+	
+	
+
+
+
+
+}
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<h3>버튼을 클릭하면 문자열을 가진 p태그를 생성하여 result1에 추가  <br>
+p태그 생성 - createElement('p')
+textNode생성 - createTextNode('문자열')
+textNode를 p태그에 추가한다 - p태그.appendChild(textNode)
+p태그를 result1에 추가한다 - result1.appendChild(p태그)
+</h3>
+<input type="button" value="확인" onclick="proc1()">
+<input type="button" value="삭제" onclick="delProc()">
+<br>
+<div class="ddres" id="result1"></div>
+<br>
+<hr color="red">
+
+<h3>버튼을 클릭하면 문자열을 가진 p태그를 생성하여 result1에 추가  <br>
+p태그 생성 - createElement('p')
+textNode생성 - createTextNode('문자열')
+
+input태그 생성 - createElement('input')
+.type="button"	.value="삭제"
+
+textNode를 p태그에 추가한다 - p태그.appendChild(textNode)
+input button 을 p태그에 추가
+
+p태그를 result2에 추가한다 - result2.appendChild(p태그)
+</h3>
+<input type="button" value="확인" onclick="proc2()">
+
+<br>
+<div class="ddres" id="result2"></div>
+<br>
+<hr color="red">
+
+
+<h3>
+</h3>
+추가버튼을 클릭하면 input file객체를 생성한다.
+<br>
+	<input type="button" value="추가"  onclick="proc3()">
+	
+<div class="ddres" id="result3">
+
+	<!-- <input type="file"> -->
+
+
+</div>
+<br>
+<hr color="red">
+
+
+</body>
+</html>
