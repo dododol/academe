@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+
+window.onload = () => {
+	
+	$('#btn1').on('click', () => {
+		
+			//$('#result1 h1').css('color', 'red')
+			
+	
+		hlist = document.querySelectorAll('#result1 h1');
+		for(i = 0; i < hlist.length; i++) {
+			// hlist[i].style.color = 'green';
+		
+			$(hlist[i]).css('color', 'blue');
+			
+		}
+	
+	})
+
+	$('#btn2').on('click', function(){
+		
+			//$('#result2 h1').eq(2).css('color', 'red')
+			
+			hlist = document.querySelectorAll('#result2 h1');
+			//hlist[4].style.color = 'green';
+			$(hlist[4]).css('color','green');
+		
+	})
+	
+}
+	
+	
+
+
+</script>
+</head>
+<body>
+
+<h3>h1 전체를 선택 . 글자색 변경</h3>
+<input type="button" value="확인" id="btn1">
+<br>
+<div class="ddres" id="result1">
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+</div>
+<br>
+<hr color="red">
+<br>
+지정하는 
+<h3>2번째 h1 선택 . 글자색 변경
+<br></h3>
+<input type="button" value="확인" id="btn2">
+<br>
+<div class="ddres" id="result2">
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+	<h1>무궁화 꽃이 피었습니다</h1>
+</div>
+<br>
+<hr color="red">
+</body>
+</html>
