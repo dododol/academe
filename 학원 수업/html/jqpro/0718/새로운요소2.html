@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+arr = ["국화.jpg", "딸기스무디.jpg", "뱅쇼.jpg", "무지게1.png", 
+	"무지게2.png", "무지게3.png", "무지게4.png", "무지게5.png"];
+
+$(document).ready(function(){
+		
+	$('#btn1').on('click', function(){
+		
+		rand = parseInt(Math.random() * arr.length);
+		
+		varr = arr[rand];
+		//vimg = $('<img src="../images/' + varr + '" onclick="proc1()" alt="' +  + '">');
+		vimg = $('<img>' , {
+				"src" : `../images/${varr}`,
+				"alt" : varr ,
+				"click" : function(){
+					$(this).css('border', '2px solid hotpink')
+				}
+			
+		})
+		
+		$(vimg).appendTo($('#result1'));
+		
+	})
+		
+})
+
+</script>
+
+<style>
+
+img{
+	width : 80px;
+	height : 80px;
+	margin: 10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h3>버튼을 클릭시 이미지를 생성하여 result1에 추가 </h3>
+<input type="button" value="이미지추가" id="btn1">
+<br>
+<div class="ddres" id="result1"></div>
+<br>
+<hr color="red">
+</body>
+</html>

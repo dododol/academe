@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="shortcut icon" href="../images/check.png">
+<script src="../js/jquery-3.7.0.min.js" type="text/javascript"></script>
+
+<script>
+
+$(function() {
+   
+   $('#btn2').on('click', function() {
+      // 새로운 요소 p태그 만들기
+      ptag = $('<p></p>', { 
+         class : "aa",
+         text : "hello~",
+         /*jquery에서는 onclick이 아니라 click*/
+       /*   click : function(){
+            cr = parseInt(Math.random() * 256);
+            cg = parseInt(Math.random() * 256);
+            cb = parseInt(Math.random() * 256);   
+            
+            $(this).css('color', `rgb(${cr}, ${cg}, ${cb})`);
+         }  */
+         click : proc2
+      })
+      
+      $('#result2').append(ptag);
+      $(ptag).appendTo($('#result2'));
+   
+   }) //btn2 끝
+   
+   
+   function proc2() {
+	   /* alert(this); */
+       cr = parseInt(Math.random() * 256);
+       cg = parseInt(Math.random() * 256);
+       cb = parseInt(Math.random() * 256); 
+       
+       $(this).css('color', `rgb(${cr}, ${cg}, ${cb})`);
+   }
+   
+   $('#btn1').on('click', function() {
+      // 새로운 요소 p태그 만들기 
+      ptag = $('<p id="aa" onclick="proc1(this)"> hello~</p>');
+      $('#result1').append(ptag);
+      
+      /* javascript 방식 // p태그 생성
+      vp = document.createElement('p');
+      vp.onclick = function(){
+         
+      }
+      // textNode 생성
+      vtext = document.createTextNode("hello~");
+      
+      // p태그에 text를 추가
+      vp.appendChild(vtext);
+      
+      document.getElementById('result1').appendChild(vp); */
+   })
+})
+
+function proc1(pp) {
+      // alert("aa");
+      //pp; 클릭한 p태그를 파라미터 this를 받은 지역변수
+      // dom 변수다, jquery 변수는 아니다.
+      
+      // pp의 글자색상을 변경
+      cr = parseInt(Math.random() * 256);
+      cg = parseInt(Math.random() * 256);
+      cb = parseInt(Math.random() * 256);
+      
+      // pp.style.color = 'rgb(' + cr + ',' + cg + ','+ cb ) ;
+      // pp.style.color=`rgb(${cr}, ${cg}, ${cb})`;
+      $(pp).css('color', `rgb(${cr}, ${cg}, ${cb})`);
+}
+</script>
+</head>
+<body>
+<h3>새로운  p태그를 생성하여 result1에 추가한다.<br>
+ptag = $("html문장")</h3>
+<input type="button" value="확인" id="btn1">
+<br>
+<div class="ddres" id="result1"></div>
+<br>
+<hr color="red">
+
+<h3>새로운  p태그를 생성하여 result2에 추가한다.<br>
+$('&lt;p>&lt;/p>', {속성들})</h3>
+<input type="button" value="확인" id="btn2">
+<br>
+<div class="ddres" id="result2"></div>
+<br>
+<hr color="red">
+</body>
+</html>
