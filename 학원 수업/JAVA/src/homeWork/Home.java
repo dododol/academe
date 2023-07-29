@@ -288,20 +288,20 @@ public class Home {
 		
 		// 문제 15. 변수 str2의 값이 "World"인 경우 "str2는 World입니다"를 출력해주세요.
 
-		if(str2 == "World") {
+		if(str2.equals("World")) {
 			System.out.println("str2는 World입니다");
 		}
 		
 		// 문제 16. 변수 str3의 값이 "Hello World"인 경우 "str3는 Hello World입니다"를 출력해주세요.
 
-		if(str3 == "Hello World") {
+		if(str3.equals("Hello World")) {
 			System.out.println("str3은 Hello World입니다");
 		}
 		
 		// 문제 17. 변수 str1의 값이 "Hello"인 경우 "str1의 값 일치"를, "Hello"가 아닌 경우 "str1의 값 불일치"를 출력해주세요.
 		System.out.println("--------------------------------------------------------");
 		
-		if(str1 == "Hello") {
+		if(str1.equals("Hello")) {
 			System.out.println("str1의 값 일치");
 		} else {
 			System.out.println("str1의 값 불일치");
@@ -310,7 +310,7 @@ public class Home {
 		// 문제 18. 변수 str2의 값이 "World"인 경우 "str2의 값 일치"를, "World"가 아닌 경우 "str2의 값 불일치"를 출력해주세요.
 		System.out.println("--------------------------------------------------------");
 		
-		if(str2 == "World") {
+		if(str2.equals("World")) {
 			System.out.println("str2의 값 일치");
 		} else {
 			System.out.println("str2의 값 불일치");
