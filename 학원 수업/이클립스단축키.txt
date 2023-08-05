@@ -1,1 +1,2 @@
 alt + enter = 소스파일 경로보기
+Alt + Shift + A = 여러줄선택
