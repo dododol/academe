@@ -7,7 +7,7 @@ public interface ILoginService {
 	// 회원 로그인
 	public LoginVO getMemberLogin(LoginVO loginVo); 
 	
-	// ID 중복검사
+	// ID 중복검사 
 	public String selectById(String memid);
 	
 	// 회원가입

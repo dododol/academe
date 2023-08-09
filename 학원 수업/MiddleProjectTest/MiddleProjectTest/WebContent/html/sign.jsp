@@ -1,17 +1,15 @@
 <%@page import="kr.or.ddit.middle.vo.LoginVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="true"%>
-<!DOCTYPE html>
+    pageEncoding="UTF-8"%>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>sign</title>
+<title>로그인/회원가입</title>
 <link href="../resources/css/sign.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../resources/js/jquery-3.7.0.min.js"></script>
-<link rel="shortcut icon" href="../resources/images/미니.png">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="../resources/images/미니.png">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -19,7 +17,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
+	
+	<script>
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -153,11 +152,12 @@ $(function(){
 	float: right;
 }
 </style>
-
+	
+	
 </head>
 
 <body>
-	<%
+<%
 		HttpSession sessionLog = request.getSession();
 
 	LoginVO loginId = (LoginVO) sessionLog.getAttribute("loginSign");
@@ -165,196 +165,150 @@ $(function(){
 	int insertMem = (Integer) sessionLog.getAttribute("insertMember");
 
 	//String id = (String)sessionLog.getAttribute("selectById");
-	%>
+%>
 	<header>
-		<a id="imga" href="main.jsp"><img
-			src="../resources/images/타이틀.png"></a>
+	<a id="imga" href="main.jsp"><img src = "../resources/images/타이틀.png"></a>
 		<div id="log1">
-			<ul>
-				<li class="log"><a href="sign.jsp" id="ma">로그인/회원가입</a></li>
-				<li class="log"><a href="mypage.jsp" id="ma">마이페이지<i
-						class="fa fa-user"></i></a></li>
-			</ul>
-		</div>
-	</header>
-	<div>
-		<nav id="hed">
-			<div class="main">
-				<ul>
-					<li></i><a href="#" id="ma">UNDER DOGS</a>
-						<div class="an2">
-							<ul id="an">
-								<li><a href="구단소개.html" id="ma2">구단소개</a></li>
-								<li><a href="히스토리.html">Histroy</a></li>
-								<li><a href="언더독스파크.html">언더독스 파크</a></li>
-							</ul>
-						</div></li>
-					<li><a href="#" id="ma">PLAYERS</a>
-						<div class="an2">
-							<ul id="an">
-								<li><a href="#">감독</a></li>
-								<li><a href="#">코치</a></li>
-								<li><a href="#">투수</a></li>
-								<li><a href="#">포수</a></li>
-								<li><a href="#">내야수</a></li>
-								<li><a href="#">외야수</a></li>
-								<li><a href="#">응원단</a></li>
-								<li><a href="#">STAFF</a></li>
-							</ul>
-						</div></li>
-					<li><a href="#" id="ma">FAN</a>
-						<div class="an2">
-							<ul id="an">
-								<li><a href="#">구단소식</a></li>
-								<li><a href="#">팬게시판</a></li>
-								<li><a href="#">문의사항</a></li>
-							</ul>
-						</div></li>
-					<li><a href="#" id="ma">GAME</a></li>
-					<li><a href="#" id="ma">TICKET</a></li>
-					<li><a href="#" id="ma">LIVE GAME</a></li>
-				</ul>
-			</div>
-		</nav>
-		<section>
-			<div class="login-wrap">
-				<div class="login-html">
-					<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
-						for="tab-1" class="tab">로그인</label> <input id="tab-2" type="radio"
-						name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
-					<div class="login-form">
-						<div class="sign-in-htm">
-							<%
-								if (loginId != null) {
-							%>
-							<form action="<%=request.getContextPath()%>/loginSign.do"
-								method="post">
-								<div class="group">
-									<label for="user" class="label">아이디</label> <input id="user"
-										type="text" class="input" name="userid"
-										placeholder="ID를 입력하세요">
-								</div>
-								<div class="group">
-									<label for="pass" class="label">비밀번호</label> <input id="pass"
-										type="password" class="input" data-type="password"
-										name="userpass" placeholder="PW 입력하세요">
-								</div>
-								<div class="group">
-									<input type="submit" class="button" value="로그인">
-								</div>
-							</form>
-
-							<%
-								} else {
-							%>
-							<form action="<%=request.getContextPath()%>/loginSign.do"
-								method="post">
-								<div class="group">
-									<label for="user" class="label">아이디</label> <input id="user"
-										type="text" class="input" name="userid"
-										placeholder="ID를 입력하세요">
-								</div>
-								<div class="group">
-									<label for="pass" class="label">비밀번호</label> <input id="pass"
-										type="password" class="input" data-type="password"
-										name="userpass" placeholder="PW 입력하세요">
-								</div>
-								<div class="group">
-									<input type="submit" class="button" value="로그인">
-								</div>
-							</form>
-							<%
-								}
-							%>
-
-							<div class="hr"></div>
-							<div class="foot-lnk">
-								<a href="#forgot">ID/PASSWORD 찾기</a>
-							</div>
-						</div>
-						<form action="<%=request.getContextPath()%>/insertMember.do"
-							method="post">
-							<div class="sign-up-htm">
-
-								<div class="group">
-									<label for="user" class="label">아이디</label> <input id="id"
-										type="text" class="input" placeholder="영문, 숫자로 시작하는 4-8글자를 입력"
-										name="userID"> <input type="button" id="checkid"
-										value="중복확인" class="btn btn-secondary btn-sm"> <span
-										id="spanid"></span>
-								</div>
-								<div class="group">
-									<label for="pass" class="label">비밀번호</label> <input id="pw"
-										type="password" class="input" name="userPW"
-										data-type="password" placeholder="영문, 숫자로 시작하는 4-8글자를 입력">
-								</div>
-								<div class="group">
-
-									<label for="pass" class="label">비밀번호 확인</label> <input id="pww"
-										type="password" class="input" name="userPWW"
-										data-type="password" placeholder="영문, 숫자로 시작하는 4-8글자를 입력">
-									<input type="button" id="checkpw" value="비밀번호확인"
-										class="btn btn-secondary btn-sm"> <span id="spanpw"></span>
-								</div>
-								<div class="group">
-									<label for="pass" class="label">이름</label> <input id="name"
-										type="text" class="input" name="userNAME" placeholder="이름 입력">
-								</div>
-								<div class="group">
-									<label for="pass" class="label">주민등록번호</label> <input id="num"
-										type="text" class="input" name="userNUM"
-										placeholder="-포함해서 입력">
-								</div>
-								<div class="group">
-									<label for="pass" class="label">이메일</label> <input id="mail"
-										type="text" class="input" name="userMAIL"
-										placeholder="@포함해서 입력">
-								</div>
-								<div class="group">
-									<label for="pass" class="label">연락처</label> <input id="tel"
-										type="text" class="input" name="userTEL"
-										placeholder="-포함해서 입력">
-								</div>
-								<div class="group">
-									<input type="button" onclick="sample6_execDaumPostcode()"
-										value="우편번호 찾기" id="searchpost"
-										class="btn btn-secondary btn-sm" ><br> <label
-										for="pass" class="label">우편번호</label> <input
-										id="sample6_postcode" type="text" class="input"
-										placeholder="우편번호" name="userADDRNUM"><br> <input
-										type="text" class="input" id="sample6_address"
-										placeholder="주소" name="userADDR1"><br> <input type="text"
-										class="input" id="sample6_detailAddress" placeholder="상세주소" name="userADDR2"><br>
-
-								</div>
-
-								<div class="group">
-									<input type="submit" class="button" value="회원가입"> <span
-										id="joinspan"></span>
-								</div>
-							</div>
-						</form>
-						<div class="hr"></div>
-					</div>
-				</div>
-			</div>
+		<ul>	
+	   <li class="log"><a href="sign.jsp" id="ma">로그인/회원가입</a>
+		</li>
+			<li class="log"><a href="sign.jsp" id="ma"><i class="fa fa-user"></i> MY PAGE</a>
+		</li>
+	<!--  	<li class="log">ㅇㅇㅇ님 반갑습니다</li>  -->
+	</ul>
 	</div>
+	</header>
+<nav id="hed">
+<div class="main">
+	<ul>
+      <li><a href="main.jsp" id="ma">UNDER DOGS</a> 
+	<div class="an2">	  
+     <ul id="an">	 
+     <li><a href="구단소개.jsp" id="ma2">구단소개</a></li>
+	 <li><a href="히스토리.jsp">Histroy</a></li>
+	 <li><a href="언더독스파크.jsp">언더독스 파크</a></li>
+     </ul>
+		</div>
+		</li>
+      <li><a href="#" id="ma">PLAYERS</a>
+		<div class="an2">
+		   <ul id="an">		 
+     <li><a href="코칭스탭.jsp">코칭스탭</a></li>
+	 <li><a href="투수소개.jsp">투수</a></li>
+	 <li><a href="포수소개.jsp">포수</a></li>
+	 <li><a href="내야수.jsp">내야수</a></li>
+	 <li><a href="외야수.jsp">외야수</a></li>
+	 <li><a href="응원단.jsp">응원단</a></li>	
+     </ul>
+	      </div>
+		</li>
+		   <li><a href="#" id="ma">FAN</a>
+			   <div class="an2">
+		<ul id="an">
+     <li><a href="#">구단소식</a></li>
+	 <li><a href="#">팬게시판</a></li>
+	 <li><a href="#">문의사항</a></li>
+     </ul>
+			   </div>
+		</li>
+      <li><a href="#" id="ma">GAME</a>
+		</li>
+	  <li><a href="#" id="ma">TICKET</a>
+		</li>
+	   <li><a href="#" id="ma">LIVE GAME</a>
+		</li>
+    </ul>	
+	</div>
+</nav>
+	<section>
+<div class="login-wrap">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">로그인</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
+    <div class="login-form">
+      <div class="sign-in-htm">
+      
+        <form action="<%=request.getContextPath()%>/loginSign.do" method="post">
+        <div class="group">
+          <label for="user" class="label">아이디</label>
+          <input id="user" type="text" class="input" name="userid" placeholder="ID를 입력하세요" >
+        </div>
+        <div class="group">
+          <label for="pass" class="label">비밀번호</label>
+          <input id="pass" type="password" class="input" data-type="password" name="userpass" placeholder="PW 입력하세요">
+        </div>
+        <div class="group">
+          <input type="submit" class="button" value="로그인">
+        </div>
+	      </form>
+	      
+        <div class="hr"></div>
+        <div class="foot-lnk">
+          <a href="#forgot">ID/PASSWORD 찾기</a>
+        </div>
+      </div>
+      
+      <form action="<%=request.getContextPath()%>/insertMember.do" method="post">
+      <div class="sign-up-htm">
+        <div class="group">
+          <label for="user" class="label">아이디</label>
+          <input id="id" type="text" class="input" placeholder="영문, 숫자로 시작하는 4-8글자를 입력" name="userID">
+          <input type="button" id="checkid" value="중복확인" class="btn btn-secondary btn-sm">
+          <span id="spanid"></span>
+        </div>
+        <div class="group">
+          <label for="pass" class="label">비밀번호</label>
+          <input id="pw" type="password" class="input" name="userPW" data-type="password" placeholder="영문, 숫자로 시작하는 4-8글자를 입력">
+        </div>
+        <div class="group">
+          <label for="pass" class="label">비밀번호 확인</label>
+          <input id="pww" type="password" class="input" data-type="password" name="userPWW" placeholder="영문, 숫자로 시작하는 4-8글자를 입력">
+          <input type="button" id="checkpw" value="비밀번호확인" class="btn btn-secondary btn-sm">
+        </div>
+        <div class="group">
+          <label for="pass" class="label">이름</label>
+          <input id="name" type="text" class="input"  name="userNAME" placeholder="이름 입력">
+        </div>
+		  <div class="group">
+          <label for="pass" class="label">주민등록번호</label>
+          <input id="num" type="text" class="input" name="userNUM" placeholder="-포함해서 입력">
+        </div>
+          <div class="group">
+		  <label for="pass" class="label">이메일</label> 
+		  <input id="mail" type="text" class="input" name="userMAIL" placeholder="@포함해서 입력">
+		  </div>
+		  <div class="group">
+          <label for="pass" class="label">연락처</label>
+          <input id="tel" type="text" class="input" name="userTEL" placeholder="-포함해서 입력">
+        </div>
+		  <div class="group">
+          <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="searchpost" class="btn btn-secondary btn-sm" ><br> 
+          <label for="pass" class="label">우편번호</label> 
+          <input id="sample6_postcode" type="text" class="input" placeholder="우편번호" name="userADDRNUM"><br> 
+          <input type="text" class="input" id="sample6_address" placeholder="주소" name="userADDR1"><br> 
+          <input type="text" class="input" id="sample6_detailAddress" placeholder="상세주소" name="userADDR2"><br>
+        </div>
+		   
+        <div class="group">
+          <input type="submit" class="button" value="회원가입">
+        </div>
+        </div>
+		  </form>
+        <div class="hr"></div>
+      </div>
+    </div>
+  </div>
+</div>
 	</section>
 	<footer id="foor">
-		<div id="fut">
-			<h1>DDIT UNERDOGS</h1>
-			<p>
-				<br> <i class="fa fa-building"></i> 대전광역시 중구 계룡로 846, 3층 | <i
-					class="fa fa-user"></i> 대표이사 이재혁 | <i class="fa fa-building-o"></i>
-				사업자등록번호 : 123-10-92344<br> <br> <i class="fa fa-phone"></i>
-				TEL : 043-003-2034 | <i class="fa fa-phone-square"></i> FAX :
-				042-394-2929
-			</p>
-		</div>
-		<a id="top" href="#" title="top"> <SPAN><i
-				class="fa fa-angle-double-up"></i> TOP</SPAN>
-		</a>
-	</footer>
+			<div id="fut">
+<h1>DDIT UNERDOGS</h1>
+<p><br>
+  <i class="fa fa-building"></i> 대전광역시 중구 계룡로 846, 3층 | <i class="fa fa-user"></i> 대표이사 이재혁 | <i class="fa fa-building-o"></i> 사업자등록번호 : 123-10-92344<br>
+	<br>
+  <i class="fa fa-phone"></i> TEL : 043-003-2034 | <i class="fa fa-phone-square"></i> FAX : 042-394-2929 </p>
+			</div>
+<a id="top" href ="#" title="top"> <SPAN><i class="fa fa-angle-double-up"></i> TOP</SPAN> </a>
+</footer>
 </body>
 </html>
-

@@ -10,7 +10,7 @@ public class LoginVO {
 	private String mem_addr1;
 	private String mem_num;
 	private String mem_addr2;
-	private int mem_addrnum;
+	private int mem_addrnum; 
 	
 	
 	

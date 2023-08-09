@@ -38,6 +38,7 @@ public class LoginDaoImpl implements ILoginDao {
 	public String selectById(String memid) {
 		 SqlSession session =null;
 	      String userId="";
+	      
 	      try {
 	         session = MybatisUtil.getSqlSession();
 	         userId = session.selectOne("login.selectById", memid);

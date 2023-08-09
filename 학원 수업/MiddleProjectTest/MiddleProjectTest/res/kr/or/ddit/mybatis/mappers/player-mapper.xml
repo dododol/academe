@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="player">
+	 
+	 <select id="playerInfo" parameterType="String" resultType="playerVo">
+	 	SELECT * FROM PLAYER
+	 	WHERE P_ROLE like '%'||#{p_role}||'%'  	
+	 </select>
+	 
+	 <!-- P_NO에 해당되는 선수를 RETURN -->
+	 <select id="playerRecord" parameterType="int" resultType="playerVo">
+	 	SELECT A.P_NO, A.P_NAME, A.P_POSITION, A.P_AGE, A.P_SAL, A.P_STAT, A.P_HDATE, A.LR, A.GAME, A.MEM_ID, A.P_IMG1, A.P_IMG2 
+	 	FROM PLAYER A
+		WHERE  A.P_NO = #{p_no}
+	 </select>
+	 
+	 <!-- P_NO에 해당되는 PITCHER값 가져오기 -->
+	 <select id="playerPitcher" parameterType="int" resultType="playerVo">
+	 	SELECT A.p_no, B.wins, B.loses, B.era, B.ip, B.phr, B.pso, B.phits, B.pbb, B.hold, B.saves
+	 	FROM PITCHER B, PLAYER A 
+	 	WHERE B.p_no = #{p_no}
+	 </select>
+</mapper>

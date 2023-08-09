@@ -18,7 +18,7 @@
 	<typeAliases>
 	<!-- <typeAlias type="클래스의 전체 경로" alias="별칭"/>  -->
 		<typeAlias type="kr.or.ddit.middle.vo.LoginVO" alias="loginVo"/>
-		<typeAlias type="kr.or.ddit.middle.vo.AddLoginVO" alias="addloginVo"/>
+		<typeAlias type="kr.or.ddit.middle.vo.PlayerVO" alias="playerVo"/>
 	</typeAliases>
 	
 	
@@ -42,6 +42,7 @@
 		<mappers>
 	<!-- 형식)	<mapper resource = "경로명/파일명.xml"/>    -->
 			<mapper resource = "kr/or/ddit/mybatis/mappers/member-mapper.xml"/>
+			<mapper resource = "kr/or/ddit/mybatis/mappers/player-mapper.xml"/>
 		</mappers>  	
 	
 	

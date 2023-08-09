@@ -11,7 +11,7 @@ public class MybatisUtil {
 	private static SqlSessionFactory sqlSessionFactory;
 	
 	static {
-		// myBatis 초기화 작업
+		// myBatis 초기화 작업 
 		Reader rd = null;
 				
 		try {
@@ -20,7 +20,7 @@ public class MybatisUtil {
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(rd);
 					
 		} catch (Exception e) {
-			System.out.println("myBatis 초기화 실패!");
+			System.out.println("myBatis 초기화 실패!!!");
 			e.printStackTrace();
 		}finally {
 			if(rd != null) try { rd.close(); } catch (Exception e) { }
@@ -30,6 +30,6 @@ public class MybatisUtil {
 	// SqlSession객체를 반환하는 메서드 작성
 	public static SqlSession getSqlSession() {
 		SqlSession session = sqlSessionFactory.openSession();
-		return session;
+		return session; 
 	}
 }

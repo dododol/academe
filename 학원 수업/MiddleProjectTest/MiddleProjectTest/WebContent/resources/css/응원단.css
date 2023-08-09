@@ -1,0 +1,628 @@
+@charset "utf-8";
+/* CSS Document */
+html, body {
+   margin : 0px;
+   padding : 0px;
+}
+body *{
+   box-sizing : inherit;
+   margin: 0.5px;
+
+}
+footer{
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+   width : 100%;
+   height : 200px;
+	 background : black;
+	display : flex;
+   flex-direction: row; 
+}
+section{
+	width: 100%;
+   height : 1550px;
+    background: linear-gradient(
+            to bottom,
+            rgba(20, 20, 20, 0.3) 10%,
+            rgba(20, 20, 20, 0.95) 50%,
+            rgba(20, 20, 20, 1) 100%);
+		display : flex;
+   flex-direction: row; 
+}
+nav{
+	border-bottom: 1px solid #FFFFFF;
+   width : 100%;
+   height : 75px;
+   background : black;
+   display : flex;
+   flex-direction: low;
+}
+
+li{
+	color : white;
+	list-style-type: none;
+}
+header{
+	border-top: 1px solid #FFFFFF;
+	width:100%;
+	height:200px;
+	display : flex;
+   flex-direction: low;
+	background-color: black;
+}
+header img{
+	margin-left: 80%;
+	width: 700px;
+	height: 200px;
+
+}
+#imga{
+	height : 50px;
+}
+li {
+	display: inline-block;
+}	
+
+@font-face {
+    font-family: 'kbob';
+    src: url('KBO_bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'kbol';
+    src: url('KBO_light.ttf') format('truetype');
+}
+
+.main{
+	margin-top: 0px;
+	font-size: 25px;
+	margin-left: 22%;
+	font-family: 'kbob';
+	height: 50px;
+	
+	
+}
+#an{
+	font-family:'kbol'; 
+}
+
+.main a:link{
+color : whitesmoke;
+}
+
+.main a:visited{
+color : whitesmoke;
+}
+
+#ma:hover{
+color : #cd0c37;
+	transition: 0.5s;
+	cursor: pointer;
+
+}
+.main a{
+text-decoration: none;
+text-transform : none;
+color : whitesmoke;
+}
+
+.main a:active{
+text-decoration : none;
+color : whitesmoke;
+}
+.main li{
+	margin-right: 45px;
+}
+body{
+	background-image: url("../images/야구장.jpg");
+	background-size: contain;
+}
+
+.main li {
+  display: inline-block; /* 수정 */
+  padding: 0;
+  position: relative;
+}
+
+.main li ul {
+	
+   background-color: rgba( 0, 0, 0, 0 );
+  display: none;
+  height: 30px;	
+  position: absolute;
+  top: 100%;
+  width: 800px;
+  z-index: 200;
+	
+}
+
+.main li:hover ul { 
+ animation-play-state: paused;
+  display: block;
+	border-left : solid 5px #cd0c37;
+}
+
+.main li li {
+  display: inline-block; /* 수정 */
+  margin: 0;
+  padding: 0;
+	height: 50px;
+}
+
+.main li ul a {
+  display: block;
+  height: 80px;
+  font-size: 20px;
+  margin-top: 8px;
+	margin-left: -20px;
+  margin-right: 50px;
+}
+.an2 a:after {/*after 가상요소*/
+   display:block;/*a요소를 블록 요소라고 선언*/
+   content: '';/*comtent안은 밑줄 디자인을 위해 비워두세요.*/
+   border-bottom: solid 2px #cd0c37;
+   transform: scaleX(0);/*크기를 0으로 줌으로써 평상시엔 밑줄 없음*/
+   transition: transform 250ms ease-in-out; /*변형 방식*/
+}
+.an2 a:hover:after {
+   transform: scaleX(1);/*a 속성에 hover시 after를 기존 크기로 변경*/
+}
+#index_01{
+    width: 100%px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+#header1{
+    height: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 100px;
+    font-size: 1.5rem;
+}
+
+#slide1{
+    height: 600px;
+    overflow: hidden;
+}
+#slide1>ul{
+    width: 6000px;
+    font-size: 0;
+}
+#slide1>ul>li{
+    display: inline-block;
+    font-size: 0;
+}
+.log{
+	font-size : 15px;
+	float: right;
+	margin-left : 10px;
+	font-family:'kbol'; 
+}
+.log a:active{
+text-decoration : none;
+color : whitesmoke;
+}
+.log a:link{
+color : whitesmoke;
+}
+
+.log a:visited{
+color : whitesmoke;
+}
+
+.log a:hover{
+color : #cd0c37;
+	transition: 0.5s;
+	cursor: pointer;
+}
+.log a{
+text-decoration: none;
+text-transform : none;
+color : whitesmoke;
+}
+
+#log1 {
+	margin-left: 1000px;
+	margin-top: 10px;
+}
+h1{
+	margin-top: 30px;
+	color : #cd0c37;
+	height: 50px;
+	font-size : 50px;
+	font-family:'kbob'; 
+}
+p{
+	color : white;
+	height : 100px;
+    font-family:'kbol';
+	font-size : 20px;
+}
+#fut{
+	margin-left : 50px;
+}
+
+#top:hover{
+	color : white;
+}
+#top:active{
+	color : white;
+}
+#top:visited{
+	color : white;
+}
+#top:link{
+	color : white;
+}
+#top{
+margin-left:880px;
+	margin-top : 20px;
+text-decoration: none;
+text-transform : none;
+color : whitesmoke;
+font-size : 30px;
+font-family:'kbob'; 
+}
+.gudan a:after {/*after 가상요소*/
+	margin-top: 8px;
+   display:block;/*a요소를 블록 요소라고 선언*/
+   content: '';/*comtent안은 밑줄 디자인을 위해 비워두세요.*/
+   border-bottom: solid 3px #cd0c37;
+   transform: scaleX(0);/*크기를 0으로 줌으로써 평상시엔 밑줄 없음*/
+   transition: transform 250ms ease-in-out; /*변형 방식*/
+}
+.gudan a:hover:after {
+   transform: scaleX(1);/*a 속성에 hover시 after를 기존 크기로 변경*/
+}
+.gudan a{
+text-decoration: none;
+text-transform : none;
+color : whitesmoke;
+font-size : 25px;
+	font-family:'kbob'; 
+
+}
+.gudan a:active{
+text-decoration : none;
+color : whitesmoke;
+}
+.gudan a:active
+.gudan a:link{
+color : whitesmoke;
+}
+
+.gudan a:visited{
+color : whitesmoke;
+}
+
+.gudan a:hover{
+color : white;
+transition: 0.5s;
+cursor: pointer;
+}
+.gudan ul{
+	border-bottom : 1px solid white;
+	height: 35px;
+	width :1857px;
+	margin-top : 300px;
+}
+.gudan li{
+	margin-left : 200px;
+}
+
+.tusu img{
+	width: 270px;
+	height: 320px;
+	padding: 5px;
+}
+.tususoge {
+	width : 280px;
+	height: 380px;
+	position: absolute;
+	margin-top: 500px;
+}
+.tusu {
+	height: 260px;
+	width:250px;
+}
+.sunsunm{
+	color : white;
+	width : 280px;
+	height: 50px;
+	font-size: 30px;
+	font-family:'kbol';
+	margin-left: 23px;
+	letter-spacing : 35px;
+}
+
+.imgBoxDiv{
+      width: 420px;
+      height: 400px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px 0px #000;
+	  margin-left: 140px;
+	  margin-top: 80px;
+	  margin-right: 200px;
+	  float: right;
+    }
+.imgBoxDiv img{
+	width : 400px;
+	height : 400px;
+}
+
+
+ .imgDiv{
+      width: 420px;
+      height: 400px;
+      position: absolute;
+      background: black;
+      z-index:1;
+      -webkit-transition:all .5s ease;
+      transition: all .5s ease;
+      bottom:0px;
+     
+     }
+.imgBoxDiv:hover .imgDiv{
+       bottom: 130px;
+     }
+
+     .imgDescDiv{
+      width: 390px;
+      height: 100px;
+      padding:10px;
+      color:#FFFFFF;
+	  border: double #cd0c37 5px;
+      position: absolute;
+      bottom:0px;
+	
+    }
+.imgDescDiv p{
+	  font-family:'kbol';
+	  font-size : 25px;
+	  text-align: center;
+	  margin-top: 10px;
+}
+
+.imgBoxDiv2{
+      width: 420px;
+      height: 400px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px 0px #000;
+	  margin-left: 200px;
+	  margin-top: 80px;
+	 float: right;
+    }
+.imgBoxDiv2 img{
+	width : 400px;
+	height : 400px;
+}
+
+
+ .imgDiv2{
+      width: 420px;
+      height: 400px;
+      position: absolute;
+      background: black;
+      z-index:1;
+      -webkit-transition:all .5s ease;
+      transition: all .5s ease;
+      bottom:0px;
+     
+     }
+.imgBoxDiv2:hover .imgDiv2{
+       bottom: 130px;
+     }
+
+     .imgDescDiv2{
+      width: 390px;
+      height: 100px;
+      padding:10px;
+      color:#FFFFFF;
+	  border: double #cd0c37 5px;
+      position: absolute;
+      bottom:0px;
+	
+    }
+.imgDescDiv2 p{
+	  font-family:'kbol';
+	  font-size : 25px;
+	  text-align: center;
+	  margin-top: 10px;
+}
+
+
+.imgBoxDiv3{
+      width: 420px;
+      height: 400px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px 0px #000;
+	  margin-left: 170px;
+	  margin-top: 80px;
+    }
+.imgBoxDiv3 img{
+	width : 400px;
+	height : 400px;
+}
+
+
+ .imgDiv3{
+      width: 420px;
+      height: 400px;
+      position: absolute;
+      background: black;
+      z-index:1;
+      -webkit-transition:all .5s ease;
+      transition: all .5s ease;
+      bottom:0px;
+     
+     }
+.imgBoxDiv3:hover .imgDiv3{
+       bottom: 130px;
+     }
+
+     .imgDescDiv3{
+      width: 390px;
+      height: 100px;
+      padding:10px;
+      color:#FFFFFF;
+	  border: double #cd0c37 5px;
+      position: absolute;
+      bottom:0px;
+	
+    }
+.imgDescDiv3 p{
+	  font-family:'kbol';
+	  font-size : 25px;
+	  text-align: center;
+	  margin-top: 10px;
+}
+
+
+
+.imgBoxDiv4{
+      width: 420px;
+      height: 400px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px 0px #000;
+	  margin-left: 140px;
+	  margin-top: 150px;
+	  margin-right: 200px;
+	  float: right;
+    }
+.imgBoxDiv4 img{
+	width : 400px;
+	height : 400px;
+}
+
+
+ .imgDiv4{
+      width: 420px;
+      height: 400px;
+      position: absolute;
+      background: black;
+      z-index:1;
+      -webkit-transition:all .5s ease;
+      transition: all .5s ease;
+      bottom:0px;
+     
+     }
+.imgBoxDiv4:hover .imgDiv4{
+       bottom: 130px;
+     }
+
+     .imgDescDiv4{
+      width: 390px;
+      height: 100px;
+      padding:10px;
+      color:#FFFFFF;
+	  border: double #cd0c37 5px;
+      position: absolute;
+      bottom:0px;
+	
+    }
+.imgDescDiv4 p{
+	  font-family:'kbol';
+	  font-size : 25px;
+	  text-align: center;
+	  margin-top: 10px;
+}
+
+.imgBoxDiv5{
+      width: 420px;
+      height: 400px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px 0px #000;
+	  margin-left: 200px;
+	  margin-top: 150px;
+	 float: right;
+    }
+.imgBoxDiv5 img{
+	width : 400px;
+	height : 400px;
+}
+
+
+ .imgDiv5{
+      width: 420px;
+      height: 400px;
+      position: absolute;
+      background: black;
+      z-index:1;
+      -webkit-transition:all .5s ease;
+      transition: all .5s ease;
+      bottom:0px;
+     
+     }
+.imgBoxDiv5:hover .imgDiv5{
+       bottom: 130px;
+     }
+
+     .imgDescDiv5{
+      width: 390px;
+      height: 100px;
+      padding:10px;
+      color:#FFFFFF;
+	  border: double #cd0c37 5px;
+      position: absolute;
+      bottom:0px;
+	
+    }
+.imgDescDiv5 p{
+	  font-family:'kbol';
+	  font-size : 25px;
+	  text-align: center;
+	  margin-top: 10px;
+}
+
+
+.imgBoxDiv6{
+      width: 420px;
+      height: 400px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px 0px #000;
+	  margin-left: 170px;
+	  margin-top: 150px;
+    }
+.imgBoxDiv6 img{
+	width : 400px;
+	height : 400px;
+}
+
+
+ .imgDiv6{
+      width: 420px;
+      height: 400px;
+      position: absolute;
+      background: black;
+      z-index:1;
+      -webkit-transition:all .5s ease;
+      transition: all .5s ease;
+      bottom:0px;
+     
+     }
+.imgBoxDiv6:hover .imgDiv6{
+       bottom: 130px;
+     }
+
+     .imgDescDiv6{
+      width: 390px;
+      height: 100px;
+      padding:10px;
+      color:#FFFFFF;
+	  border: double #cd0c37 5px;
+      position: absolute;
+      bottom:0px;
+	
+    }
+.imgDescDiv6 p{
+	  font-family:'kbol';
+	  font-size : 25px;
+	  text-align: center;
+	  margin-top: 10px;
+}

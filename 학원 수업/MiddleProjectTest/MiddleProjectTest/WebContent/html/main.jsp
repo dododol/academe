@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="KO">
 <head>
 <meta charset="UTF-8">
 <title>DDIT UNDER DOGS</title>
@@ -11,7 +11,20 @@
 <script type="text/javascript" src="../resources/js/jquery-3.7.0.min.js"></script>
 	<script src="../resources/js/slide.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script>
+$(function(){
+	$("#tusu").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo.do?name=" + people;
+	})
+
+})
+</script>
 </head>
+
 <body>
 <% 
 HttpSession sessionLog = request.getSession();
@@ -20,18 +33,18 @@ HttpSession sessionLog = request.getSession();
 LoginVO loginId = (LoginVO)sessionLog.getAttribute("loginSign");
 
 %>
-
 <% 
 if(loginId == null){
 %>	
 	<header>
-	<a id="imga" href="main.jsp"><img src = "../resources/images/타이틀.png"></a>
+	<a id="imga" href="main.jsp"><img src = "<%=request.getContextPath() %>/resources/images/타이틀.png"></a>
 		<div id="log1">
 		<ul>	
 	   <li class="log"><a href="sign.jsp" id="ma">로그인/회원가입</a>
 		</li>
-			<li class="log"><a href="#" id="ma"><i class="fa fa-user"></i></a>
+			<li class="log"><a href="sign.jsp" id="ma"><i class="fa fa-user"></i> MY PAGE</a>
 		</li>
+	<!--  	<li class="log">ㅇㅇㅇ님 반갑습니다</li>  -->
 	</ul>
 	</div>
 	</header>
@@ -39,33 +52,30 @@ if(loginId == null){
 }else{
 %>	
 	<header>
-	<a id="imga" href="main.jsp"><img src = "../resources/images/타이틀.png"></a>
+	<a id="imga" href="main.jsp"><img src = "<%=request.getContextPath() %>/resources/images/타이틀.png"></a>
 		<div id="log1">
 		<ul>	
-	   <li class="log"><%=loginId.getMem_name() %>님 반갑습니다.<br><br>
-	   		<a href="<%=request.getContextPath()%>/logout.do" method="get" id="logout">로그아웃</a><br>
+	   <li class="log"><a href="<%=request.getContextPath()%>/logout.do" id="logout" method="get">로그아웃</a>
 		</li>
-			<li class="log"><a href="mypage.jsp" id="ma">마이페이지<i class="fa fa-user"></i></a>
+			<li class="log"><a href="mypage.jsp" id="ma"><i class="fa fa-user"></i> MY PAGE</a>
 		</li>
+	  	<li class="log"><%=loginId.getMem_name() %>님 반갑습니다.</li>  
 	</ul>
 	</div>
 	</header>
 <%	
 }
 %>
-
-	
-	
 <div>
 <nav id="hed">
 <div class="main">
 	<ul>
-      <li></i><a href="#" id="ma">UNDER DOGS</a> 
+      <li></i><a href="main.jsp" id="ma">UNDER DOGS</a> 
 	<div class="an2">	  
      <ul id="an">	 
-     <li><a href="구단소개.html" id="ma2">구단소개</a></li>
-	 <li><a href="../히스토리.html">Histroy</a></li>
-	 <li><a href="../언더독스파크.html">언더독스 파크</a></li>
+     <li><a href="구단소개.jsp" id="ma2">구단소개</a></li>
+	 <li><a href="히스토리.jsp">Histroy</a></li>
+	 <li><a href="언더독스파크.jsp">언더독스 파크</a></li>
      </ul>
 		</div>
 		</li>
@@ -74,12 +84,11 @@ if(loginId == null){
 		   <ul id="an">		 
      <li><a href="#">감독</a></li>
 	 <li><a href="#">코치</a></li>
-	 <li><a href="#">투수</a></li>
-	 <li><a href="#">포수</a></li>
-	 <li><a href="#">내야수</a></li>
-	 <li><a href="#">외야수</a></li>
-	 <li><a href="#">응원단</a></li>
-	 <li><a href="#">STAFF</a></li>		
+	 <li><a href="#" onclick="tusu" id="tusu">투수</a></li>
+	 <li><a href="포수소개.jsp">포수</a></li>
+	 <li><a href="내야수.jsp">내야수</a></li>
+	 <li><a href="외야수.jsp">외야수</a></li>
+	 <li><a href="#">응원단</a></li>	
      </ul>
 	      </div>
 		</li>
@@ -107,7 +116,8 @@ if(loginId == null){
 		<section id="mid">
 			<video src="../resources/images/최강1조완성.mp4" muted autoplay loop></video>
 		<div id="index_01">
-        <div id="header1">좌우 슬라이딩</div>
+        <div i
+d="header1">좌우 슬라이딩</div>
         <div id="slide1">
             <ul>
                 <li><a href="#"><img src="../resources/images/슬라이드쇼/1 (1).png" alt="슬라이드1"></a></li>

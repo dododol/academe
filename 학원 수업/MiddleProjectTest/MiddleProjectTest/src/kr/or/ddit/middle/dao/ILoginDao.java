@@ -12,4 +12,6 @@ public interface ILoginDao {
 	
 	// 회원가입
 	public int insertMemberInfo(LoginVO loginVo);
+	
+
 }

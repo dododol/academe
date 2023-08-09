@@ -11,14 +11,14 @@ import kr.or.ddit.middle.service.ILoginService;
 import kr.or.ddit.middle.service.LoginServiceImpl;
 
 
-@WebServlet("/selectById.do")
+@WebServlet("/selectById.do") 
 public class SelectById extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;  
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				// 요청시 전송 데이터 받기  - 입력한 id
-				String userId = request.getParameter("id");
+				String userId = request.getParameter("id"); 
 
 				
 				// service객체 얻기

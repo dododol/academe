@@ -36,6 +36,7 @@ public class LoginSign extends HttpServlet {
 		vo.setMem_id(userId);
 		vo.setMem_pw(pass);
 		
+		
 		ILoginService service = LoginServiceImpl.getInstance();
 		
 		LoginVO loginMemberVo = service.getMemberLogin(vo);
