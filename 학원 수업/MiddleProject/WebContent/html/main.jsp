@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <script>
 $(function(){
-	$("#player").on('click',function(){
+	$("#tusu").on('click',function(){
 		
 		people = "";
 		people =$(this).text();
@@ -22,37 +22,6 @@ $(function(){
 	})
 
 })
-$(function(){
-	$("#player1").on('click',function(){
-		
-		people = "";
-		people =$(this).text();
-			
-		location.href="<%=request.getContextPath() %>/playerInfo1.do?name=" + people;
-	})
-
-})
-$(function(){
-	$("#player2").on('click',function(){
-		
-		people = "";
-		people =$(this).text();
-			
-		location.href="<%=request.getContextPath() %>/playerInfo2.do?name=" + people;
-	})
-
-})
-$(function(){
-	$("#player3").on('click',function(){
-		
-		people = "";
-		people =$(this).text();
-			
-		location.href="<%=request.getContextPath() %>/playerInfo3.do?name=" + people;
-	})
-
-})
-
 </script>
 </head>
 
@@ -115,10 +84,11 @@ if(loginId == null){
 		   <ul id="an">		 
      <li><a href="#">감독</a></li>
 	 <li><a href="#">코치</a></li>
-	 <li><a href="#" onclick="player" id="player">투수</a></li>
-	 <li><a href="#" onclick="player1" id="player1">포수</a></li>
-	 <li><a href="#" onclick="player2" id="player2">내야수</a></li>
-	 <li><a href="#" onclick="player3" id="player3">외야수</a></li>
+	 <li><a href="#" onclick="tusu" id="tusu">투수</a></li>
+	 <li><a href="포수소개.jsp">포수</a></li>
+	 <li><a href="내야수.jsp">내야수</a></li>
+	 <li><a href="외야수.jsp">외야수</a></li>
+	 <li><a href="#">응원단</a></li>	
      </ul>
 	      </div>
 		</li>

@@ -1,6 +1,3 @@
-<%@page import="kr.or.ddit.middle.vo.PitcherVO"%>
-<%@page import="java.util.List"%>
-<%@page import="kr.or.ddit.middle.vo.PlayerVO"%>
 <%@page import="kr.or.ddit.middle.vo.LoginVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,10 +5,12 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>투수 소개</title>
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/선수프로필.css">
-<link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/images/미니.png">
+<title>포수 소개</title>
+<link rel="stylesheet" href="../resources/css/포수소개.css">
+<link rel="shortcut icon" href="../resources/images/미니.png">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+
 </head>
 
 <body>
@@ -21,18 +20,12 @@ HttpSession sessionLog = request.getSession();
 
 LoginVO loginId = (LoginVO)sessionLog.getAttribute("loginSign");
 
-PlayerVO playerVO = (PlayerVO)request.getAttribute("tusuInfo");
-out.print("<p>"+playerVO+"</p>");
-
-PitcherVO playerPitcher = (PitcherVO)request.getAttribute("tusuPitcher");
-out.print("<p>"+playerPitcher+"</p>");
-
 %>
 <% 
 if(loginId == null){
 %>
 	<header>
-	<a id="imga" href="main.jsp"><img src = "<%=request.getContextPath() %>/resources/images/타이틀.png"></a>
+	<a id="imga" href="main.jsp"><img src = "../resources/images/타이틀.png"></a>
 		<div id="log1">
 		<ul>	
 	   <li class="log"><a href="sign.jsp" id="ma">로그인/회원가입</a>
@@ -47,7 +40,7 @@ if(loginId == null){
 }else{
 %>	
 	<header>
-	<a id="imga" href="main.jsp"><img src="<%=request.getContextPath() %>/resources/images/타이틀.png"></a>
+	<a id="imga" href="main.jsp"><img src = "../resources/images/타이틀.png"></a>
 		<div id="log1">
 		<ul>	
 	   <li class="log"><a href="<%=request.getContextPath()%>/logout.do" id="logout" method="get">로그아웃</a>
@@ -67,9 +60,9 @@ if(loginId == null){
       <li></i><a href="#" id="ma">UNDER DOGS</a> 
 	<div class="an2">	  
      <ul id="an">	 
-     <li><a href="구단소개.html" id="ma2">구단소개</a></li>
-	 <li><a href="히스토리.html">Histroy</a></li>
-	 <li><a href="언더독스파크.html">언더독스 파크</a></li>
+     <li><a href="구단소개.jsp" id="ma2">구단소개</a></li>
+	 <li><a href="히스토리.jsp">Histroy</a></li>
+	 <li><a href="언더독스파크.jsp">언더독스 파크</a></li>
      </ul>
 		</div>
 		</li>
@@ -104,36 +97,45 @@ if(loginId == null){
     </ul>	
   </div>
 </nav>
-	<section id="mid"> 
+	<section id="mid">
      <div class="gudan">	  
      <ul id="an">	 
-     <li><a href="#" id="g1">감독</a></li>
-	 <li><a href="#" id="g2">코치</a></li>
+     <li><a href="##" id="g1">감독</a></li>
+	 <li><a href="##" id="g2">코치</a></li>
 	 <li><a href="투수소개.jsp" id="g3">투수</a></li>
 	 <li><a href="포수소개.jsp" id="g4">포수</a></li>
 	 <li><a href="내야수.jsp" id="g5">내야수</a></li>
 	 <li><a href="외야수.jsp" id="g6">외야수</a></li>
-	 <li><a href="#" id="g7">응원단</a></li>	 
+	 <li><a href="##" id="g7">응원단</a></li>	 
      </ul>
     </div>
-		<div id="photo"><img id="photo1" src="<%=request.getContextPath() %>/<%=playerVO.getP_img2()%>"></div>
-		<div id="name" class="stat"><span class="name"><%=playerVO.getP_name() %></span></div>
-		<div id="num" class="stat"><span class="upstat"><%=playerVO.getP_no() %></span></div>
-		<div id="poji" class="stat"><span class="upstat" id="korean"><%=playerVO.getP_position() %></span></div>
-		<div id="hand" class="stat"><span class="upstat" id="korean"><%=playerVO.getLr() %></span></div>
-		<div id="age" class="stat"><span class="upstat" id="korean"><%=playerVO.getP_age() %></span></div>
-		<div id="date" class="stat"><span class="upstat" id="korean"><%=playerVO.getP_hdate() %></span></div>
-		<div id="era" class="stat"><span class="upstat" id="korean"><%=playerPitcher.getEra() %></span></div>
-		<div id="win" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getWins() %></span></div>
-		<div id="pso" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getPso() %></span></div>
-		<div id="hold" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getHold() %></span></div>
-		<div id="save" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getSaves() %></span></div>
-		<div id="ining" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getIp() %></span></div>
-		<div id="ppb" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getPbb() %></span></div>
-		<img src="<%=request.getContextPath() %>/resources/images/투수프로필.png"> <br>
-		<div id="back1"> <a href="투수소개.jsp" id="tusuback">다른 선수보기</a> </div>
 		
-	</section>	
+		<div class="tusuh">
+		<div class="tususoge" id="tusu1"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/흑포수김재성.png"></a><p class="sunsunm">김 재 성</p></div>
+		<div class="tususoge" id="tusu1-1"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/포수김재성.png"></a></div>
+	    </div>
+		
+		<div class="tusuh">
+		<div class="tususoge" id="tusu2"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/흑포수김정하.png"></a><p class="sunsunm">김 정 하</p></div>
+		<div class="tususoge" id="tusu2-1"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/포수김정하.png"></a></div>
+		</div>
+			
+		<div class="tusuh">
+		<div class="tususoge" id="tusu3"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/흑포수김태형.png"></a><p class="sunsunm">김 태 형</p></div>
+		<div class="tususoge" id="tusu3-1"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/포수김태형.png"></a></div>
+		</div>
+			
+		<div class="tusuh">
+		<div class="tususoge" id="tusu4"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/흑포수우정범.png"></a><p class="sunsunm">우 정 범</p></div>
+		<div class="tususoge" id="tusu4-1"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/포수우정범.png"></a></div>
+		</div>
+			
+		<div class="tusuh">
+		<div class="tususoge" id="tusu5"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/흑포수최광식.png"></a><p class="sunsunm">최 광 식</p></div>
+		<div class="tususoge" id="tusu5-1"><a href="타자프로필.jsp" class="tusu"><img src="../resources/images/포수최광식.png"></a></div>
+		</div>
+			
+</section>	
 	<footer id="foor">
 			<div id="fut">
 <h1>DDIT UNERDOGS</h1>

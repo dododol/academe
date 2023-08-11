@@ -22,11 +22,11 @@ public class PlayerInfo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String player = (String)request.getParameter("name");
+		String tusu = (String)request.getParameter("name");
 		
 		IPlayerService service = PlayerServiceImpl.getInstance();
 		
-		List<PlayerVO> array =  service.playerInfo(player);
+		List<PlayerVO> array =  service.playerInfo(tusu);
 		
 
 		request.setAttribute("playerInfo", array);
