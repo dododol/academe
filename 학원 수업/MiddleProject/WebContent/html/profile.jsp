@@ -22,10 +22,10 @@ HttpSession sessionLog = request.getSession();
 LoginVO loginId = (LoginVO)sessionLog.getAttribute("loginSign");
 
 PlayerVO playerVO = (PlayerVO)request.getAttribute("tusuInfo");
-out.print("<p>"+playerVO+"</p>");
+
 
 PitcherVO playerPitcher = (PitcherVO)request.getAttribute("tusuPitcher");
-out.print("<p>"+playerPitcher+"</p>");
+
 
 %>
 <% 
@@ -123,13 +123,13 @@ if(loginId == null){
 		<div id="hand" class="stat"><span class="upstat" id="korean"><%=playerVO.getLr() %></span></div>
 		<div id="age" class="stat"><span class="upstat" id="korean"><%=playerVO.getP_age() %></span></div>
 		<div id="date" class="stat"><span class="upstat" id="korean"><%=playerVO.getP_hdate() %></span></div>
-		<div id="era" class="stat"><span class="upstat" id="korean"><%=playerPitcher.getEra() %></span></div>
 		<div id="win" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getWins() %></span></div>
 		<div id="pso" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getPso() %></span></div>
 		<div id="hold" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getHold() %></span></div>
 		<div id="save" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getSaves() %></span></div>
 		<div id="ining" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getIp() %></span></div>
 		<div id="ppb" class="stat"><span class="downstat" id="susja"><%=playerPitcher.getPbb() %></span></div>
+		<div id="era" class="stat"><span class="upstat" id="korean"><%=playerPitcher.getEra() %></span></div>
 		<img src="<%=request.getContextPath() %>/resources/images/투수프로필.png"> <br>
 		<div id="back1"> <a href="투수소개.jsp" id="tusuback">다른 선수보기</a> </div>
 		

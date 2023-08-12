@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.middle.vo.BatterVO"%>
 <%@page import="kr.or.ddit.middle.vo.PitcherVO"%>
 <%@page import="kr.or.ddit.middle.vo.PlayerVO"%>
 <%@page import="kr.or.ddit.middle.vo.LoginVO"%>
@@ -24,7 +25,7 @@ LoginVO loginId = (LoginVO)sessionLog.getAttribute("loginSign");
 PlayerVO naeInfo = (PlayerVO)request.getAttribute("naeInfo");
 
 
-PitcherVO naePitcher = (PitcherVO)request.getAttribute("naePitcher");
+BatterVO naeBatter = (BatterVO)request.getAttribute("naeBatter");
 
 
 %>
@@ -123,13 +124,13 @@ if(loginId == null){
 		<div id="hand" class="stat"><span class="upstat" id="korean"><%=naeInfo.getLr() %></span></div>
 		<div id="age" class="stat"><span class="upstat" id="korean"><%=naeInfo.getP_age() %></span></div>
 		<div id="date" class="stat"><span class="upstat" id="korean"><%=naeInfo.getP_hdate() %></span></div>
-		<div id="era" class="stat"><span class="upstat" id="korean"><%=naePitcher.getEra() %></span></div>
-		<div id="win" class="stat"><span class="downstat" id="susja"><%=naePitcher.getWins() %></span></div>
-		<div id="pso" class="stat"><span class="downstat" id="susja"><%=naePitcher.getPso() %></span></div>
-		<div id="hold" class="stat"><span class="downstat" id="susja"><%=naePitcher.getHold() %></span></div>
-		<div id="save" class="stat"><span class="downstat" id="susja"><%=naePitcher.getSaves() %></span></div>
-		<div id="ining" class="stat"><span class="downstat" id="susja"><%=naePitcher.getIp() %></span></div>
-		<div id="ppb" class="stat"><span class="downstat" id="susja"><%=naePitcher.getPbb() %></span></div>
+		
+		<div id="win" class="stat"><span class="downstat" id="susja"><%=naeBatter.getSingles() %></span></div>
+		<div id="pso" class="stat"><span class="downstat" id="susja"><%=naeBatter.getDoubles() %></span></div>
+		<div id="hold" class="stat"><span class="downstat" id="susja"><%=naeBatter.getTriples() %></span></div>
+		<div id="save" class="stat"><span class="downstat" id="susja"><%=naeBatter.getStrikeouts() %></span></div>
+		<div id="ining" class="stat"><span class="downstat" id="susja"><%=naeBatter.getBb() %></span></div>
+		<div id="ppb" class="stat"><span class="downstat" id="susja"><%=naeBatter.getHr() %></span></div>
 		<img src="<%=request.getContextPath() %>/resources/images/투수프로필.png"> <br>
 		<div id="back1"> <a href="투수소개.jsp" id="tusuback">다른 선수보기</a> </div>
 		

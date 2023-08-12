@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import kr.or.ddit.middle.vo.BatterVO;
 import kr.or.ddit.middle.vo.PitcherVO;
 import kr.or.ddit.middle.vo.PlayerVO;
 import kr.or.ddit.util.MybatisUtil;
@@ -69,6 +70,23 @@ public class PlayerDaoImpl implements IPlayerDao {
 			if(session != null) session.close();
 		}
 		return PitcherVo;
+	}
+
+	@Override
+	public BatterVO playerBatterVO(int p_no) {
+		SqlSession session = null;
+		BatterVO batterVo = null;
+		
+		try {
+			session = MybatisUtil.getSqlSession();
+			batterVo = session.selectOne("player.playerBatter", p_no);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(session != null) session.close();
+		}
+		return batterVo;
 	}
 	
 

@@ -22,6 +22,17 @@
 	 <select id="playerPitcher" parameterType="int" resultType="pitcherVo">
 	 	SELECT A.p_no, B.wins, B.loses, B.era, B.ip, B.phr, B.pso, B.phits, B.pbb, B.hold, B.saves
 	 	FROM PITCHER B, PLAYER A 
-	 	WHERE A.p_no = #{p_no}
+	 	WHERE  A.p_no = B.p_no  and A.p_no = #{p_no}
 	 </select>
+	 
+	 
+	 <!-- P_NO에 해당되는 BATTER값 가져오기 -->
+	 <select id="playerBatter" parameterType="int" resultType="batterVo">
+	 	SELECT A.p_no, B.*
+	 	FROM BATTER B, PLAYER A 
+	 	WHERE A.p_no = B.p_no
+        and A.p_no = #{p_no}
+	 </select>
+	 
+	 
 </mapper>

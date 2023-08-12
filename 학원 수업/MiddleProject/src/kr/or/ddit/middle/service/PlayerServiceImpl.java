@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.or.ddit.middle.dao.IPlayerDao;
 import kr.or.ddit.middle.dao.PlayerDaoImpl;
+import kr.or.ddit.middle.vo.BatterVO;
 import kr.or.ddit.middle.vo.PitcherVO;
 import kr.or.ddit.middle.vo.PlayerVO;
 
@@ -39,6 +40,11 @@ public class PlayerServiceImpl implements IPlayerService {
 	public PitcherVO playerPitcher(int p_no) {
 		// TODO Auto-generated method stub
 		return dao.playerPitcher(p_no);
+	}
+
+	@Override
+	public BatterVO playerBatterVO(int p_no) {
+		return dao.playerBatterVO(p_no);
 	}
 
 	

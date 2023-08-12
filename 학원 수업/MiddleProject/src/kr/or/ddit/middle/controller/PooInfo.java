@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.middle.service.IPlayerService;
 import kr.or.ddit.middle.service.PlayerServiceImpl;
-import kr.or.ddit.middle.vo.PitcherVO;
+import kr.or.ddit.middle.vo.BatterVO;
 import kr.or.ddit.middle.vo.PlayerVO;
 
 
@@ -24,10 +24,9 @@ public class PooInfo extends HttpServlet {
 		
 		PlayerVO playerVO = service.playerRecord(Integer.parseInt(poo));
 		
-		PitcherVO playerPitcher = service.playerPitcher(Integer.parseInt(poo));
-		
+		BatterVO playerBatter = service.playerBatterVO(Integer.parseInt(poo));
 		request.setAttribute("pooInfo", playerVO);
-		request.setAttribute("pooPitcher", playerPitcher);
+		request.setAttribute("pooBatter", playerBatter);
 		
 		request.getRequestDispatcher("/html/pooprofile.jsp").forward(request, response);
 	}

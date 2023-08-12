@@ -20,6 +20,7 @@
 		<typeAlias type="kr.or.ddit.middle.vo.LoginVO" alias="loginVo"/>
 		<typeAlias type="kr.or.ddit.middle.vo.PlayerVO" alias="playerVo"/>
 		<typeAlias type="kr.or.ddit.middle.vo.PitcherVO" alias="pitcherVo"/>
+		<typeAlias type="kr.or.ddit.middle.vo.BatterVO" alias="batterVo"/>
 	</typeAliases>
 	
 	
@@ -44,7 +45,7 @@
 	<!-- 형식)	<mapper resource = "경로명/파일명.xml"/>    -->
 			<mapper resource = "kr/or/ddit/mybatis/mappers/member-mapper.xml"/>
 			<mapper resource = "kr/or/ddit/mybatis/mappers/player-mapper.xml"/>
-		</mappers>  	
+		</mappers>
 	
 	
 </configuration>

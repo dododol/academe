@@ -117,38 +117,38 @@ if(loginId == null){
     </div>
 		
 		<div class="tusuh">
-		<div class="tususoge" id="tusu1"><a href="#" class="tusu"><img  src="<%=request.getContextPath()%>/<%=array.get(0).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(0).getP_name() %></p></div>
+		<div class="tususoge" id="tusu1"><a href="#" class="player"><img  src="<%=request.getContextPath()%>/<%=array.get(0).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(0).getP_name() %></p></div>
 		<div class="tususoge" id="tusu1-1"><img src="<%=request.getContextPath()%>/<%=array.get(0).getP_img2()%>" data-id="<%=array.get(0).getP_no()%>" name="tusu" class="clsTusu" /></div>
 	    </div>
 		
 		<div class="tusuh">
-		<div class="tususoge" id="tusu2"><a href="#" class="tusu"><img  src="<%=request.getContextPath()%>/<%=array.get(1).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(1).getP_name() %></p></div>
+		<div class="tususoge" id="tusu2"><a href="#" class="player"><img  src="<%=request.getContextPath()%>/<%=array.get(1).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(1).getP_name() %></p></div>
 		<div class="tususoge" id="tusu2-1"><img src="<%=request.getContextPath()%>/<%=array.get(1).getP_img2()%>" data-id="<%=array.get(1).getP_no()%>" name="tusu" class="clsTusu" /></div>
 		</div>
 			
 		<div class="tusuh">
-		<div class="tususoge" id="tusu3"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/흑투수송석원.png"></a><p class="sunsunm">송 석 원</p></div>
-		<div class="tususoge" id="tusu3-1"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/투수송석원.png"></a></div>
+		<div class="tususoge" id="tusu3"><a href="#" class="player"><img  src="<%=request.getContextPath()%>/<%=array.get(2).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(2).getP_name() %></p></div>
+		<div class="tususoge" id="tusu3-1"><img src="<%=request.getContextPath()%>/<%=array.get(2).getP_img2()%>" data-id="<%=array.get(2).getP_no()%>" name="tusu" class="clsTusu" /></div>
 		</div>
 			
 		<div class="tusuh">
-		<div class="tususoge" id="tusu4"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/흑투수박주연.png"></a><p class="sunsunm">박 주 연</p></div>
-		<div class="tususoge" id="tusu4-1"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/투수박주연.png"></a></div>
+		<div class="tususoge" id="tusu4"><a href="#" class="player"><img  src="<%=request.getContextPath()%>/<%=array.get(3).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(3).getP_name() %></p></div>
+		<div class="tususoge" id="tusu4-1"><img src="<%=request.getContextPath()%>/<%=array.get(3).getP_img2()%>" data-id="<%=array.get(3).getP_no()%>" name="tusu" class="clsTusu" /></div>
 		</div>
 			
 		<div class="tusuh">
-		<div class="tususoge" id="tusu5"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/흑투수김소원.png"></a><p class="sunsunm">김 소 원</p></div>
-		<div class="tususoge" id="tusu5-1"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/투수김소원.png"></a></div>
+		<div class="tususoge" id="tusu5"><a href="#" class="player"><img  src="<%=request.getContextPath()%>/<%=array.get(4).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(4).getP_name() %></p></div>
+		<div class="tususoge" id="tusu5-1"><img src="<%=request.getContextPath()%>/<%=array.get(4).getP_img2()%>" data-id="<%=array.get(4).getP_no()%>" name="tusu" class="clsTusu" /></div>
 		</div>
 			
 		<div class="tusuh">
-		<div class="tususoge" id="tusu6"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/흑투수김원희.png"></a><p class="sunsunm">김 원 희</p></div>
-		<div class="tususoge" id="tusu6-1"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/투수김원희.png"></a></div>
+		<div class="tususoge" id="tusu6"><a href="#" class="player"><img  src="<%=request.getContextPath()%>/<%=array.get(5).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(5).getP_name() %></p></div>
+		<div class="tususoge" id="tusu6-1"><img src="<%=request.getContextPath()%>/<%=array.get(5).getP_img2()%>" data-id="<%=array.get(5).getP_no()%>" name="tusu" class="clsTusu" /></div>
 		</div>
 			
 		<div class="tusuh">
-		<div class="tususoge" id="tusu7"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/흑투수문선영.png"></a><p class="sunsunm">문 선 영</p></div>
-		<div class="tususoge" id="tusu7-1"><a href="선수프로필.jsp" class="tusu"><img src="../resources/images/투수문선영.png"></a></div>
+		<div class="tususoge" id="tusu7"><a href="#" class="player"><img  src="<%=request.getContextPath()%>/<%=array.get(6).getP_img1() %>" name="tusu" onclick="tusu()" ></a><p class="sunsunm"><%=array.get(6).getP_name() %></p></div>
+		<div class="tususoge" id="tusu7-1"><img src="<%=request.getContextPath()%>/<%=array.get(6).getP_img2()%>" data-id="<%=array.get(6).getP_no()%>" name="tusu" class="clsTusu" /></div>
 		</div>
 			
 </section>	

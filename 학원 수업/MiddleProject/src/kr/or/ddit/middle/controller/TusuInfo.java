@@ -23,15 +23,14 @@ public class TusuInfo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tusu = (String)request.getParameter("id");
 
-		System.out.println("tusu : " + tusu);
 
 		IPlayerService service = PlayerServiceImpl.getInstance();
 		
 		PlayerVO playerVO = service.playerRecord(Integer.parseInt(tusu));
-		System.out.println("playerVO : " + playerVO);
+
 		
 		PitcherVO playerPitcher = service.playerPitcher(Integer.parseInt(tusu));
-		System.out.println("playerPitcher : " + playerVO);
+
 		
 		request.setAttribute("tusuInfo", playerVO);
 		request.setAttribute("tusuPitcher", playerPitcher);

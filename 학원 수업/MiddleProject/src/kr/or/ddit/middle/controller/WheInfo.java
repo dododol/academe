@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.middle.service.IPlayerService;
 import kr.or.ddit.middle.service.PlayerServiceImpl;
+import kr.or.ddit.middle.vo.BatterVO;
 import kr.or.ddit.middle.vo.PitcherVO;
 import kr.or.ddit.middle.vo.PlayerVO;
 
@@ -24,10 +25,10 @@ public class WheInfo extends HttpServlet {
 		
 		PlayerVO playerVO = service.playerRecord(Integer.parseInt(whe));
 		
-		PitcherVO playerPitcher = service.playerPitcher(Integer.parseInt(whe));
+		BatterVO playerBatter = service.playerBatterVO(Integer.parseInt(whe));
 		
 		request.setAttribute("wheInfo", playerVO);
-		request.setAttribute("whePitcher", playerPitcher);
+		request.setAttribute("wheBatter", playerBatter);
 		
 		request.getRequestDispatcher("/html/wheprofile.jsp").forward(request, response);
 	}

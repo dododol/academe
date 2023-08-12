@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.middle.service.IPlayerService;
 import kr.or.ddit.middle.service.PlayerServiceImpl;
+import kr.or.ddit.middle.vo.BatterVO;
 import kr.or.ddit.middle.vo.PitcherVO;
 import kr.or.ddit.middle.vo.PlayerVO;
 
@@ -24,10 +25,10 @@ public class NaeInfo extends HttpServlet {
 		
 		PlayerVO playerVO = service.playerRecord(Integer.parseInt(nae));
 		
-		PitcherVO playerPitcher = service.playerPitcher(Integer.parseInt(nae));
+		BatterVO playerBatter = service.playerBatterVO(Integer.parseInt(nae));
 		
 		request.setAttribute("naeInfo", playerVO);
-		request.setAttribute("naePitcher", playerPitcher);
+		request.setAttribute("naeBatter", playerBatter);
 		
 		request.getRequestDispatcher("/html/naeprofile.jsp").forward(request, response);
 	}

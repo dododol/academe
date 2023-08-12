@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.middle.vo.BatterVO"%>
 <%@page import="kr.or.ddit.middle.vo.PitcherVO"%>
 <%@page import="kr.or.ddit.middle.vo.PlayerVO"%>
 <%@page import="kr.or.ddit.middle.vo.LoginVO"%>
@@ -24,7 +25,7 @@ LoginVO loginId = (LoginVO)sessionLog.getAttribute("loginSign");
 PlayerVO wheInfo = (PlayerVO)request.getAttribute("wheInfo");
 
 
-PitcherVO whePitcher = (PitcherVO)request.getAttribute("whePitcher");
+BatterVO wheBatter = (BatterVO)request.getAttribute("wheBatter");
 
 
 %>
@@ -123,13 +124,13 @@ if(loginId == null){
 		<div id="hand" class="stat"><span class="upstat" id="korean"><%=wheInfo.getLr() %></span></div>
 		<div id="age" class="stat"><span class="upstat" id="korean"><%=wheInfo.getP_age() %></span></div>
 		<div id="date" class="stat"><span class="upstat" id="korean"><%=wheInfo.getP_hdate() %></span></div>
-		<div id="era" class="stat"><span class="upstat" id="korean"><%=whePitcher.getEra() %></span></div>
-		<div id="win" class="stat"><span class="downstat" id="susja"><%=whePitcher.getWins() %></span></div>
-		<div id="pso" class="stat"><span class="downstat" id="susja"><%=whePitcher.getPso() %></span></div>
-		<div id="hold" class="stat"><span class="downstat" id="susja"><%=whePitcher.getHold() %></span></div>
-		<div id="save" class="stat"><span class="downstat" id="susja"><%=whePitcher.getSaves() %></span></div>
-		<div id="ining" class="stat"><span class="downstat" id="susja"><%=whePitcher.getIp() %></span></div>
-		<div id="ppb" class="stat"><span class="downstat" id="susja"><%=whePitcher.getPbb() %></span></div>
+
+		<div id="win" class="stat"><span class="downstat" id="susja"><%=wheBatter.getSingles() %></span></div>
+		<div id="pso" class="stat"><span class="downstat" id="susja"><%=wheBatter.getDoubles() %></span></div>
+		<div id="hold" class="stat"><span class="downstat" id="susja"><%=wheBatter.getTriples() %></span></div>
+		<div id="save" class="stat"><span class="downstat" id="susja"><%=wheBatter.getStrikeouts() %></span></div>
+		<div id="ining" class="stat"><span class="downstat" id="susja"><%=wheBatter.getBb() %></span></div>
+		<div id="ppb" class="stat"><span class="downstat" id="susja"><%=wheBatter.getHr() %></span></div>
 		<img src="<%=request.getContextPath() %>/resources/images/투수프로필.png"> <br>
 		<div id="back1"> <a href="투수소개.jsp" id="tusuback">다른 선수보기</a> </div>
 		

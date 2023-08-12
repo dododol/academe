@@ -382,37 +382,37 @@ left: 57.5%;
 	position: absolute;
 	z-index: 1;
 }
-#win {
+#singles {
 position: absolute;
 text-align: center;
 top: 128.1%;
 left: 31.7%;
 }
-#pso {
+#doubles {
 position: absolute;
 text-align: center;
 top: 128.1%;
 left: 43.1%;
 }
-#hold {
+#triples {
 position: absolute;
 text-align: center;
 top: 128.1%;
 left: 55.1%;
 }
-#save {
+#strikeouts {
 position: absolute;
 text-align: center;
 top: 147.5%;
 left: 31.7%;
 }
-#ining {
+#bb {
 position: absolute;
 text-align: center;
 top: 147.5%;
 left: 43.1%;
 }
-#ppb {
+#hr {
 position: absolute;
 text-align: center;
 top: 147.5%;
@@ -483,4 +483,91 @@ color : whitesmoke;
 color : white;
 transition: 0.5s;
 cursor: pointer;
+}
+
+#name {
+position: absolute;
+text-align: center;
+top: 73.5%;
+left: 54.8%;
+}
+#num {
+position: absolute;
+text-align: center;
+top: 83%;
+left: 56%;
+}
+#poji {
+position: absolute;
+text-align: center;
+top: 87.5%;
+left: 53.5%;
+}
+#hand {
+position: absolute;
+text-align: center;
+top: 92.3%;
+left: 53.5%;
+}
+#age {
+position: absolute;
+text-align: center;
+top: 97.1%;
+left: 52.5%;
+}
+#date {
+position: absolute;
+text-align: center;
+top: 102.1%;
+left: 53.1%;
+}
+#era {
+position: absolute;
+text-align: center;
+top: 118.1%;
+left: 57.5%;
+}
+.downstat{
+	color: #cd0c37;
+	font-family:'kbob';
+	font-size : 85px;
+	width: 300px;
+	position: absolute;
+	z-index: 1;
+}
+#win {
+position: absolute;
+text-align: center;
+top: 128.1%;
+left: 31.7%;
+}
+#pso {
+position: absolute;
+text-align: center;
+top: 128.1%;
+left: 43.1%;
+}
+#hold {
+position: absolute;
+text-align: center;
+top: 128.1%;
+left: 55.1%;
+}
+#save {
+position: absolute;
+text-align: center;
+top: 147.5%;
+left: 31.7%;
+}
+#ining {
+position: absolute;
+text-align: center;
+top: 147.5%;
+left: 43.1%;
+}
+#ppb {
+position: absolute;
+text-align: center;
+top: 147.5%;
+left: 55.1%;
 }
