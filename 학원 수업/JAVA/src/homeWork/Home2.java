@@ -322,7 +322,7 @@ public class Home2 {
 				break;
 				
 			case "종료":
-				System.out.println("시스템을 종료합니다");
+				System.out.println("시스템을 종료합니다!!");
 				ab = false;
 				break;
 
