@@ -64,7 +64,7 @@ public class BoardController {
 		
 		List<BoardVO> boardList = service.selectBoardList();	// 게시판 목록 조회
 		if(boardList == null || boardList.size() == 0 ) {
-			System.out.println("조회하실 게시글이 존재하지 않습니다.");
+			System.out.println("조회하실 게시글이 존재하지 않습니다...");
 		} else {
 			for(BoardVO board : boardList) {
 				System.out.println(
