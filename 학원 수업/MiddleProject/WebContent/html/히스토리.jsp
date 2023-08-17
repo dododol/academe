@@ -9,6 +9,52 @@
 	<link rel="stylesheet" href="../resources/css/히스토리.css">
 <link rel="shortcut icon" href="../resources/images/미니.png">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-3.7.0.min.js"></script>
+	<script src="../resources/js/slide.js"></script>
+<script>
+$(function(){
+	$("#player").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo.do?name=" + people;
+	})
+
+})
+$(function(){
+	$("#player1").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo1.do?name=" + people;
+	})
+
+})
+$(function(){
+	$("#player2").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo2.do?name=" + people;
+	})
+
+})
+$(function(){
+	$("#player3").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo3.do?name=" + people;
+	})
+
+})
+
+</script>
+
 </head>
 
 <body>

@@ -9,6 +9,52 @@
 <link rel="stylesheet" href="../resources/css/구단소개.css">
 <link rel="shortcut icon" href="../resources/images/미니.png">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-3.7.0.min.js"></script>
+	<script src="../resources/js/slide.js"></script>
+<script>
+$(function(){
+	$("#player").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo.do?name=" + people;
+	})
+
+})
+$(function(){
+	$("#player1").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo1.do?name=" + people;
+	})
+
+})
+$(function(){
+	$("#player2").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo2.do?name=" + people;
+	})
+
+})
+$(function(){
+	$("#player3").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo3.do?name=" + people;
+	})
+
+})
+
+</script>
+
 </head>
 
 <body>
@@ -67,13 +113,12 @@ if(loginId == null){
 	   <li><a href="#" id="ma">PLAYERS</a>
 		<div class="an2">
 		   <ul id="an">		 
-     <li><a href="#">감독</a></li>
-	 <li><a href="#">코치</a></li>
-	 <li><a href="투수소개.jsp">투수</a></li>
-	 <li><a href="포수소개.jsp">포수</a></li>
-	 <li><a href="내야수.jsp">내야수</a></li>
-	 <li><a href="외야수.jsp">외야수</a></li>
-	 <li><a href="#">응원단</a></li>	
+	 <li><a href="<%=request.getContextPath()%>/히스토리.jsp" id="g2">코칭스텝</a></li>
+	 <li><a href="#" onclick="player" id="player">투수</a></li>
+	 <li><a href="#" onclick="player1" id="player1">포수</a></li>
+	 <li><a href="#" onclick="player2" id="player2">내야수</a></li>
+	 <li><a href="#" onclick="player3" id="player3">외야수</a></li>
+	 <li><a href="<%=request.getContextPath()%>/히스토리.jsp" id="g7">응원단</a></li>	
      </ul>
 	      </div>
 		</li>

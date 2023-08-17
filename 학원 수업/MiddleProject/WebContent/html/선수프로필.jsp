@@ -11,6 +11,50 @@
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/선수프로필.css">
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/images/미니.png">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-3.7.0.min.js"></script>
+	<script src="../resources/js/slide.js"></script>
+<script>
+$(function(){
+	$(".player").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo.do?name=" + people;
+	})
+
+
+	$(".player1").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo1.do?name=" + people;
+	})
+
+
+	$(".player2").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo2.do?name=" + people;
+	})
+
+
+	$(".player3").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo3.do?name=" + people;
+	})
+
+})
+
+
+</script>
+
 </head>
 
 <body>
@@ -71,13 +115,12 @@ if(loginId == null){
       <li><a href="#" id="ma">PLAYERS</a>
 		<div class="an2">
 		   <ul id="an">		 
-     <li><a href="#">감독</a></li>
-	 <li><a href="#">코치</a></li>
-	 <li><a href="투수소개.jsp">투수</a></li>
-	 <li><a href="포수소개.jsp">포수</a></li>
-	 <li><a href="#">내야수</a></li>
-	 <li><a href="#">외야수</a></li>
-	 <li><a href="#">응원단</a></li>	
+	 <li><a href="<%=request.getContextPath()%>/히스토리.jsp" id="g2">코칭스텝</a></li>
+	 <li><a href="#" class="player">투수</a></li>
+	 <li><a href="#" class="player1">포수</a></li>
+	 <li><a href="#" class="player2">내야수</a></li>
+	 <li><a href="#" class="player3">외야수</a></li>
+	 <li><a href="<%=request.getContextPath()%>/히스토리.jsp" id="g7">응원단</a></li>
      </ul>
 	      </div>
 		</li>
@@ -102,13 +145,12 @@ if(loginId == null){
 	<section id="mid"> 
      <div class="gudan">	  
      <ul id="an">	 
-     <li><a href="#" id="g1">감독</a></li>
-	 <li><a href="#" id="g2">코치</a></li>
-	 <li><a href="투수소개.jsp" id="g3">투수</a></li>
-	 <li><a href="포수소개.jsp" id="g4">포수</a></li>
-	 <li><a href="내야수.jsp" id="g5">내야수</a></li>
-	 <li><a href="외야수.jsp" id="g6">외야수</a></li>
-	 <li><a href="#" id="g7">응원단</a></li>	 
+	 <li><a href="<%=request.getContextPath()%>/히스토리.jsp" id="g2">코칭스텝</a></li>
+	 <li><a href="#" class="player">투수</a></li>
+	 <li><a href="#" class="player1">포수</a></li>
+	 <li><a href="#" class="player2">내야수</a></li>
+	 <li><a href="#" class="player3">외야수</a></li>
+	 <li><a href="<%=request.getContextPath()%>/히스토리.jsp" id="g7">응원단</a></li> 
      </ul>
     </div>
 		<div id="photo"><img id="photo1" src="<%=request.getContextPath() %>/<%=array.get(0).getP_img2()%>"></div>
@@ -126,7 +168,7 @@ if(loginId == null){
 		<div id="ining" class="stat"><span class="downstat" id="susja">14</span></div>
 		<div id="ppb" class="stat"><span class="downstat" id="susja">09</span></div>
 		<img src="<%=request.getContextPath() %>/resources/images/투수프로필.png"> <br>
-		<div id="back1"> <a href="투수소개.jsp" id="tusuback">다른 선수보기</a> </div>
+		<div id="back1"> <a href="javascript:window.history.back();" id="tusuback">다른 선수보기</a> </div>
 		
 	</section>	
 	<footer id="foor">
