@@ -111,12 +111,12 @@ if(loginId == null){
 	   <li><a href="#" id="ma">PLAYERS</a>
 		<div class="an2">
 		   <ul id="an">		 
-	 <li><a href="<%=request.getContextPath()%>/코칭스탭.jsp" id="g2">코칭스텝</a></li>
+	 <li><a href="<%=request.getContextPath()%>/html/코칭스탭.jsp" id="g2">코칭스텝</a></li>
 	 <li><a href="#" class="player">투수</a></li>
 	 <li><a href="#" class="player1">포수</a></li>
 	 <li><a href="#" class="player2">내야수</a></li>
 	 <li><a href="#" class="player3">외야수</a></li>
-	 <li><a href="<%=request.getContextPath()%>/응원단.jsp" id="g7">응원단</a></li>		
+	 <li><a href="<%=request.getContextPath()%>/html/응원단.jsp" id="g7">응원단</a></li>		
      </ul>
 	      </div>
 		</li>
@@ -144,8 +144,7 @@ if(loginId == null){
 		<section id="mid">
 			<video src="../resources/images/최강1조완성.mp4" muted autoplay loop></video>
 		<div id="index_01">
-        <div i
-d="header1">좌우 슬라이딩</div>
+        <div id="header1">좌우 슬라이딩</div>
         <div id="slide1">
             <ul>
                 <li><a href="#"><img src="../resources/images/슬라이드쇼/1 (1).png" alt="슬라이드1"></a></li>

@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.middle.vo.LoginVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
@@ -8,20 +9,94 @@
 	<link rel="stylesheet" href="../resources/css/응원단.css">
 <link rel="shortcut icon" href="../resources/images/미니.png">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-3.7.0.min.js"></script>
+	<script src="../resources/js/slide.js"></script>
+
+
+<script>
+$(function(){
+	$(".player").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo.do?name=" + people;
+	})
+
+
+	$(".player1").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo1.do?name=" + people;
+	})
+
+
+	$(".player2").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo2.do?name=" + people;
+	})
+
+
+	$(".player3").on('click',function(){
+		
+		people = "";
+		people =$(this).text();
+			
+		location.href="<%=request.getContextPath() %>/playerInfo3.do?name=" + people;
+	})
+
+})
+
+</script>
+
 </head>
 
 <body>
+<% 
+HttpSession sessionLog = request.getSession();
+
+LoginVO loginId = (LoginVO)sessionLog.getAttribute("loginSign");
+
+
+%>
+<% 
+if(loginId == null){
+%>
 	<header>
-	<a id="imga" href="main.jsp"><img src = "../resources/images/타이틀.png"></a>
+	<a id="imga" href="main.jsp"><img src = "<%=request.getContextPath() %>/resources/images/타이틀.png"></a>
 		<div id="log1">
 		<ul>	
 	   <li class="log"><a href="sign.jsp" id="ma">로그인/회원가입</a>
 		</li>
-			<li class="log"><a href="#" id="ma"><i class="fa fa-user"></i></a>
+			<li class="log"><a href="sign.jsp" id="ma"><i class="fa fa-user"></i> MY PAGE</a>
 		</li>
+	<!--  	<li class="log">ㅇㅇㅇ님 반갑습니다</li>   -->
 	</ul>
 	</div>
 	</header>
+<%	
+}else{
+%>	
+	<header>
+	<a id="imga" href="main.jsp"><img src = "<%=request.getContextPath() %>/resources/images/타이틀.png"></a>
+		<div id="log1">
+		<ul>	
+	   <li class="log"><a href="<%=request.getContextPath()%>/logout.do" id="logout" method="get">로그아웃</a>
+		</li>
+			<li class="log"><a href="mypage.jsp" id="ma"><i class="fa fa-user"></i> MY PAGE</a>
+		</li>
+	  	<li class="log"><%=loginId.getMem_name() %>님 반갑습니다.</li>  
+	</ul>
+	</div>
+	</header>
+<%	
+}
+%>
 <nav id="hed">
 <div class="main">
 	<ul>
@@ -37,12 +112,12 @@
       <li><a href="#" id="ma">PLAYERS</a>
 		<div class="an2">
 		   <ul id="an">		 
-     <li><a href="코칭스탭.jsp">코칭스탭</a></li>
-	 <li><a href="투수소개.jsp">투수</a></li>
-	 <li><a href="포수소개.jsp">포수</a></li>
-	 <li><a href="내야수.jsp">내야수</a></li>
-	 <li><a href="외야수.jsp">외야수</a></li>
-	 <li><a href="응원단.jsp">응원단</a></li>	
+	 <li><a href="<%=request.getContextPath()%>/html/코칭스탭.jsp" id="g2">코칭스텝</a></li>
+	 <li><a href="#" class="player">투수</a></li>
+	 <li><a href="#" class="player1">포수</a></li>
+	 <li><a href="#" class="player2">내야수</a></li>
+	 <li><a href="#" class="player3">외야수</a></li>
+	 <li><a href="<%=request.getContextPath()%>/html/응원단.jsp" id="g7">응원단</a></li>	
      </ul>
 	      </div>
 		</li>
@@ -67,12 +142,12 @@
 	<section id="mid">
      <div class="gudan">	  
      <ul id="an">	 
-     <li><a href="코칭스탭.jsp" id="g1">코칭스탭</a></li>
-	 <li><a href="투수소개.jsp" id="g3">투수</a></li>
-	 <li><a href="포수소개.jsp" id="g4">포수</a></li>
-	 <li><a href="내야수.jsp" id="g5">내야수</a></li>
-	 <li><a href="외야수.jsp" id="g6">외야수</a></li>
-	 <li><a href="응원단.jsp" id="g7">응원단</a></li>	
+	 <li><a href="<%=request.getContextPath()%>/html/코칭스탭.jsp" id="g2">코칭스텝</a></li>
+	 <li><a href="#" class="player">투수</a></li>
+	 <li><a href="#" class="player1">포수</a></li>
+	 <li><a href="#" class="player2">내야수</a></li>
+	 <li><a href="#" class="player3">외야수</a></li>
+	 <li><a href="<%=request.getContextPath()%>/html/응원단.jsp" id="g7">응원단</a></li>	
      </ul>
     
 
