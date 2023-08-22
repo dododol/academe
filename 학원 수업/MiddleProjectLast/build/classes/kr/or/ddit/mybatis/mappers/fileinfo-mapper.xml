@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  이 문서는 mybatis에서 처리할 SQL문을 작성하는 문서입니다. -->
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="fileinfo">
+	
+	<select id="getAllFileinfo" resultType="fileVO">
+		select * from fileinfo
+	</select>
+	
+	<select id="getFileinfo" parameterType="String" resultType="fileVO">
+		select distinct f.file_no , f.mem_id , f.origin_file_name , f.save_file_name , f.file_size , to_char(f.file_date,'yyyy-mm-dd'),f.b_no
+		from fileinfo f, board b
+		where f.b_no = b.b_no and f.b_no = #{b_no}
+	</select>
+	
+	<select id="getNoticeFileinfo" parameterType="String" resultType="fileVO">
+		select distinct f.file_no , f.mem_id , f.origin_file_name , f.save_file_name , f.file_size , to_char(f.file_date,'yyyy-mm-dd'),f.b_no
+		from fileinfo f, notice n
+		where f.b_no = n.b_no and f.b_no = #{b_no}
+	</select>
+	
+	<insert id="insertFileinfo" parameterType="fileVO">
+		insert into fileinfo(
+			file_no, mem_id, origin_file_name, save_file_name, file_size, file_date, b_no
+		) values (
+			fileinfo_seq.nextval,#{mem_id},#{origin_file_name},#{save_file_name},#{file_size},sysdate,#{b_no}
+		)		
+	</insert>
+	
+</mapper>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				

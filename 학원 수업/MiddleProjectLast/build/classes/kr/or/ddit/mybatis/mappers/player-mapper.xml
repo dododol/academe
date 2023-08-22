@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="player">
+	 
+	 <select id="playerInfo" parameterType="String" resultType="playerVo">
+	 	SELECT * FROM PLAYER
+	 	WHERE P_ROLE like '%'||#{p_role}||'%'  	
+	 </select>
+	 
+	 <!-- P_NO에 해당되는 선수를 RETURN -->
+	 <select id="playerRecord" parameterType="int" resultType="playerVo">
+	 	SELECT A.P_NO, A.P_NAME, A.P_POSITION, A.P_AGE, A.P_SAL, TO_CHAR(A.P_HDATE, 'YYYY/MM/DD') P_HDATE, A.LR, A.GAME, A.MEM_ID, A.P_IMG1, A.P_IMG2 
+	 	FROM PLAYER A
+		WHERE  A.P_NO = #{p_no}
+	 </select>
+	 
+	 <!-- P_NO에 해당되는 PITCHER값 가져오기 -->
+	 <select id="playerPitcher" parameterType="int" resultType="pitcherVo">
+	 	SELECT A.p_no, B.wins, B.loses, B.era, B.ip, B.phr, B.pso, B.phits, B.pbb, B.hold, B.saves
+	 	FROM PITCHER B, PLAYER A 
+	 	WHERE  A.p_no = B.p_no  and A.p_no = #{p_no}
+	 </select>
+	 
+	 	 <!-- P_NO에 해당되는 BATTER값 가져오기 -->
+	 <select id="playerBatter" parameterType="int" resultType="batterVo">
+	 	SELECT A.p_no, B.*
+	 	FROM BATTER B, PLAYER A 
+	 	WHERE A.p_no = B.p_no
+        and A.p_no = #{p_no}
+	 </select>
+	 
+	 
+	 
+	
+	   <!-- LiveGame query --> 
+	   
+	   
+	   <select id="getPitcher" resultType="LpitcherVO">
+   		select
+   			a.p_no, a.p_name, a.p_position, a.lr, a.game, b.ip, b.phr, b.pso, b.phits, b.pbb
+   		from player a, pitcher b 
+        where a.p_no = b.p_no
+	   </select>
+	   
+	
+	   <select id="getBatter" resultType="LbatterVO">
+	   		select
+	   			a.p_no, a.p_name, a.p_position, a.lr, a.game, b.pa, b.singles, b.doubles, b.triples, b.hr, b.bb, b.rbi, b.strikeouts, b.hbp, b.lineup
+	   		from player a, batter b 
+	        where a.p_no = b.p_no
+	        order by lineup
+	   </select>
+	   
+	   <select id="getAway" parameterType="String" resultType="awayVO">
+	   		select
+	    		a.ap_order, a.a_name, a.ap_name, a.ap_position, b.a_image
+			from away_player a
+			join away b ON a.a_name = b.a_name
+			where a.a_name = #{a_name}
+	   </select>
+	 
+	 
+</mapper>

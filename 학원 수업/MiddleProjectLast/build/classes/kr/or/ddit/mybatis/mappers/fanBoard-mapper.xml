@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  이 문서는 mybatis에서 처리할 SQL문을 작성하는 문서입니다. -->
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="fanBoard">
+	
+	<!-- 게시글 등록 -->
+	<insert id="insertFanBoard" parameterType="fanVo" useGeneratedKeys="true">
+		<selectKey keyProperty="b_no" resultType="int" order="BEFORE">
+			select fanboard_seq.nextval from dual
+		</selectKey>
+		insert into board(
+			b_no, mem_id, b_title, b_content, b_date, b_hit
+		) values(
+			#{b_no},#{mem_id},#{b_title},#{b_content},sysdate,0
+		)
+	</insert>
+	
+	<!-- 조회수 증가로 사용하려 했으나 시퀀스 사용으로 안씀  -->
+	<select id="getMaxid" resultType="int">
+		select nvl(max(b_no),0) +1 maxid from board
+	</select>
+	
+	<!-- 전체 게시글 조회  -->
+	<select id ="selectFanBoardList" resultType="fanVo">
+		select b_no, b_title, b_content, mem_id, to_char(b_date,'yyyy-mm-dd') b_date, b_hit
+		from board
+		order by b_no desc
+	</select>
+	
+	<!-- 게시글 수정  -->		
+	<update id ="updateFanBoard" parameterType="fanVo">
+		
+		update board
+		set
+		b_title = #{b_title},
+		b_content = #{b_content}
+		where b_no = #{b_no}
+	
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id ="deleteFanBoard" parameterType="int">
+		delete from board where b_no = #{b_no}
+	</delete>
+	
+	<!-- 선택된 게시글 조회 -->
+	<select id ="selectFanBoard" parameterType="int"  resultType="fanVo">
+		select
+			b_no, b_title, b_content, mem_id, to_char(b_date,'yyyy-mm-dd') b_date, b_hit
+		from board
+		where b_no = #{b_no}
+	</select>
+	
+	<!-- 게시글 검색  -->
+	<select id="getSearchFanBoard" parameterType="String" resultType="fanVo">
+		select b_no, b_title, b_content, mem_id, to_char(b_date,'yyyy-mm-dd') b_date, b_hit 
+		from board 
+		where b_title like '%' || #{data} ||'%' 
+		
+	</select>
+	
+	
+	<!-- 게시글 조회수 증가 -->
+	<update id="setCountIncrement" parameterType="int">
+	
+		update board set b_hit= b_hit +1
+						where b_no = #{b_no}
+	
+	</update>
+	
+
+
+	
+	
+	
+		<!-- 동적쿼리  -->
+	<sql id="dynamicCondition">
+	   <where>
+	       <if test="!(stype == '' or sword == '')">
+	         ${stype} like  '%'||#{sword}||'%'
+	       </if>
+	   </where>
+	   
+	</sql>
+	
+	
+		<!-- 전체글갯수 구하기 -->
+	<select id="totalCount" resultType="int" parameterType="map">
+	   select count(*) from board 
+	      <include refid="dynamicCondition"/> 
+	</select>
+	
+	
+	
+		<!-- 페이지별 리스트 검색포함  -->
+	<select id="selectByFanPage" parameterType="map" resultType="fanVo">
+	  
+	  select A.* from (
+	     select rownum as rnum, B.*  from (
+	         select * from board 
+	         <include refid="dynamicCondition"/> 
+	         order by B_NO desc) B
+	         <![CDATA[
+	     where rownum <= #{end} ) A 
+	  where A.rnum >=#{start}
+	 ]]> 
+	</select>
+	
+	
+	
+</mapper>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				

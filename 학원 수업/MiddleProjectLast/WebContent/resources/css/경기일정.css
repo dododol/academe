@@ -1,0 +1,456 @@
+@charset "utf-8";
+/* CSS Document */
+html, body {
+   margin : 0px;
+   padding : 0px;
+}
+body *{
+   box-sizing : inherit;
+   margin: 0.5px;
+
+}
+footer{
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+   width : 100%;
+   height : 200px;
+	 background : black;
+	display : flex;
+   flex-direction: row; 
+}
+section{
+	width: 100%;
+   height : 2000px;
+    background: linear-gradient(
+            to bottom,
+            rgba(20, 20, 20, 0.3) 10%,
+            rgba(20, 20, 20, 0.95) 50%,
+            rgba(20, 20, 20, 1) 100%);
+		display : flex;
+   flex-direction: row; 
+}
+nav{
+	border-bottom: 1px solid #FFFFFF;
+   width : 100%;
+   height : 75px;
+   background : black;
+   display : flex;
+   flex-direction: low;
+}
+
+li{
+	color : white;
+	list-style-type: none;
+}
+header{
+	border-top: 1px solid #FFFFFF;
+	width:100%;
+	height:200px;
+	display : flex;
+   flex-direction: low;
+	background-color: black;
+}
+header img{
+	margin-left: 80%;
+	width: 700px;
+	height: 200px;
+
+}
+#imga{
+	height : 50px;
+}
+li {
+	display: inline-block;
+}	
+
+@font-face {
+    font-family: 'kbob';
+    src: url('KBO_bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'kbol';
+    src: url('KBO_light.ttf') format('truetype');
+}
+
+.main{
+	margin-top: 0px;
+	font-size: 25px;
+	margin-left: 22%;
+	font-family: 'kbob';
+	height: 50px;
+	
+	
+}
+#an{
+	font-family:'kbol'; 
+}
+
+.main a:link{
+color : whitesmoke;
+}
+
+.main a:visited{
+color : whitesmoke;
+}
+
+#ma:hover{
+color : #cd0c37;
+	transition: 0.5s;
+	cursor: pointer;
+
+}
+.main a{
+text-decoration: none;
+text-transform : none;
+color : whitesmoke;
+}
+
+.main a:active{
+text-decoration : none;
+color : whitesmoke;
+}
+.main li{
+	margin-right: 45px;
+}
+body{
+	background-image: url("../images/야구장.jpg");
+	background-size: contain;
+}
+
+.main li {
+  display: inline-block; /* 수정 */
+  padding: 0;
+  position: relative;
+}
+
+.main li ul {
+	
+   background-color: rgba( 0, 0, 0, 0 );
+  display: none;
+  height: 30px;	
+  position: absolute;
+  top: 100%;
+  width: 800px;
+  z-index: 200;
+	
+}
+
+.main li:hover ul { 
+ animation-play-state: paused;
+  display: block;
+	border-left : solid 5px #cd0c37;
+}
+
+.main li li {
+  display: inline-block; /* 수정 */
+  margin: 0;
+  padding: 0;
+	height: 50px;
+}
+
+.main li ul a {
+  display: block;
+  height: 80px;
+  font-size: 20px;
+  margin-top: 8px;
+	margin-left: -20px;
+  margin-right: 50px;
+}
+.an2 a:after {/*after 가상요소*/
+   display:block;/*a요소를 블록 요소라고 선언*/
+   content: '';/*comtent안은 밑줄 디자인을 위해 비워두세요.*/
+   border-bottom: solid 2px #cd0c37;
+   transform: scaleX(0);/*크기를 0으로 줌으로써 평상시엔 밑줄 없음*/
+   transition: transform 250ms ease-in-out; /*변형 방식*/
+}
+.an2 a:hover:after {
+   transform: scaleX(1);/*a 속성에 hover시 after를 기존 크기로 변경*/
+}
+#index_01{
+    width: 100%px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+#header1{
+    height: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 100px;
+    font-size: 1.5rem;
+}
+
+#slide1{
+    height: 600px;
+    overflow: hidden;
+}
+#slide1>ul{
+    width: 6000px;
+    font-size: 0;
+}
+#slide1>ul>li{
+    display: inline-block;
+    font-size: 0;
+}
+.log{
+	font-size : 15px;
+	float: right;
+	margin-left : 10px;
+	font-family:'kbol'; 
+}
+.log a:active{
+text-decoration : none;
+color : whitesmoke;
+}
+.log a:link{
+color : whitesmoke;
+}
+
+.log a:visited{
+color : whitesmoke;
+}
+
+.log a:hover{
+color : #cd0c37;
+	transition: 0.5s;
+	cursor: pointer;
+}
+.log a{
+text-decoration: none;
+text-transform : none;
+color : whitesmoke;
+}
+
+#log1 {
+	margin-left: 1000px;
+	margin-top: 10px;
+}
+#footh1{
+	margin-top: 30px;
+	color : #cd0c37;
+	height: 50px;
+	font-size : 50px;
+	font-family:'kbob'; 
+}
+p{
+	color : white;
+	height : 100px;
+    font-family:'kbol';
+	font-size : 20px;
+}
+#fut{
+	margin-left : 50px;
+}
+
+#top:hover{
+	color : white;
+}
+#top:active{
+	color : white;
+}
+#top:visited{
+	color : white;
+}
+#top:link{
+	color : white;
+}
+#top{
+margin-left:880px;
+	margin-top : 20px;
+text-decoration: none;
+text-transform : none;
+color : whitesmoke;
+font-size : 30px;
+font-family:'kbob'; 
+}
+#gamescheduleall{
+	width:auto;
+	height: auto;
+	
+}
+.gameschedule{
+	width : 800px;
+	height : 180px;
+	margin-bottom: 10px;
+	background-color: rgba(0, 0, 0, 0.85);
+	text-align: center;
+	border : solid 3px white;
+	margin-top: 20px;
+	margin-left: -40px;
+}
+.hometeam{
+	color:whitesmoke;
+	font-family:'kbob';
+	font-size:50px;
+	border-bottom: solid 2px darkred;
+}
+.verse{
+	color : red;
+	font-family:'kbob';
+	font-size:30px;
+
+}
+.awayteam{
+	color:whitesmoke;
+	font-family:'kbob';
+	font-size:50px;
+	border-bottom: solid 2px darkred;
+}
+.gamedate{
+	color:whitesmoke;
+	font-family:'kbol';
+	font-size:35px;
+	margin-right: 15px;
+
+}
+.gameday{
+	color:whitesmoke;
+	font-family:'kbol';
+	font-size:35px;
+	margin-right: 15px;
+
+}
+.gametime{
+	color:whitesmoke;
+	font-family:'kbol';
+	font-size:35px;
+	margin-right: 20px;
+
+}
+.gameplace{	
+	color:whitesmoke;
+	font-family:'kbol';
+	font-size:35px;
+	
+}
+.gameicon{
+	color : red;
+	font-size : 30px;
+
+}
+.nemo{
+	width : 100px;
+	height: 30px;
+	background: rgba(300, 0, 0, 0.85);
+	margin-left: 350px;
+	font-family:'kbob';
+	line-height: 34px;
+	font-size: 25px;
+	color: whitesmoke
+}
+.downtext {
+   margin-top: -20px;
+}
+.gamescheduleall {
+	margin-top: 100px;
+	margin-left: 420px;
+}
+.score{
+	text-align: center;
+	margin-left: 810px;
+	margin-top: -150px;
+	width:300px;
+	height: 160px;
+	border: solid 4px white;
+    padding-top: 20px;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+.scores{
+	color:whitesmoke;
+	font-size : 70px;
+	font-family:'kbob';
+	text-shadow: 3px 3px 0px #FD1014, 6px 6px 0px #970204, 7px 7px 0px #E3F2FD;
+}
+.thirteen{
+	display: inline-block;
+	height: 100px;
+	width:1900px;
+	padding-top: 22px;
+	background: rgba(200, 0, 0, 0.85);
+}
+.thirteen h1 {
+  position:relative; font-size:32px; font-weight:700;  letter-spacing:2px; text-transform:uppercase; width:200px; text-align:center; margin:auto; white-space:nowrap; border:2px solid #FFFFFF;padding:17px 11px 3px 11px;
+	color : whitesmoke;
+	font-family:'kbob';
+	height: 50px;
+}
+.thirteen h1:before, .thirteen h1:after {
+    background-color: whitesmoke;
+    position:absolute; 
+    content: '';
+    height: 15px;
+
+    width: 15px; border-radius:50%;
+    bottom: 30px;
+}
+.thirteen h1:before {
+   left:-40px;
+}
+.thirteen h1:after {
+   right:-40px;
+}
+
+.btn-2 {
+  background: rgb(200,0,0);
+  background: linear-gradient(0deg, rgba(200,0,0,1) 0%, rgba(230,0,0,1) 100%);
+  border: none;
+  color : whitesmoke;
+  width : 100px;
+	height: 40px;
+	font-size : 20px;
+	font-family:'kbol';
+
+}
+.btn-2:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-2:hover {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+.btwhich{
+	margin-top: 30px;
+	margin-bottom: -60px;
+}
+#beforebt6{
+	margin-right: 900px;
+}
+#beforebt7{
+	margin-right: 900px;
+}
+#beforebt8{
+	margin-right: 900px;
+}
+#beforebt9{
+	margin-right: 900px;
+}
+#nextbt6{
+	margin-right: 20px;
+}
+#nextbt7{
+	margin-right: 20px;
+}
+#nextbt8{
+	margin-right: 20px;
+}
+#nextbt9{
+	margin-right: 20px;
+}
+#augall{
+	text-align: center;
+}
+#julyall{
+  text-align: center;
+  display: none;
+}
+#juneall{
+	text-align: center;
+	display: none;
+}
+#sepall{
+	text-align: center;
+	display: none;
+}

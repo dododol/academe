@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="login">
+
+	<!-- 로그인 -->
+	<select id="getMemberLogin" parameterType="loginVo"
+		resultType="loginVo">
+		SELECT * FROM MEMBER
+		WHERE MEM_ID = #{mem_id} and MEM_PW = #{mem_pw}
+	</select>
+
+	<!-- 중복검사 -->
+	<select id="selectById" parameterType="String"
+		resultType="String">
+		SELECT MEM_ID
+		FROM MEMBER
+		WHERE MEM_ID = #{mem_id}
+	</select>
+
+	<!-- 비밀번화 확인 -->
+	<select id="selectByPw" parameterType="String"
+		resultType="String">
+		SELECT MEM_PW
+		FROM MEMBER
+		WHERE MEM_PW = #{mem_pw}
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="insertMemberInfo" parameterType="loginVo">
+		INSERT INTO MEMBER
+		(MEM_ID, MEM_PW, MEM_NAME, MEM_NUM, MEM_MAIL, MEM_TEL, MEM_ADDRNUM,
+		MEM_ADDR1, MEM_ADDR2)
+		VALUES
+		(#{mem_id}, #{mem_pw}, #{mem_name},
+		#{mem_num}, #{mem_mail}, #{mem_tel}, #{mem_addrnum}, #{mem_addr1},
+		#{mem_addr2})
+	</insert>
+
+	<!-- 고객 조회 -->
+	<select id="getMemberAll" resultType="loginVo">
+		SELECT MEM_ID, MEM_NAME, MEM_TEL, MEM_MAIL, MEM_NUM, MEM_ADDR1
+		FROM MEMBER
+		WHERE MEM_ID &lt;&gt;'admin'
+	</select>
+
+	<!-- 회원정보 수정 -->
+	<update id="updateMemberInfo" parameterType="loginVo">
+		update member
+		set mem_pw = #{mem_pw},
+		mem_mail = #{mem_mail},
+		mem_tel = #{mem_tel},
+		mem_addrnum = #{mem_addrnum},
+		mem_addr1 = #{mem_addr1},
+		mem_addr2 = #{mem_addr2}
+		where mem_id = #{mem_id}
+	</update>
+
+
+	<!-- 로그인시 사용자 입력정보 조회 -->
+	<select id="selectAllInfo" parameterType="String"
+		resultType="loginVo">
+		select *
+		from member
+		where mem_id = #{mem_id}
+	</select>
+
+	<!-- 회원탈퇴 -->
+	<delete id="deleteMember" parameterType="String">
+		delete from member
+		where mem_id = #{mem_id}
+	</delete>
+
+	<!-- 비밀번호 찾기 -->
+	<update id="updatePass" parameterType="loginVo">
+		UPDATE MEMBER
+		SET MEM_PW = #{mem_pw}
+		WHERE MEM_ID = #{mem_id} AND MEM_NAME = #{mem_name} AND MEM_NUM =
+		#{mem_num}
+	</update>
+
+	<!-- 비밀번호 전송 -->
+	<select id="passWord" resultType="String"
+		parameterType="loginVo">
+		SELECT MEM_PW FROM MEMBER WHERE MEM_ID = #{mem_id} AND MEM_NAME =
+		#{mem_name} AND MEM_NUM = #{mem_num}
+	</select>
+
+	<!-- 아이디 전송 -->
+	<select id="idSearch" resultType="String"
+		parameterType="loginVo">
+		SELECT MEM_ID FROM MEMBER WHERE MEM_NAME = #{mem_name} AND MEM_NUM =
+		#{mem_num}
+	</select>
+
+
+
+
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="ticket">
+	 
+	 <!-- 경기 일정 -->
+	 <select id="ticketMatchList" resultType="matchVo">
+	 	SELECT TO_CHAR(M_DATE, 'YYYY/MM/DD') M_DATE, M_NOTE, M_LOC, M_PEOPLE, M_RESULT, M_TIME, M_DAY, M_SCORE, A_NAME 
+	 	FROM MATCH
+	 </select>
+	 
+	  <!-- 구간 (가격) -->
+	 <select id="ticketSectionList" resultType="ticketVo">
+	 	SELECT S_SECTION, S_PRICE 
+	 	FROM SEAT
+	 </select>
+	 
+	 <!-- 예매 -->
+	 <select id="ticketBookingList" resultType="ticketVo">
+	 	SELECT * FROM BOOKING
+	 </select>
+	 
+	 <!-- 티켓 -->
+	 <select id="ticketTicketList" resultType="ticketVo">
+	 	SELECT * FROM TICKET
+	 </select>
+	 
+	 <!-- 상대팀 구단 이미지 -->
+	 <select id="ticketAwayImg" resultType="matchVo">
+	 	SELECT * FROM AWAY
+	 </select> 
+	 
+	 
+	 
+	 <!-- 티켓구매확인 1 -->
+    <insert id="ticketPurchase1" parameterType="ticketVo">
+       INSERT INTO BOOKING (B_NUM, M_DATE, S_SECTION, B_SEAT, B_PRICE, MEM_ID, B_BDATE, B_STAT, B_TOTALPRICE, B_COUNTTTICKET, A_NAME)
+       VALUES (SYSDATE||'_'||LPAD((TICKET_NO.nextval), 3, '0'), #{m_date}, #{s_section}, #{b_seat}, #{b_price}, #{mem_id}, sysdate, '완료', #{b_totalprice}, #{b_counttticket}, #{a_name})
+    </insert>
+    
+    <!-- 티켓 확인 -->
+   <select id="getTicket" resultType="ticketVo" parameterType="String">
+    select *
+   from booking
+   where mem_id = #{mem_id}
+   </select>
+   
+   <!-- 티켓 취소 전 환불테이블에 값넣기 -->
+   <insert id="insertRefund" parameterType="int">
+      insert into refund (b_num, m_date, r_refund)
+      select b_num, m_date, b_price
+      from booking
+      where b_num=#{b_num}
+   </insert>
+   
+   <!-- 티켓 취소 -->
+   <update id="cancelTicket" parameterType="String">
+   update booking
+   set b_seat = null,
+    s_section = null,
+    b_stat = '결제취소'
+   where b_num = #{b_num}
+   </update>
+   
+   <!-- 좌석 구간 확인 (disabled) -->
+   <select id="ticketList" resultType="ticketVo">
+      SELECT * FROM SEAT S, BOOKING B
+      WHERE S.S_SECTION = B.S_SECTION AND B.B_STAT='완료'
+   </select>
+   
+   
+   
+	
+</mapper>

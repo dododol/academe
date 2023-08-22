@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.searcid {
+  background: rgb(150,0,0);
+  background: linear-gradient(0deg, rgba(150,0,0,1) 0%, rgba(300,0,0,1) 100%);
+  border: none;
+  color : white;
+  font-family:'kbol';
+  font-size : 15px;
+  border-radius:10px;
+  width : 100px;
+  height : 35px;
+}
+.searcid:hover {
+   background: rgb(0,3,255);
+background: linear-gradient(0deg, rgba(255,3,0,1) 0%, rgba(251,126,2,1) 100%);
+}
+@font-face {
+    font-family: 'kbol';
+    src: url('KBO_light.ttf') format('truetype');
+}

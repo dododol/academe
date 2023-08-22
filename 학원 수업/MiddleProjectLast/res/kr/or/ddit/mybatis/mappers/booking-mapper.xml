@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 이 문서는 mybatis에서 처리할 SQL문을 작성하는 문서입니다. -->
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Booking">
+
+	<select id="allPrice8" resultType="bkVO">
+		select b_num, m_date, b_seat, b_price, s_section, mem_id, b_bdate, b_stat,
+		b_totalprice, b_counttticket, a_name
+		from booking
+		where TO_CHAR(B_BDATE, 'MM') = '08'
+	</select>
+
+	<select id="allPrice7" resultType="bkVO">
+		select b_num, m_date, b_seat, b_price, s_section, mem_id, b_bdate, b_stat,
+		b_totalprice, b_counttticket, a_name
+		from booking
+		where TO_CHAR(B_BDATE, 'MM') = '07'
+	</select>
+
+	<select id="allPrice6" resultType="bkVO">
+		select b_num, m_date, b_seat, b_price, s_section, mem_id, b_bdate, b_stat,
+		b_totalprice, b_counttticket, a_name
+		from booking
+		where TO_CHAR(B_BDATE, 'MM') = '06'
+	</select>
+
+
+	<select id="refundList" resultType="refundVO">
+		select b_num, m_date,
+		r_refund
+		from refund
+	</select>
+
+	<select id="allPrice9" resultType="bkVO">
+		select b_num, m_date, b_seat, b_price, s_section, mem_id, b_bdate, b_stat,
+		b_totalprice, b_counttticket, a_name
+		from booking
+		where TO_CHAR(B_BDATE, 'MM') = '09'
+	</select>
+
+	<select id="refundPrice6" resultType="refundVO">
+		select b_num, m_date,
+		r_refund
+		from refund
+		where TO_CHAR(m_date, 'MM') = '06'
+	</select>
+
+	<select id="refundPrice7" resultType="refundVO">
+		select b_num, m_date,
+		r_refund
+		from refund
+		where TO_CHAR(m_date, 'MM') = '07'
+	</select>
+
+	<select id="refundPrice8" resultType="refundVO">
+		select b_num, m_date,
+		r_refund
+		from refund
+		where TO_CHAR(m_date, 'MM') = '08'
+	</select>
+
+	<select id="refundPrice9" resultType="refundVO">
+		select b_num, m_date,
+		r_refund
+		from refund
+		where TO_CHAR(m_date, 'MM') = '09'
+	</select>
+
+	<select id="allTicket" resultType="bkVO">
+		select *
+		from booking
+		where b_seat &lt;&gt; '0' 
+		order by m_date desc
+	</select>
+
+	<insert id="insertRefundA" parameterType="int">
+		insert into refund (b_num, m_date, r_refund)
+		select b_num, m_date, b_price
+		from booking
+		where b_num=#{b_num}
+	</insert>
+
+	<update id="cancelTicketA" parameterType="String">
+		update booking
+		set b_seat = null,
+		s_section = null,
+		b_stat = '결제취소'
+		where b_num = #{b_num}
+	</update>
+
+	<select id="refundTicketList" resultType="bkVO">
+		select *
+		from booking
+		where b_stat &lt;&gt; '완료'
+	</select>
+
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="match">
+	 
+	 
+	 <!-- 경기 일정, 예매 -->
+	 <select id="matchList" resultType="matchVo" parameterType="String">
+	 	SELECT TO_CHAR(B.M_DATE, 'YYYY/MM/DD') M_DATE, B.M_DAY, B.M_TIME, B.A_NAME, A.A_IMAGE, B.M_HW
+	 	FROM MATCH B, AWAY A
+	 	WHERE A.A_NAME=B.A_NAME
+	 </select>
+	 
+	  <!-- 경기 예매 -->
+    <select id="matchList2" resultType="matchVo">
+       SELECT TO_CHAR(B.M_DATE, 'YYYY/MM/DD') M_DATE, B.M_DAY, B.M_TIME, B.A_NAME, A.A_IMAGE
+       FROM MATCH B, AWAY A
+       WHERE A.A_NAME=B.A_NAME AND M_DATE > SYSDATE
+       ORDER BY M_DATE ASC
+    </select>
+	 
+	 
+	 
+	 <!-- 구간 결정  -->
+	 <select id="ticketChoice" resultType="ticketVo" parameterType="ticketVo">
+	 	SELECT S.S_SECTION, S.S_PRICE, M.M_DATE, T.T_SEAT, COUNT(T.T_NO) T_NO
+	 	FROM SEAT S, MATCH M, TICKET T
+        WHERE S.S_SECTION = #{s_section} AND M.M_DATE = #{t.m_date}
+        group by S.S_SECTION, S.S_PRICE, M.M_DATE, T.T_SEAT
+	 </select>
+	 
+	 <!-- 구간 (가격) -->
+	 <select id="sectionPrice" resultType="ticketVo">
+	 	SELECT S_SECTION, S_PRICE 
+	 	FROM SEAT
+	 </select>
+	 
+	 <!-- 경기일정 전용 리스트출력 메소드 -GC -->
+	 <select id="getMatch" resultType="matchVo">
+      select 
+      to_char(m_date, 'yyyy/mm/dd') as m_date,
+      m_note,
+      m_loc,
+      m_people,
+      m_result,
+      m_time,
+      m_day,
+      m_score,
+      a_name,
+      m_hw   
+        from match
+        ORDER BY M_DATE ASC
+   </select>
+	 
+</mapper>

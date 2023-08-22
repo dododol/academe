@@ -1,0 +1,233 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+.snip1143 {
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+	margin-top: 30px;
+}
+.upnav img{
+	width: 100px;
+	float :left;
+	margin-left: 50px;
+	margin-right: -100px;
+}
+.snip1143 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1143 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+.snip1143 a {
+  padding: 0.3em 0;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+.snip1143 a:before,
+.snip1143 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1143 a:before {
+  top: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #c0392b;
+}
+.snip1143 a:after {
+  padding: 0.3em 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: white;
+  white-space: nowrap;
+}
+.snip1143 li:hover a,
+.snip1143 .current a {
+  transform: translateY(-100%);
+}
+  /* Demo purposes only */
+
+html {
+  height: 100%;
+}
+body {
+  background-color: #212121;
+  display: flex;
+  flex-direction: column; 
+  height: 2500px;
+}
+@font-face {
+    font-family: 'kbol';
+    src: url('KBO_light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'kbob';
+    src: url('KBO_bold.ttf') format('truetype');
+}
+.upnav {
+	width : 100%;
+	height: 100px;
+	background-color: black;
+	display:block;
+}
+.tiketlist{
+	width : 1800px;
+	margin : auto;
+}
+table {
+	width : 100%;
+	color : whitesmoke;
+	font-family:'kbol';
+	margin-bottom: 1700px;
+}
+th{
+	margin-bottom: 100px;
+	text-align: center;
+	letter-spacing : 15px;
+	border-bottom: solid 1px #FFFFFF;
+	line-height: 40px;
+}
+#th1{
+	width : 100px;
+}
+#th2{
+	width : 150px;
+}
+#th3{
+	width :600px;
+}
+#th4{
+	width : 120px;
+}
+#th5{
+	width : 120px;
+}
+#tnum{
+	font-size: 25px;
+	text-align: center;
+}
+#tiketnum{
+	line-height: 30px;
+	margin-left: 70px;
+	border-bottom : solid 1px white;
+	width : 50px;
+}
+#listgdate1{
+	font-size: 25px;
+	text-align: center;
+}
+#listgdate2{
+	font-size: 20px;
+	text-align: center;
+	letter-spacing : 8px;
+	color:#FF5053;
+}
+#listgamedate{
+	line-height: 30px;
+	margin-left: 70px;
+	border-bottom : solid 1px white;
+}
+#verse {
+	display: inline-block;
+	font-size: 25px;
+	font-family:'kbol';
+	margin-right: 20px;
+}
+#hometeam{
+	display: inline-block;
+	font-size: 25px;
+	font-family:'kbol';
+	width : 200px;
+	letter-spacing : 4px;
+	margin-left: 52px;
+}
+#awayteam{
+	display: inline-block;
+	font-size: 25px;
+	font-family:'kbol';
+	width : auto;
+	margin-right: 25px;
+	letter-spacing : 4px;
+}
+#listgamename{
+	text-align: center;
+	border-bottom : solid 1px white;
+}
+#tiketcancel {
+	width : 120px;
+	height: 50px;
+	font-size : 20px;
+	font-family:'kbob';
+	background-color: rgba( 0, 0, 0, 0 );
+	border : solid 3px white;
+	color : whitesmoke
+}
+#cancel {
+	text-align: center;
+	border-bottom : solid 1px white;
+}
+#tiketcancel:hover {
+	background: #cd0c37;
+	background-color: rgba( 109, 0, 0, 0.8 );
+}
+
+#1stlist{
+	border : solid 1px white;
+}
+#all{
+	display : inherit;
+}
+#gameplase{
+	display: inline-block;
+	font-family:'kbol';
+	font-size: 25px;
+	margin-right: 10px;
+	letter-spacing : 3px;
+	color : darkred;
+}
+#siteinfo{
+	display: inline-block;
+	font-family:'kbol';
+	font-size: 25px;
+	margin-right: 25px;
+}
+#num{
+	display: inline-block;
+	font-family:'kbol';
+	font-size: 25px;
+	margin-right: 10px;
+}
+#allpay{
+	display: inline-block;
+	font-family:'kbol';
+	font-size: 25px;
+}
+#tiketsangte{
+	border-bottom : solid 1px white;
+}
+#sangte {
+	text-align: center;
+	font-size: 25px;
+	letter-spacing : 5px;
+	font-family:'kbol';
+}
+#section {
+	font-size : 25px;
+	display: inline-block;
+}
