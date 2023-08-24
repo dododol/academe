@@ -1,0 +1,1 @@
+# (책보고)자바에 있는 animal, human, boolean 파이썬으로 만들기
