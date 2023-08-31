@@ -23,7 +23,7 @@ public class MySwing09 extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		});
+		}); 
 	}
 
 	/**
