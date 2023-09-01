@@ -15,7 +15,5 @@ curs.execute(sql)
 rows = curs.fetchall()
 print(rows)   
 
+curs.close()
 conn.close()
-
-rows = curs.fetchall()
-print(rows)
