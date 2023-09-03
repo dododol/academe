@@ -186,9 +186,9 @@ public class BoardController {
 		int status = service.deleteBoard(bo_no);
 		
 		if(status > 0) {
-			System.out.println(":: 게시글 삭제 완료!");
+			System.out.println("::: 게시글 삭제 완료!");
 		} else {
-			System.out.println(":: 게시글 삭제 실패~");
+			System.out.println("::: 게시글 삭제 실패~");
 		}
 	}
 	
