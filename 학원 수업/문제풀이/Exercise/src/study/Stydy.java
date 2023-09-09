@@ -29,7 +29,9 @@ class Study1 {
 		System.out.println("�꽠�뵪�삩�룄 = " + a);
 		System.out.println("�솕�뵪�삩�룄 = " + b);
 		System.out.println("�솕�뵪�삩�룄 = " + c);
+		System.out.println("======================");
 	}
+	
 
 	void method2() {
 		
