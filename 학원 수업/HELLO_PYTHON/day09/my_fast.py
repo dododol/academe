@@ -25,12 +25,12 @@ async def post(menu:str = Form()):
 @app.get("/forw", response_class=HTMLResponse)
 async def forw(request : Request):
     a = '홍길동'
-    b = ['베어그릴스', '솔로지옥', '정글의법칙']
+    b = ['베어그릴스', '솔로지옥', '정글의 법칙']
     c = [
-            {'e_id': 1, 'e_name': '1', 'gen': '1', 'addr': '1'},
-            {'e_id': 2, 'e_name': '2', 'gen': '2', 'addr': '2'},
+        {'e_id':1, 'e_name': '1', 'gen':'1', 'addr':'1'},
+        {'e_id':2, 'e_name': '2', 'gen':'2', 'addr':'2'},
     ]
-    return templates.TemplateResponse("forw.html", {"request" : request, "a": a, "b": b , "c":c})
+    return templates.TemplateResponse("forw.html", {"request" : request,"a" : a ,"b": b, "c" : c })
 
 if __name__ =="__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

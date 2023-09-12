@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.it_dan{
+	width:30px;
+}
+div[name='mydiv']{
+	height:80px;
+}
+</style>
+<script>
+function gugudan(){
+	
+    const danInput = document.querySelector('.it_dan');
+    const dan = parseInt(danInput.value);
+
+    
+    let resultHTML = "";
+
+    
+    for (let j = 1; j < 10; j++) {
+        resultHTML += dan + "x" + j + "=" + dan * j + "<br>";
+    }
+
+    
+    const mydiv = document.querySelector('div[name="mydiv"]');
+    mydiv.innerHTML = resultHTML;
+}       
+</script>
+</head>
+<body>
+<table border="1px">
+	<tr>
+		<td>출력단수</td>
+		<td>
+			<input type="text" class="it_dan">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="출력하기" onclick="gugudan()">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div name="mydiv"></div>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

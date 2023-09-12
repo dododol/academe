@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#it1,#it2,#it3{
+	width: 30px;
+}
+</style>
+
+<script type="text/javascript">
+function change() {
+     var num1 = document.getElementById("it1");
+     var num2 = document.getElementById("it2");
+     var num3 = document.getElementById("it3");
+     
+     var add = parseInt(num1.value) + parseInt(num2.value);
+     num3.value = add;
+}
+</script>
+</head>
+<body>
+<input type="text" id="it1">
++
+<input type="text" id="it2">
+<input type="button" value="=" onclick="change()">
+<input type="text" id="it3">
+</body>
+</html>

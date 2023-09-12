@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+<style>
+.it_dan{
+   width: 30px;
+}
+div[name='mydiv']{
+   height: 200px;
+}
+</style>
+<script type="text/javascript">
+function myclick(){
+   
+   var dan = $(".it_dan").val();
+   var idan = parseInt(dan);
+   
+   var txt = "";
+   txt +=  dan +" x "+1+" = "+(idan*1)+"<br/>";
+   txt +=  dan +" x "+2+" = "+(idan*2)+"<br/>";
+   txt +=  dan +" x "+3+" = "+(idan*3)+"<br/>";
+   txt +=  dan +" x "+4+" = "+(idan*4)+"<br/>";
+   txt +=  dan +" x "+5+" = "+(idan*5)+"<br/>";
+   txt +=  dan +" x "+6+" = "+(idan*6)+"<br/>";
+   txt +=  dan +" x "+7+" = "+(idan*7)+"<br/>";
+   txt +=  dan +" x "+8+" = "+(idan*8)+"<br/>";
+   txt +=  dan +" x "+9+" = "+(idan*9)+"<br/>";
+
+   $("div[name='mydiv']").html(txt)
+}
+
+$(document).ready(function() {
+   $("#btn").bind("click", function() {
+      myclick();
+   });
+});
+</script>
+</head>
+<body>
+<table border="2">
+   <tr>
+      <th>출력단수</th>
+      <th><input type="text" class="it_dan" /></th>
+   </tr>
+   <tr>
+      <td colspan=2>
+         <input type="button" value="출력하기" id="btn">
+      </td>      
+   </tr>
+   <tr>
+      <td colspan=2>
+         <div name="mydiv"></div>
+      </td>      
+   </tr>
+   
+</table>
+</body>
+</html>

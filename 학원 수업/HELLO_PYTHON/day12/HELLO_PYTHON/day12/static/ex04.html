@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#it_mine, #it_com, #it_result{
+   width : 40px;
+}
+</style>
+<script>
+        function game() {
+            var choices = ["가위", "바위", "보"];
+            var me = document.getElementById("it_mine");
+            var com = document.getElementById("it_com");
+            var result = document.getElementById("it_result");
+
+            // 사용자의 선택 가져오기
+            var userChoice = me.value;
+
+            // 컴퓨터의 선택 무작위로 생성
+            var randomIndex = Math.floor(Math.random() * 3);
+            var computerChoice = choices[randomIndex];
+
+            // 컴퓨터의 선택을 화면에 표시
+            com.value = computerChoice;
+
+            // 게임 결과 계산
+            if (userChoice === computerChoice) {
+                result.value = "무승부";
+            } else if (
+                (userChoice === "가위" && computerChoice === "보") ||
+                (userChoice === "바위" && computerChoice === "가위") ||
+                (userChoice === "보" && computerChoice === "바위")
+            ) {
+                result.value = "승리!";
+            } else {
+                result.value = "패배ㅠㅠ";
+            }
+        }
+    </script>
+</head>
+<body>
+<table border="1px">
+   <tr>
+      <td>나 : </td>
+      <td>
+         <input type="text" id="it_mine" />
+      </td>
+   </tr>
+   
+   <tr>
+      <td>컴 : </td>
+      <td>
+         <input type="text" id="it_com" />
+      </td>
+   </tr>
+   
+   <tr>
+      <td>결과 : </td>
+      <td>
+         <input type="text" id="it_result" />
+      </td>
+   </tr>
+   
+   <tr>
+      <td colspan="2">
+         <input type="button" value="게임하기" onclick="game()" />
+      </td>
+   </tr>
+</table>
+</body>
+</html>

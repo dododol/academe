@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#id_first, #id_last {width:40px;}
+#mydiv {height:200px;}
+</style>
+<script>
+function star() {
+  // Get the values from the input fields
+  var firstValue = parseInt(document.getElementById('id_first').value);
+  var lastValue = parseInt(document.getElementById('id_last').value);
+
+  // Validate the input
+  if (isNaN(firstValue) || isNaN(lastValue)) {
+    alert('Please enter valid numeric values for 시작 별수 and 끝 별수.');
+    return;
+  }
+
+  // Clear the existing content in the mydiv
+  document.getElementById('mydiv').innerHTML = '';
+
+  // Loop through and draw stars
+  for (var i = firstValue; i <= lastValue; i++) {
+    var starHTML = '';
+    for (var j = 0; j < i; j++) {
+      starHTML += '*';
+    }
+    starHTML += '<br>';
+    document.getElementById('mydiv').innerHTML += starHTML;
+  }
+}
+</script>
+</head>
+<body>
+<table border="1">
+  <tr>
+    <td>시작 별수 :
+      <input type="text" id="id_first" />
+    </td>
+  </tr>
+  <tr>
+    <td>끝 별수 :
+      <input type="text" id="id_last" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">그리기
+      <input type="button" value="별그리기" onclick="star()" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div id="mydiv"></div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
