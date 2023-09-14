@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-3.7.1.js"></script>
+<script>
+function fn_list(){
+ var params = {
+      'e_id' : '짬뽕'
+   };
+   
+   $.ajax({
+      url: "../exam_select",
+      type: "post",
+      data: JSON.stringify(params),
+      dataType: "json",
+      contentType: "application/json",
+      success: function(resp) {
+         var list = resp.list;
+         var html = "";
+         for(var i = 0; i<list.length; i++){
+            var e = list[i];
+            html+=`
+             <tr>
+                <td><a href="javascript:fn_one('${e.e_id}')">${e.e_id}</a></td>
+                <td>${e.m_id}</td>
+                <td>${e.kor}</td>
+                <td>${e.eng}</td>
+                <td>${e.math}</td>
+             </tr>
+            `;
+         }
+         $("#my_tbody").html(html);
+         
+      }
+   });
+};
+function fn_one(e_id){
+   var params = {
+            'e_id' : e_id,
+         };
+   $.ajax({
+         url: "../exam_select_one",
+         type: "post",
+         data: JSON.stringify(params),
+         dataType: "json",
+         contentType: "application/json",
+         success: function(resp) {
+            var exam = resp.exam;
+            $("#e_id").val(exam.e_id);
+            $("#m_id").val(exam.m_id);
+            $("#kor").val(exam.kor);
+            $("#eng").val(exam.eng);
+            $("#math").val(exam.math);
+         }
+   });
+}
+
+function fn_add(){
+   var params = {
+            'm_id' : $("#m_id").val(),
+            'kor' : $("#kor").val(),
+            'eng' : $("#eng").val(),
+            'math' : $("#math").val()
+         };
+   
+   $.ajax({
+         url: "../exam_insert",
+         type: "post",
+         data: JSON.stringify(params),
+         dataType: "json",
+         contentType: "application/json",
+         success: function(resp) {
+            var cnt = resp.cnt;
+            if(cnt ==1) {
+               alert("정상적으로 추가되었습니다.")
+               fn_list();
+               $("#m_id").val("");
+               $("#kor").val("");
+               $("#eng").val("");
+               $("#math").val("");
+            }else{
+               alert("추가도중에 문제가 생겼습니다.")
+            }
+         }
+   });
+}
+
+function fn_mod(){
+   var params = {
+            'e_id' : $("#e_id").val(),
+            'm_id' : $("#m_id").val(),
+            'kor' : $("#kor").val(),
+            'eng' : $("#eng").val(),
+            'math' : $("#math").val()
+         };
+   
+   $.ajax({
+         url: "../exam_update",
+         type: "post",
+         data: JSON.stringify(params),
+         dataType: "json",
+         contentType: "application/json",
+         success: function(resp) {
+            var cnt = resp.cnt;
+            if(cnt ==1) {
+               alert("정상적으로 수정되었습니다.")
+               fn_list();
+               $("#e_id").val("");
+               $("#m_id").val("");
+               $("#kor").val("");
+               $("#eng").val("");
+               $("#math").val("");
+            }else{
+               alert("수정도중에 문제가 생겼습니다.")
+            }
+         }
+   });
+}
+
+
+$(document).ready(function(){
+      fn_list();         
+   });   
+ 
+function fn_del(){
+	var params = {
+			e_id : $("#e_id").val()
+			};
+			
+			$.ajax({
+				url : "../exam_delete",
+				type : "post",
+				data : JSON.stringify(params),
+				dataType : "json",
+				contentType : "application/json",
+				success : function(resp) {
+				 var cnt=resp.cnt;
+				 if(cnt==1){
+					 $("#e_id").val("");
+		               $("#m_id").val("");
+		               $("#kor").val("");
+		               $("#eng").val("");
+		               $("#math").val("");
+				 }else{
+					 alert("삭제안됨!!");
+				 }
+				}
+			});
+		}
+
+   
+$(document).ready(function(){
+   fn_list();         
+});
+</script>
+</head>
+<body>
+EXAM
+<table border="1px">
+   <thead>
+      <tr>
+         <td>시험번호</td>
+         <td>응시자번호</td>
+         <td>국어</td>
+         <td>영어</td>
+         <td>수학</td>
+      </tr>
+   </thead>
+   <tbody id="my_tbody">
+      <tr>
+         <td colspan="5">
+         데이터가 없습니다.
+         </td>
+      </tr>
+   </tbody>
+</table>
+<table border="1px">
+   <tr>
+      <td>시험번호</td>
+      <td>
+         <input type="text" id="e_id" readonly/>
+      </td>
+   </tr>
+   <tr>
+      <td>응시자번호</td>
+      <td>
+         <input type="text" id="m_id"/>
+      </td>
+   </tr>
+   <tr>
+      <td>국어</td>
+      <td>
+         <input type="text" id="kor"/>
+      </td>
+   </tr>
+   <tr>
+      <td>영어</td>
+      <td>
+         <input type="text" id="eng"/>
+      </td>
+   </tr>
+   <tr>
+      <td>수학</td>
+      <td>
+         <input type="text" id="math"/>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="3">
+         <input type="button" value="추가" onclick="fn_add()"/>
+         <input type="button" value="수정" onclick="fn_mod()"/>
+         <input type="button" value="삭제" onclick="fn_del()"/>
+      </td>
+   </tr>
+</table>
+</body>
+</html>
