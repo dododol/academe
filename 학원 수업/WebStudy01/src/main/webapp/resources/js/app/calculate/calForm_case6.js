@@ -9,21 +9,19 @@ $(function(){ // ${document).on("load|ready", function(){});
         event.preventDefault();
 	        let url = this.action;
 	        let method = this.method;
-	        let data = $(this).serialize();   //query String
+	        let data = $(this).serializeJSON();   //query String
+			console.log("serializeJSON 함수의 결과, ", data);
+			let json = JSON.stringify(data);
+			console.log("data marshalling : ", json);
 	        let settings = {
        		  url : url,
         	  method : method,
-         	  data : data,
+         	  data : json,
+			  contentType : "application/json;charset=UTF-8",
          	  dataType : "json" //Accept request header : Content-Type response header
         	  ,
          	  success : function(resp) {
-				let expr = null;
-				if(resp.calVO) {
-					expr = resp.calVO.expression					
-				}else {
-					expr = JSON.stringify( resp.errors );
-				}
-            	$(resultArea).html(expr);
+            	$(resultArea).html(resp.calVO.expression);
         	  },
          	  error : function(jqXhr, status, error) {
            		 console.log("jqXhr : ", jqXhr);

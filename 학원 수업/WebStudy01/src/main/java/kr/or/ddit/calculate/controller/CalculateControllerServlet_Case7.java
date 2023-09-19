@@ -1,6 +1,7 @@
 package kr.or.ddit.calculate.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -10,17 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import kr.or.ddit.calculate.NumericOperatorType;
 import kr.or.ddit.vo.CalculateVO;
 
-@WebServlet("/calculate/case5")
-public class CalculateControllerServlet_Case5 extends HttpServlet {
+@WebServlet("/calculate/case7")
+public class CalculateControllerServlet_Case7 extends HttpServlet {
    /**
     * UI 제공
     */
    @Override
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      String goPage = "/WEB-INF/views/calculate/case5/calForm.jsp";
+      String goPage = "/WEB-INF/views/calculate/case7/calForm.jsp";
 
       if (goPage.startsWith("redirect:")) {
          String location = req.getContextPath() + goPage.substring("redirect:".length());
@@ -29,7 +32,16 @@ public class CalculateControllerServlet_Case5 extends HttpServlet {
          req.getRequestDispatcher(goPage).forward(req, resp);
       }
    }
-
+   
+   private CalculateVO getCalculateVOFromJson(HttpServletRequest req)throws Exception {
+      try(
+         InputStream is = req.getInputStream();
+      ){
+         ObjectMapper mapper = new ObjectMapper();
+         return mapper.readValue(is, CalculateVO.class);
+      }
+   }
+   
    private boolean validate(HttpServletRequest req, Map<String, String> errors) {
       boolean valid = true;
       String leftParam = req.getParameter("leftOp");
@@ -50,42 +62,72 @@ public class CalculateControllerServlet_Case5 extends HttpServlet {
       if (opParam == null || opParam.trim().isEmpty()) {
          valid &= false;
          errors.put("opParam", "연산자 누락");
-      }else {
+      } else {
          try {
             NumericOperatorType.valueOf(opParam);
-         }catch (IllegalArgumentException e) {
+         } catch (IllegalArgumentException e) {
             valid &= false;
             errors.put("opParam", "연산자 종류 오류");
          }
       }
       return valid;
    }
-
+   
+   private CalculateVO getCalculateVOFromParameter(HttpServletRequest req) throws Exception {
+      Map<String, String> errors = new LinkedHashMap<>();
+      if(validate(req, errors)) {
+         String leftParam = req.getParameter("leftOp");
+         String rightParam = req.getParameter("rightOp");
+         String opParam = req.getParameter("operator");
+         
+         int leftOp = Integer.parseInt(leftParam);
+         int rightOp = Integer.parseInt(rightParam);
+         NumericOperatorType operator = NumericOperatorType.valueOf(opParam);
+         
+         return new CalculateVO(leftOp, rightOp, operator);
+      }else {
+         throw new Exception(errors.toString());
+      }
+   }
+   
    /**
     * UI 를 통해 입력한 데이터(parameter) 처리
     */
    @Override
    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       req.setCharacterEncoding("UTF-8");
-      String leftParam = req.getParameter("leftOp");
-      String rightParam = req.getParameter("rightOp");
-      String opParam = req.getParameter("operator");
       
-      String goPage = null;
-      Map<String, String> errors = new LinkedHashMap<>();
-      req.setAttribute("errors", errors);
-      if (validate(req, errors)) {
-         int leftOp = Integer.parseInt(leftParam);
-         int rightOp = Integer.parseInt(rightParam);
-         NumericOperatorType operator = NumericOperatorType.valueOf(opParam);
-
-         CalculateVO calVO = new CalculateVO(leftOp, rightOp, operator);
-          
-         req.setAttribute("calVO", calVO);
-         goPage = "/jsonView.view";
-      } else {
-         goPage = "/jsonView.view";
+      String requestContentType = req.getContentType();
+      
+//      deSerialization -> urMarshalling
+      int sc = 200;
+      String message = null;
+      CalculateVO calVO =null;
+      try{
+         
+         if(requestContentType.contains("json")) {
+            calVO = getCalculateVOFromJson(req);
+         }else if(requestContentType.contains("xml")) {
+            sc = HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE;
+         }
+         else {
+            calVO = getCalculateVOFromParameter(req);
+         }
+         
+         
+      }catch (Exception e) {
+         sc=400;
+         message = e.getMessage();
       }
+      
+      if(sc!=200) {
+         resp.sendError(sc, message);
+         return;
+      }
+      
+      req.setAttribute("calVO", calVO);
+      
+      String goPage = "/jsonView.view";
 
       if (goPage.startsWith("redirect:")) {
          String location = req.getContextPath() + goPage.substring("redirect:".length());
