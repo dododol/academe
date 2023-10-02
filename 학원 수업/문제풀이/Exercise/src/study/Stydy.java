@@ -6,6 +6,7 @@ public class Stydy {
 	
 		Study1 ss = new Study1();
 		ss.method1();
+		ss.method2();
 		
 	}
 }
