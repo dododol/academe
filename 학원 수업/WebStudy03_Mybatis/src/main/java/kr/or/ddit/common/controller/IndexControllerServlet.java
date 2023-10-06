@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.mvc.ViewResolverComposite;
+
 @WebServlet("/index.do")
 public class IndexControllerServlet extends HttpServlet{
 	@Override
@@ -16,7 +18,7 @@ public class IndexControllerServlet extends HttpServlet{
 		
 		req.setAttribute("title", title);
 		
-		String viewName = "/index.tiles";
-		req.getRequestDispatcher(viewName).forward(req, resp);
+		String viewName = "index";
+		new ViewResolverComposite().resolveView(viewName, req, resp);
 	}
 }

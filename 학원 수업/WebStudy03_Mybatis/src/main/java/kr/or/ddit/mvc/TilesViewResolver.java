@@ -14,7 +14,6 @@ public class TilesViewResolver implements ViewResolver {
 		
 		String goPage = "/"+viewName+".tiles";
 		req.getRequestDispatcher(goPage).forward(req, resp);
-
 	}
 
 }
