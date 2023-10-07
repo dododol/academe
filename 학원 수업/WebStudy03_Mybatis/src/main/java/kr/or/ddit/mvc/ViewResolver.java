@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 컨트롤러에서 view layer 를 선택할 때 사용할 수 있는 전략.
+ * 컨트롤러에서 view layer 를 선택할때 사용할 수 있는 전략.
  *
  */
 public interface ViewResolver {

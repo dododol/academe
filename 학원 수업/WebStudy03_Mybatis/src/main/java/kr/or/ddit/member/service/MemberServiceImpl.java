@@ -9,6 +9,7 @@ import kr.or.ddit.member.UserNotFoundException;
 import kr.or.ddit.member.dao.MemberDAO;
 import kr.or.ddit.member.dao.MemberDAOImpl;
 import kr.or.ddit.vo.MemberVO;
+import kr.or.ddit.vo.PaginationInfo;
 
 public class MemberServiceImpl implements MemberService {
 	private MemberDAO dao = new MemberDAOImpl();
@@ -19,11 +20,11 @@ public class MemberServiceImpl implements MemberService {
 		ServiceResult result = null;
 		if(dao.selectMember(member.getMemId())==null) {
 			int rowcnt = dao.insertMember(member);
-			result = rowcnt > 0 ? ServiceResult.OK : ServiceResult.FAIL; 
+			result = rowcnt > 0 ? ServiceResult.OK : ServiceResult.FAIL;
 		}else {
 			result = ServiceResult.PKDUPLICATED;
 		}
-		return	result;
+		return result;
 	}
 
 	@Override
@@ -35,15 +36,19 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<MemberVO> retrieveMemberList() {
-		return dao.selectMemberList();
+	public List<MemberVO> retrieveMemberList(PaginationInfo paging) {
+		int totalRecord = dao.selectTotalRecord(paging);
+		paging.setTotalRecord(totalRecord);
+		List<MemberVO> dataList = dao.selectMemberList(paging);
+		paging.setDataList(dataList);
+		return dataList;
 	}
 
 	@Override
 	public ServiceResult modifyMember(MemberVO member) {
-		boolean authenticated =authService.authenticate(member);
+		ServiceResult authenticated =authService.authenticate(member);
 		ServiceResult result = null;
-		if(authenticated) {
+		if(authenticated==ServiceResult.OK) {
 			int rowcnt = dao.updateMember(member);
 			result = rowcnt > 0 ? ServiceResult.OK : ServiceResult.FAIL;
 		}else {
@@ -54,8 +59,27 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public ServiceResult removeMember(MemberVO member) {
-		// TODO Auto-generated method stub
-		return null;
+		ServiceResult result = authService.authenticate(member);
+		if(result == ServiceResult.OK) {
+			int rowcnt = dao.deleteMember(member.getMemId());
+			result = rowcnt > 0 ? ServiceResult.OK : ServiceResult.FAIL;
+		}else {
+			result = ServiceResult.INVALIDPASSWORD;
+		}
+		return result;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

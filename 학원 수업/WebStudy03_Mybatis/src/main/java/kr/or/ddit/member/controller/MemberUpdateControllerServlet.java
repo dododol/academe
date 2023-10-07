@@ -1,11 +1,9 @@
 package kr.or.ddit.member.controller;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.Temporal;
+import java.security.Principal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -14,17 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.beanutils.Converter;
-import org.apache.commons.beanutils.converters.AbstractConverter;
 import org.apache.commons.lang3.StringUtils;
 
 import kr.or.ddit.common.enumpkg.ServiceResult;
 import kr.or.ddit.member.service.MemberService;
 import kr.or.ddit.member.service.MemberServiceImpl;
-import kr.or.ddit.mvc.TilesViewResolver;
+import kr.or.ddit.mvc.ViewResolverComposite;
 import kr.or.ddit.utils.PopulateUtils;
+import kr.or.ddit.utils.ValidationUtils;
+import kr.or.ddit.validate.grouphint.UpdateGroup;
 import kr.or.ddit.vo.MemberVO;
 
 @WebServlet("/member/memberUpdate.do")
@@ -33,107 +29,76 @@ public class MemberUpdateControllerServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		String viewName = "member/memberForm";
-		new TilesViewResolver().resolveView(viewName, req, resp);
+		Principal principal = req.getUserPrincipal();
+		
+		String memId = principal.getName();
+		
+		MemberVO member = service.retrieveMember(memId);
+		
+		req.setAttribute("member", member);
 		
 		String viewName = "member/memberForm";
-		
-		String goPage = "/"+viewName+".tiles";
-
-		req.getRequestDispatcher(goPage).forward(req, resp);
-		
+		new ViewResolverComposite().resolveView(viewName, req, resp);
 	}
 	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		1. 디코딩 설정
-		req.setCharacterEncoding("UTF-8");
 //		2. 파라미터 확보 --> MemberVO
 		MemberVO member = new MemberVO();
 		req.setAttribute("member", member);
 		Map<String, String[]> parameterMap = req.getParameterMap();
 //		String memId = req.getParameter("memId");
 //		member.setMemId(memId);
-		
-		PopulateUtils.populate(member, parameterMap);
 
-		Map<String, String> errors = new HashMap<>();
+		PopulateUtils.populate(member, parameterMap);
+		
+		Map<String, List<String>> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
-//		3. 검증(대상 : MemberVO)
-		boolean valid = validate(member, errors);
-		String goPage = "null";
+//		3. 검증 (대상 : MemberVO)
+		boolean valid = ValidationUtils.validate(member, errors, UpdateGroup.class);
+		String viewName = null;
 		if(valid) {
 //			통과
 //				4. modifyMember 수정 처리
 			ServiceResult result = service.modifyMember(member);
 			switch (result) {
 			case INVALIDPASSWORD:
-//					1) INVALIDPASSWORD
+//					1) INVALIDPASSWORD 
 //						memberForm 으로 이동 (기존 입력 데이터, 메시지, dispatch)
-				req.setAttribute("message", "비밀번호 오류3");
-				goPage = "/member/memberForm.tiles";
+				req.setAttribute("message", "비밀번호 오류");
+				viewName = "member/memberForm";
 				break;
 			case OK:
-//					2) OK
+//					2) OK 
 //						/mypage 로 이동 (redirect)
-				goPage = "redirect:/";
+				viewName = "redirect:/mypage";
 				break;
 			default:
 //					3) FAIL
 //						memberForm 으로 이동 (기존 입력 데이터, 메시지, dispatch)
-				req.setAttribute("message", "서버 오류, 다시 실행하세요.");
-				goPage = "/member/memberForm.tiles";
+				req.setAttribute("message", "서버 오류, 쫌따 다시 해보셈.");
+				viewName = "member/memberForm";
 				break;
 			}
-			
 		}else {
 //			불통
-//				memberForm 으로 이동 (기존 입력 데이터, 검증 결과 메시지들.., dispatch) 
-			goPage = "/member/memberForm.tiles";
+//				memberForm 으로 이동 (기존 입력 데이터, 검증 결과 메시지들.., dispatch)
+			viewName = "member/memberForm";
 		}
-		
-			
-		if(goPage.startsWith("redirect:")) {
-			String location = req.getContextPath() + goPage.substring("redirect:".length());
-			resp.sendRedirect(location);
-		}else {
-			req.getRequestDispatcher(goPage).forward(req, resp);
-		}
-				
-	}
 
-	private boolean validate(MemberVO member, Map<String, String> errors) {
-		boolean valid = true;
-		if (StringUtils.isBlank(member.getMemId())) {
-			valid = false;
-			errors.put("memId", "회원아이디 누락");
-		}
-		if (StringUtils.isBlank(member.getMemPass())) {
-			valid = false;
-			errors.put("memPass", "비밀번호 누락");
-		}
-		if (StringUtils.isBlank(member.getMemName())) {
-			valid = false;
-			errors.put("memName", "회원명 누락");
-		}
-		if (StringUtils.isBlank(member.getMemZip())) {
-			valid = false;
-			errors.put("memZip", "우편번호 누락");
-		}
-		if (StringUtils.isBlank(member.getMemAdd1())) {
-			valid = false;
-			errors.put("memAdd1", "주소1 누락");
-		}
-		if (StringUtils.isBlank(member.getMemAdd2())) {
-			valid = false;
-			errors.put("memAdd2", "주소2 누락");
-		}
-		if (StringUtils.isBlank(member.getMemMail())) {
-			valid = false;
-			errors.put("memMail", "이메일 누락");
-		}
-		return valid;
+		new ViewResolverComposite().resolveView(viewName, req, resp);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+

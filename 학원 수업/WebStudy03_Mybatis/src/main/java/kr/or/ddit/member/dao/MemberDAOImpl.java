@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import kr.or.ddit.adrs.dao.AddressDAO;
 import kr.or.ddit.db.CustomSqlSessionFactoryBuilder;
 import kr.or.ddit.vo.MemberVO;
+import kr.or.ddit.vo.PaginationInfo;
 
 public class MemberDAOImpl implements MemberDAO {
 	private SqlSessionFactory sqlSessionFactory = 
@@ -16,7 +16,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberVO selectMemberForAuth(MemberVO inputData) {
 		try(
-			SqlSession sqlSession = sqlSessionFactory.openSession(true);	
+			SqlSession sqlSession = sqlSessionFactory.openSession();	
 		){
 			return sqlSession.selectOne("kr.or.ddit.member.dao.MemberDAO.selectMemberForAuth", inputData);
 		}
@@ -25,11 +25,11 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int insertMember(MemberVO member) {
 		try(
-				SqlSession sqlSession = sqlSessionFactory.openSession(true);	
-			){
-				MemberDAO mapperProxy = sqlSession.getMapper(MemberDAO.class);
-				return mapperProxy.insertMember(member);
-			}
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);	
+		){
+			MemberDAO mapperProxy = sqlSession.getMapper(MemberDAO.class);
+			return mapperProxy.insertMember(member);
+		}
 	}
 
 	@Override
@@ -43,12 +43,22 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public List<MemberVO> selectMemberList() {
+	public int selectTotalRecord(PaginationInfo<MemberVO> paging) {
 		try(
 			SqlSession sqlSession = sqlSessionFactory.openSession();	
 		){
 			MemberDAO mapperProxy = sqlSession.getMapper(MemberDAO.class);
-			return mapperProxy.selectMemberList();
+			return mapperProxy.selectTotalRecord(paging);
+		}
+	}
+	
+	@Override
+	public List<MemberVO> selectMemberList(PaginationInfo paging) {
+		try(
+			SqlSession sqlSession = sqlSessionFactory.openSession();	
+		){
+			MemberDAO mapperProxy = sqlSession.getMapper(MemberDAO.class);
+			return mapperProxy.selectMemberList(paging);
 		}
 	}
 
@@ -64,8 +74,24 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public int deleteMember(String memId) {
-		// TODO Auto-generated method stub
-		return 0;
+		try(
+				SqlSession sqlSession = sqlSessionFactory.openSession(true);	
+			){
+				MemberDAO mapperProxy = sqlSession.getMapper(MemberDAO.class);
+				return mapperProxy.deleteMember(memId);
+			}
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@ import kr.or.ddit.vo.AddressVO;
 
 /**
  * 주소록 관리를 위한 Business Logic Layer
+ *
  */
 public interface AddressService {
 	public boolean createAddress(AddressVO adrsVO);

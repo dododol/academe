@@ -16,9 +16,9 @@ class AddressDAOImplTest {
 	void testInsertAddress() {
 		AddressVO vo = new AddressVO();
 		vo.setMemId("a001");
-		vo.setAdrsName("테스트--");
+		vo.setAdrsName("테스트--222");
 		vo.setAdrsHp("000-000-0000");
-		vo.setAdrsAdd("대전 오류--");
+		vo.setAdrsAdd("");
 		int rowcnt = dao.insertAddress(vo);
 		System.out.println(vo.getAdrsNo());
 		assertEquals(1, rowcnt);

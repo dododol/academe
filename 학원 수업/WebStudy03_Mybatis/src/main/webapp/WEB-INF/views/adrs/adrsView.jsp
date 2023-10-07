@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<form id="adrsForm" method="post" action="${pageContext.request.contextPath}/adrs/address">
+<form id="adrsForm" method="post" action="${pageContext.request.contextPath }/adrs/address">
 	<input type="text" name="adrsName" placeholder="이름" required />
 	<input type="text" name="adrsHp" placeholder="휴대폰" required />
 	<input type="text" name="adrsAdd" placeholder="주소" />
@@ -18,4 +18,4 @@
 		
 	</tbody>
 </table>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/app/adrs/address.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/app/adrs/address.js"></script>
