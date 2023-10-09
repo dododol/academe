@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.lms.dao.StdListDAO">
+<!-- 지정 교수 강의 리스트 -->
+<select id="selectLecList" parameterType="string" resultType="StdListVO">
+SELECT 
+	L.LEC_CD
+	, P.PRO_CD
+	, S.SUB_CD
+	, L.LEC_TIME
+	, L.LEC_ROOM
+	, L.LEC_PERSON
+	, L.LEC_WEEK
+	, P.PRO_NAME
+	, S.SUB_NAME
+	, S.SUB_GRADE
+FROM PROFESSOR P 
+JOIN LECTURE L ON(P.PRO_CD=L.PRO_CD)
+JOIN SUBJECT S ON(L.SUB_CD=S.SUB_CD)
+WHERE P.PRO_CD=#{proCd}
+</select>
+
+<select id="selectstdList" parameterType="String" resultType="StdListVO">
+	SELECT
+		L.LEC_CD
+		, T.SUB_NAME
+		, C.STD_NO
+		, S.STD_NAME
+		, C.CLS_SCORE
+FROM STUDENT S 
+JOIN CLASS C ON(S.STD_NO=C.STD_NO)
+JOIN LECTURE L ON(C.LEC_CD=L.LEC_CD)
+JOIN SUBJECT T ON(L.SUB_CD=T.SUB_CD)
+	WHERE L.LEC_CD=#{lecCd}
+</select>
+</mapper>
