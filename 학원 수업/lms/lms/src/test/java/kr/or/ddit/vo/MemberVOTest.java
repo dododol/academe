@@ -23,6 +23,7 @@ class MemberVOTest {
 						.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 						.writeValueAsString(target);
 		System.out.println(json);
+		System.out.println(json);
 	}
 
 }
