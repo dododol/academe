@@ -22,6 +22,7 @@ public class StuListControllerServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String lecCd = req.getParameter("lecCd");
 		System.out.println("lecCd : " + lecCd);
+		System.out.println("lecCd : " + lecCd);
 		
 		List<StdListVO> list = service.retrievestdList(lecCd);
 		
