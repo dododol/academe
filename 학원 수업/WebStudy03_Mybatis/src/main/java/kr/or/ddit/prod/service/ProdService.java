@@ -29,6 +29,13 @@ public interface ProdService {
 	 * @return OK, FAIL
 	 */
 	public ServiceResult createProd(ProdVO prod);
+	
+	/**
+	 * 상품수정
+	 * @param prod
+	 * @return OK, FAIL
+	 */
+	public ServiceResult modifyProd(ProdVO prod);
 }
 
 

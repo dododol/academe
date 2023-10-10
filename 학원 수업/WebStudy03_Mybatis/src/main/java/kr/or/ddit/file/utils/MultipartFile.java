@@ -24,4 +24,19 @@ public interface MultipartFile {
 	public boolean isEmpty();
 	
 	public void transferTo(File dest) throws IOException;
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

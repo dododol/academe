@@ -27,6 +27,7 @@ public class AddressDataControllerServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String uri= StringUtils.substringAfter(req.getRequestURI(), req.getContextPath());
 		int lastIdx = uri.lastIndexOf("/");
 		int uriLen = uri.length();
@@ -37,7 +38,6 @@ public class AddressDataControllerServlet extends HttpServlet{
 		Principal principal = req.getUserPrincipal();
 		
 		String memId = principal.getName();
-		
 		List<AddressVO> adrsList = service.retriveAddressList(memId);
 		
 		req.setAttribute("adrsList", adrsList);
@@ -69,7 +69,6 @@ public class AddressDataControllerServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
 		try(
 			InputStream is = req.getInputStream();
 		){

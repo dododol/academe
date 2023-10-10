@@ -9,7 +9,7 @@
 		padding-bottom: 2px;
 	}
 </style>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 	<table class="col-md-6">
 		<tr>
 			<th><label for="prodName">상품명</label></th>
@@ -78,16 +78,14 @@
 		<tr>
 			<th><label for="prodDetail">상세정보</label></th>
 			<td>
-				<input type="text" name="prodDetail" id="prodDetail" class="form-control"
-					value="${prod.prodDetail}" />
+				<textarea name="prodDetail" id="prodDetail" class="form-control">${prod.prodDetail }</textarea>	
 				<span class="error">${errors.prodDetail}</span>
 			</td>
 		</tr>
 		<tr>
-			<th><label for="prodImg">이미지</label></th>
+			<th><label for="prodImage">이미지</label></th>
 			<td>
-				<input type="text" name="prodImg" id="prodImg" class="form-control" required
-					value="${prod.prodImg}" />
+				<input type="file" name="prodImage" id="prodImage" class="form-control" required />
 				<span class="error">${errors.prodImg}</span>
 			</td>
 		</tr>
@@ -190,9 +188,10 @@
 	</table>
 </form>
 <script>
+let $prodBuyer = $("select[name=prodBuyer]").val("${prod.prodBuyer}");
 $("select[name=prodLgu]").on("change", function(event){
 	let lgu = $(this).val();
-	let $options = $("select[name=prodBuyer]").find("option");
+	let $options = $prodBuyer.find("option");
 	$options.hide();
 	$options.filter((i,e)=>i==0).show();
 	if(lgu){
@@ -200,5 +199,5 @@ $("select[name=prodLgu]").on("change", function(event){
 	}else{
 		$options.show();
 	}
-});
+}).val("${prod.prodLgu}").change();
 </script>

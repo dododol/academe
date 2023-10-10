@@ -6,8 +6,8 @@
 		alert("${message}");
 	</script>
 </c:if>	
-<h4>가입 양식</h4>
-<form method="post">
+<h4>가입(수정) 양식</h4>
+<form method="post" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<th>회원아이디</th>
@@ -22,6 +22,12 @@
 				<input type="text" name="memPass" class="form-control" />
 				<span class="error">${errors.memPass}</span>
 			</td>
+		</tr>
+		<tr>
+			<th>회원이미지</th>
+			<td>
+				<input type="file" name="memImage" accept="image/*"  class="form-control"/>
+ 			</td>
 		</tr>
 		<tr>
 			<th>회원명</th>

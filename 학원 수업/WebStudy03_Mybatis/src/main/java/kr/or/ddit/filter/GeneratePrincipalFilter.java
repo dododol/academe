@@ -15,8 +15,8 @@ import kr.or.ddit.vo.MemberVO;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 로그인된(authId 가 있으면) 사용자가 요청을 발생시킨 경우,
- * Principal 객체를 생성하고, 현재 요청을 변경하여 principal 을 setting 하려함(Adapter[Wrapper] request).
+ * 로그인된(authId 가 있으면) 사용자가 요청을 발생시킨 경우, 
+ *  Principal 객체를 생성하고, 현재 요청을 변경하여 principal 을 setting 하려함(Adapter[Wrapper] request).
  *
  */
 @Slf4j
@@ -25,7 +25,6 @@ public class GeneratePrincipalFilter implements Filter{
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		log.info("{} 필터 초기화", this.getClass().getSimpleName());
-		
 	}
 
 	@Override
@@ -36,19 +35,20 @@ public class GeneratePrincipalFilter implements Filter{
 		MemberVO authId = (MemberVO) req.getSession().getAttribute("authMember");
 		if(authId==null) {
 			chain.doFilter(request, response);
-			
 		}else {
 			chain.doFilter(new PrincipalHttpServletRequestWrapper(req), response);
 		}
-		
 	}
 
 	@Override
 	public void destroy() {
 		log.info("{} 필터 소멸", this.getClass().getSimpleName());
-		
 	}
-	
-	
 
 }
+
+
+
+
+
+

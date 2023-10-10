@@ -60,7 +60,9 @@
 	</tr>
 	<tr>
 		<th>이미지</th>
-		<td>${prod.prodImg }</td>
+		<td>
+			<img class="col-md-5" src="<c:url value='/resources/prodImages/${prod.prodImg }' />"/>
+		</td>
 	</tr>
 	<tr>
 		<th>총재고</th>
@@ -101,6 +103,14 @@
 	<tr>
 		<th>마일리지</th>
 		<td>${prod.prodMileage }</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<c:url value="/prod/prodUpdate.do" var="prodUpdateUrl">
+				<c:param name="what" value="${prod.prodId }" />
+			</c:url>
+			<a class="btn btn-primary" href="${prodUpdateUrl }">상품수정</a>
+		</td>
 	</tr>
 </table>
 <h4>구매자 정보</h4>

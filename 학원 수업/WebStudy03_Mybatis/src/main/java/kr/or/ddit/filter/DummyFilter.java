@@ -15,12 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class DummyFilter implements Filter{
+public class DummyFilter implements Filter {
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
+	public void init(FilterConfig filterConfig) throws ServletException {
 		log.info("{} 필터 초기화", this.getClass().getSimpleName());
-		
 	}
 
 	@Override
@@ -33,10 +32,19 @@ public class DummyFilter implements Filter{
 		log.info("{} 응답 전송", resp.getContentType());
 	}
 
-
 	@Override
 	public void destroy() {
 		log.info("{} 필터 소멸", this.getClass().getSimpleName());
-		
 	}
+
 }
+
+
+
+
+
+
+
+
+
+

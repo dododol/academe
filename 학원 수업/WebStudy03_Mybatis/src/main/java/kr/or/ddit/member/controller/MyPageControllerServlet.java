@@ -23,7 +23,6 @@ public class MyPageControllerServlet extends HttpServlet{
 		Principal principal = req.getUserPrincipal();
 		
 		String memId = principal.getName();
-		
 		MemberVO member = service.retrieveMember(memId);
 		
 		req.setAttribute("member", member);

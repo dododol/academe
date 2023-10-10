@@ -23,7 +23,7 @@ public class MemberViewControllerServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	
 		if(req instanceof DummyHttpServletRequestWrapper) {
 			String data = ((DummyHttpServletRequestWrapper) req).getSpecificData();
 			log.info("request specific data : {}", data);

@@ -6,12 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.common.enumpkg.ServiceResult;
+import kr.or.ddit.file.utils.MultipartFile;
+import kr.or.ddit.file.utils.StandardMultipartHttpServletRequest;
 import kr.or.ddit.member.service.MemberService;
 import kr.or.ddit.member.service.MemberServiceImpl;
 import kr.or.ddit.mvc.ViewResolverComposite;
@@ -21,6 +24,7 @@ import kr.or.ddit.validate.grouphint.InsertGroup;
 import kr.or.ddit.vo.MemberVO;
 
 @WebServlet("/member/memberInsert.do")
+@MultipartConfig
 public class MemberInsertControllerServlet extends HttpServlet {
 	private MemberService service = new MemberServiceImpl();
 	
@@ -40,6 +44,13 @@ public class MemberInsertControllerServlet extends HttpServlet {
 //		member.setMemId(memId);
 		
 		PopulateUtils.populate(member, parameterMap);
+		
+		if(req instanceof StandardMultipartHttpServletRequest) {
+			MultipartFile memImage = ((StandardMultipartHttpServletRequest) req).getFile("memImage");
+			if(memImage!=null && !memImage.isEmpty()) {
+				member.setMemImg(memImage.getBytes());
+			}
+		}
 		
 		Map<String, List<String>> errors = new HashMap<>();
 		req.setAttribute("errors", errors);

@@ -32,7 +32,7 @@ public class CharacterEncodingFilter implements Filter{
 		
 		req.setCharacterEncoding(encoding);
 		log.info("{} 요청 필터링", req.getRequestURI());
-		chain.doFilter(req, resp);
+		chain.doFilter(request, response);
 		log.info("{} 응답 필터링", resp.getContentType());
 	}
 
@@ -40,4 +40,19 @@ public class CharacterEncodingFilter implements Filter{
 	public void destroy() {
 		log.info("{} 필터 소멸", this.getClass().getSimpleName());
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

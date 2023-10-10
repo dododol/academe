@@ -46,7 +46,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public ServiceResult modifyMember(MemberVO member) {
-		ServiceResult authenticated =authService.authenticate(member);
+		MemberVO inputData = new MemberVO();
+		inputData.setMemId(member.getMemId());
+		inputData.setMemPass(member.getMemPass());
+		
+		ServiceResult authenticated =authService.authenticate(inputData);
 		ServiceResult result = null;
 		if(authenticated==ServiceResult.OK) {
 			int rowcnt = dao.updateMember(member);

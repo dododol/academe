@@ -37,6 +37,13 @@ public interface ProdDAO {
 	 * @return
 	 */
 	public int insertProd(ProdVO prod);
+	
+	/**
+	 * 상품 수정
+	 * @param prod
+	 * @return > 0 (성공)
+	 */
+	public int updateProd(ProdVO prod);
 }
 
 

@@ -11,8 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * multipart request 를 {@ling StandardMultipartHttpServletRequest} 로 wrapping.
- *
+ *  multipart request 를 {@link StandardMultipartHttpServletRequest} 로 wrapping.
  */
 public class MultipartFilter implements Filter{
 
@@ -27,10 +26,12 @@ public class MultipartFilter implements Filter{
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String contentType = req.getContentType();
-		if(contentType != null && contentType.startsWith("multipart/")) {
-			
+		if(contentType!=null && contentType.startsWith("multipart/")) {
+			StandardMultipartHttpServletRequest wrapperReq =
+					new StandardMultipartHttpServletRequest(req);
+			chain.doFilter(wrapperReq, response);
 		}else {
-			
+			chain.doFilter(request, response);
 		}
 	}
 
@@ -41,3 +42,16 @@ public class MultipartFilter implements Filter{
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

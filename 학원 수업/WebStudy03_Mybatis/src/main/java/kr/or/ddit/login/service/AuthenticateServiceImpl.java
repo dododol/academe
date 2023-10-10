@@ -23,7 +23,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
 				try {
 					BeanUtils.copyProperties(inputData, saved);
 					result = ServiceResult.OK;
-
+					
 				} catch (IllegalAccessException | InvocationTargetException e) {
 					throw new RuntimeException(e);
 				}

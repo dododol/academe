@@ -10,57 +10,66 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 public class StandardMultipartFile implements MultipartFile{
-   
-   private Part adaptee;
-         
+	
+	private Part adaptee;
 
-   public StandardMultipartFile(Part adaptee) {
-      super();
-      this.adaptee = adaptee;
-   }
+	public StandardMultipartFile(Part adaptee) {
+		super();
+		this.adaptee = adaptee;
+	}
 
-   @Override
-   public byte[] getBytes() throws IOException {
-      return IOUtils.toByteArray(getInputStream());
-   }
+	@Override
+	public byte[] getBytes() throws IOException {
+		return IOUtils.toByteArray(getInputStream());
+	}
 
-   @Override
-   public String getContentType() {
-      return adaptee.getContentType();
-   }
+	@Override
+	public String getContentType() {
+		return adaptee.getContentType();
+	}
 
-   @Override
-   public InputStream getInputStream() throws IOException {
-      // TODO Auto-generated method stub
-      return getInputStream();
-   }
+	@Override
+	public InputStream getInputStream() throws IOException {
+		return adaptee.getInputStream();
+	}
 
-   @Override
-   public String getName() {
-      return adaptee.getName();
-   }
+	@Override
+	public String getName() {
+		return adaptee.getName();
+	}
 
-   @Override
-   public String getOriginalFilename() {
-      // TODO Auto-generated method stub
-      return adaptee.getSubmittedFileName();
-   }
+	@Override
+	public String getOriginalFilename() {
+		return adaptee.getSubmittedFileName();
+	}
 
-   @Override
-   public long getSize() {
-      // TODO Auto-generated method stub
-      return adaptee.getSize();
-   }
+	@Override
+	public long getSize() {
+		return adaptee.getSize();
+	}
 
-   @Override
-   public boolean isEmpty() {
-      return StringUtils.isBlank(getOriginalFilename());
-   }
+	@Override
+	public boolean isEmpty() {
+		return StringUtils.isBlank(getOriginalFilename());
+	}
 
-   @Override
-   public void transferTo(File dest) throws IOException {
-      // TODO Auto-generated method stub
-      adaptee.write(dest.getCanonicalPath());
-   }
+	@Override
+	public void transferTo(File dest) throws IOException {
+		adaptee.write(dest.getCanonicalPath());
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

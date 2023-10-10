@@ -7,7 +7,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-public class DummyHttpServletRequestWrapper extends HttpServletRequestWrapper{
+public class DummyHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	
 	private String specificData = "SPECIFIC";
 	private Map<String, Cookie> cookieMap;

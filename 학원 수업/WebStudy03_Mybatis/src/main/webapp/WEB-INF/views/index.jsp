@@ -7,7 +7,7 @@
 <c:set var="cPath" value="${pageContext.request.contextPath }" scope="application"/>
 
 <h4>principal 객체 : ${pageContext.request.userPrincipal }</h4>
-<c:set var="principal" value="${pageContext.request.userPrincipal }" />
+<c:set var="principal" value="${pageContext.request.userPrincipal }"/>
 <c:choose>
 	<c:when test="${not empty principal}">
 		<form method="post" action="${cPath }/login/logout.do" id="logoutForm"></form>

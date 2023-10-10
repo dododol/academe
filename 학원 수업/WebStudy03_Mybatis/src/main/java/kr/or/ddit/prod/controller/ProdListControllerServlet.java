@@ -24,10 +24,14 @@ import kr.or.ddit.vo.ProdVO;
 public class ProdListControllerServlet extends HttpServlet{
 	private ProdService service = new ProdServiceImpl();
 	private OthersDAO othersDAO = new OthersDAOImpl();
+	private void addAttribute(HttpServletRequest req){
+		req.setAttribute("lprodList", othersDAO.selectLprodList());
+		req.setAttribute("buyerList", othersDAO.selectBuyerList(null));
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		addAttribute(req);
 		
 		ProdVO detailCondition = new ProdVO();
 		PopulateUtils.populate(detailCondition, req.getParameterMap());
@@ -47,8 +51,6 @@ public class ProdListControllerServlet extends HttpServlet{
 		
 		req.setAttribute("paging", paging);
 		
-		req.setAttribute("lprodList", othersDAO.selectLprodList());
-		req.setAttribute("buyerList", othersDAO.selectBuyerList(null));
 		
 		String viewName = "prod/prodList";
 		new ViewResolverComposite().resolveView(viewName, req, resp);

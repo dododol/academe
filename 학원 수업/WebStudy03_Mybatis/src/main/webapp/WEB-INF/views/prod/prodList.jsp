@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -67,6 +68,7 @@
 					</div>
 					<div class="col-auto">
 						<input type="button" value="검색" id="searchBtn" class="btn btn-primary"/>
+						<a href="<c:url value='/prod/prodInsert.do'/>" class="btn btn-success">신규상품 등록</a>
 					</div>
 				</div>
 			</td>

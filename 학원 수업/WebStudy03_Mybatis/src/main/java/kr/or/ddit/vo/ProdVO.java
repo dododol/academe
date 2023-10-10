@@ -37,7 +37,10 @@ public class ProdVO implements Serializable{
 	private Integer prodSale;
 	private String prodOutline;
 	private String prodDetail;
+	
+	@NotBlank(groups = InsertGroup.class)
 	private String prodImg;
+	
 	@NotNull
 	@Min(0)
 	private Integer prodTotalstock;

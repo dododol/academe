@@ -2,6 +2,7 @@ package kr.or.ddit.vo;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Base64;
 import java.util.Set;
 
 import javax.validation.constraints.Email;
@@ -94,6 +95,15 @@ public class MemberVO implements Serializable {
 	private int prodCount;
 	
 	private Set<CartVO> cartSet; // has many (1:N 관계 ), 구매기록
+	
+	private byte[] memImg;
+	
+	public String getMemImgBase64() {
+		if(memImg!=null)
+			return Base64.getEncoder().encodeToString(memImg);
+		else
+			return null;
+	}
 	
 }
 

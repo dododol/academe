@@ -1,6 +1,10 @@
 package kr.or.ddit.vo;
 
+import java.io.Serializable;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import kr.or.ddit.paging.DefaultPaginationRenderer;
 import kr.or.ddit.paging.PaginationRenderer;
@@ -14,7 +18,8 @@ import lombok.ToString;
 @Getter
 @ToString
 @NoArgsConstructor
-public class PaginationInfo<T> {
+@JsonIgnoreProperties("renderer")
+public class PaginationInfo<T> implements Serializable{
 	
 	public PaginationInfo(int screenSize, int blockSize) {
 		super();
@@ -40,7 +45,8 @@ public class PaginationInfo<T> {
 	private SearchVO simpleCondition; // 단순 키워드 검색 조건
 	private T detailCondition; // 상세 검색 조건
 	
-	private PaginationRenderer renderer = new DefaultPaginationRenderer();
+//	@JsonIgnore
+	private transient PaginationRenderer renderer = new DefaultPaginationRenderer();
 	
 	public void setDetailCondition(T detailCondition) {
 		this.detailCondition = detailCondition;
