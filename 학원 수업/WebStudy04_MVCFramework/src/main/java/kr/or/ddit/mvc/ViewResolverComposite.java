@@ -17,26 +17,20 @@ public class ViewResolverComposite implements ViewResolver {
 	public ViewResolverComposite() {
 		super();
 		viewResolvers = new ArrayList<>();
-		
-		viewResolvers.add(new BeanNameViewResolver());
-		viewResolvers.add(new TilesViewResolver()); // tiles definition 용
-		
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver(); // single jsp
-		resolver.setPrefix(prefix);
-		resolver.setSuffix(suffix);
-		viewResolvers.add(resolver);
 	}
 
 	@Override
 	public void setPrefix(String prefix) {
 		this.prefix = prefix;
 	}
-	
 	@Override
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
 	}
 
+	public void addViewResolver(ViewResolver resolver) {
+		viewResolvers.add(resolver);
+	}
 
 
 	@Override

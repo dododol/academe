@@ -7,32 +7,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.common.enumpkg.ServiceResult;
 import kr.or.ddit.file.utils.MultipartFile;
 import kr.or.ddit.file.utils.StandardMultipartHttpServletRequest;
-import kr.or.ddit.mvc.ViewResolverComposite;
 import kr.or.ddit.mvc.annotation.RequestMethod;
+import kr.or.ddit.mvc.annotation.resolvers.ModelAttribute;
 import kr.or.ddit.mvc.annotation.stereotype.Controller;
 import kr.or.ddit.mvc.annotation.stereotype.RequestMapping;
 import kr.or.ddit.prod.dao.OthersDAO;
 import kr.or.ddit.prod.dao.OthersDAOImpl;
 import kr.or.ddit.prod.service.ProdService;
 import kr.or.ddit.prod.service.ProdServiceImpl;
-import kr.or.ddit.utils.PopulateUtils;
 import kr.or.ddit.utils.ValidationUtils;
 import kr.or.ddit.validate.grouphint.InsertGroup;
 import kr.or.ddit.vo.ProdVO;
 
-//@WebServlet("/prod/prodInsert.do")
-//@MultipartConfig
-@Controller()
+@Controller
 public class ProdInsertController{
 	private String prodImagesUrl = "/resources/prodImages";
 	
@@ -51,15 +43,9 @@ public class ProdInsertController{
 		return "prod/prodForm";
 	}
 	
-	@RequestMapping(value = "/prod/prodInsert.do", method = RequestMethod.POST)
-	public String prodInsert(HttpServletRequest req) throws IOException{
+	@RequestMapping(value="/prod/prodInsert.do", method = RequestMethod.POST)
+	public String prodInsert(HttpServletRequest req, @ModelAttribute("prod") ProdVO prod) throws IOException{
 		addRequestAttribute(req);
-		
-//		2. 파라미터 확보 --> ProdVO
-		ProdVO prod = new ProdVO();
-		req.setAttribute("prod", prod);
-		Map<String, String[]> parameterMap = req.getParameterMap();
-		PopulateUtils.populate(prod, parameterMap);
 		
 		// multipart 처리
 		if(req instanceof StandardMultipartHttpServletRequest) {

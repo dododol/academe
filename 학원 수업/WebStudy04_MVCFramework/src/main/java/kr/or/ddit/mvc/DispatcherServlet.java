@@ -7,16 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.jstl.core.Config;
 
-import kr.or.ddit.common.controller.IndexController;
 import kr.or.ddit.mvc.annotation.HandlerAdapter;
 import kr.or.ddit.mvc.annotation.HandlerMapping;
 import kr.or.ddit.mvc.annotation.RequestMappingHandlerAdapter;
+import kr.or.ddit.mvc.annotation.RequestMappingHandlerAdapter.BadRequestException;
 import kr.or.ddit.mvc.annotation.RequestMappingHandlerMapping;
 import kr.or.ddit.mvc.annotation.RequestMappingInfo;
-import kr.or.ddit.prod.controller.ProdListController;
-import kr.or.ddit.prod.controller.ProdViewController;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -36,8 +33,16 @@ public class DispatcherServlet extends HttpServlet{
 			viewResolver = new ViewResolverComposite();
 			String prefix = config.getInitParameter("prefix");
 			String suffix = config.getInitParameter("suffix");
-			viewResolver.setPrefix(prefix);
-			viewResolver.setSuffix(suffix);
+			
+			if(viewResolver instanceof ViewResolverComposite) {
+				((ViewResolverComposite)viewResolver).addViewResolver(new BeanNameViewResolver());
+				((ViewResolverComposite)viewResolver).addViewResolver(new TilesViewResolver());
+				InternalResourceViewResolver resolver = new InternalResourceViewResolver(); // single jsp
+				resolver.setPrefix(prefix);
+				resolver.setSuffix(suffix);
+				((ViewResolverComposite)viewResolver).addViewResolver(resolver);
+			}
+			
 			handlerMapping = new RequestMappingHandlerMapping("kr.or.ddit");
 			handlerAdapter = new RequestMappingHandlerAdapter();
 		}
@@ -49,13 +54,18 @@ public class DispatcherServlet extends HttpServlet{
 		log.info("검색된 핸들러 정보 : {}", mappingInfo);
 		
 		String viewName = null;
-		if(mappingInfo != null) {
-			viewName = handlerAdapter.invokeHandler(mappingInfo, req, resp);
+		if(mappingInfo!=null) {
+			try {
+				viewName = handlerAdapter.invokeHandler(mappingInfo, req, resp);
+			}catch (BadRequestException e) {
+				resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+				return;
+			}
 		}else {
 			resp.sendError(404, "처리할 수 없는 요청임.");
-			return;		
+			return;
 		}
-
+		
 		
 		if(viewName!=null) {
 			viewResolver.resolveView(viewName, req, resp);

@@ -8,9 +8,6 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,8 +16,9 @@ import org.apache.commons.lang3.StringUtils;
 import kr.or.ddit.common.enumpkg.ServiceResult;
 import kr.or.ddit.file.utils.MultipartFile;
 import kr.or.ddit.file.utils.StandardMultipartHttpServletRequest;
-import kr.or.ddit.mvc.ViewResolverComposite;
 import kr.or.ddit.mvc.annotation.RequestMethod;
+import kr.or.ddit.mvc.annotation.resolvers.ModelAttribute;
+import kr.or.ddit.mvc.annotation.resolvers.RequestParam;
 import kr.or.ddit.mvc.annotation.stereotype.Controller;
 import kr.or.ddit.mvc.annotation.stereotype.RequestMapping;
 import kr.or.ddit.prod.dao.OthersDAO;
@@ -29,14 +27,11 @@ import kr.or.ddit.prod.service.ProdService;
 import kr.or.ddit.prod.service.ProdServiceImpl;
 import kr.or.ddit.utils.PopulateUtils;
 import kr.or.ddit.utils.ValidationUtils;
-import kr.or.ddit.validate.grouphint.InsertGroup;
 import kr.or.ddit.validate.grouphint.UpdateGroup;
 import kr.or.ddit.vo.ProdVO;
 
-//@WebServlet("/prod/prodUpdate.do")
-//@MultipartConfig
 @Controller
-public class ProdUpdateController {
+public class ProdUpdateController{
 	private String prodImagesUrl = "/resources/prodImages";
 	
 	private ProdService service = new ProdServiceImpl();
@@ -47,15 +42,12 @@ public class ProdUpdateController {
 		req.setAttribute("buyerList", othersDAO.selectBuyerList(null));
 	}
 	
-	@RequestMapping(value = "/prod/prodUpdate.do", method = RequestMethod.POST)
-	public String prodUpdate(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+	@RequestMapping("/prod/prodUpdate.do")
+	public String doGet(
+			HttpServletRequest req
+			, @RequestParam(value="what", required = true) String prodId
+	){
 		addRequestAttribute(req);
-		
-		String prodId = req.getParameter("what");
-		if(StringUtils.isBlank(prodId)) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "필수 파라미터 누락");
-			return null;
-		}
 		
 		ProdVO prod = service.retrieveProd(prodId);
 		
@@ -65,14 +57,8 @@ public class ProdUpdateController {
 	}
 	
 	@RequestMapping(value = "/prod/prodUpdate.do", method = RequestMethod.POST)
-	public String doPost(HttpServletRequest req) throws IOException {
+	public String doPost(@ModelAttribute("prod") ProdVO prod, HttpServletRequest req) throws IOException {
 		addRequestAttribute(req);
-		
-//		2. 파라미터 확보 --> ProdVO
-		ProdVO prod = new ProdVO();
-		req.setAttribute("prod", prod);
-		Map<String, String[]> parameterMap = req.getParameterMap();
-		PopulateUtils.populate(prod, parameterMap);
 		
 		// multipart 처리
 		if(req instanceof StandardMultipartHttpServletRequest) {
@@ -117,8 +103,8 @@ public class ProdUpdateController {
 //				prodForm 으로 이동 (기존 입력 데이터, 검증 결과 메시지들.., dispatch)
 			viewName = "prod/prodEdit";
 		}
-			return viewName;
 
+		return viewName;
 		
 	}
 }

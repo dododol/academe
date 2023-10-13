@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 
 import kr.or.ddit.mvc.annotation.RequestMethod;
+import kr.or.ddit.mvc.annotation.resolvers.ModelAttribute;
+import kr.or.ddit.mvc.annotation.resolvers.RequestParam;
 import kr.or.ddit.mvc.annotation.stereotype.Controller;
 import kr.or.ddit.mvc.annotation.stereotype.RequestMapping;
 import kr.or.ddit.paging.BootstrapPaginationRenderer;
@@ -30,34 +32,20 @@ public class ProdListController{
 		req.setAttribute("buyerList", othersDAO.selectBuyerList(null));
 	}
 	
-	@RequestMapping(value = "/prod/prodList.do", method = RequestMethod.GET)
-	public String prodList(HttpServletRequest req, HttpSession session){
+	@RequestMapping(value="/prod/prodList.do", method = RequestMethod.GET)
+	public String prodList(
+			@ModelAttribute("detailCondition") ProdVO detailCondition
+			, @RequestParam(value="page", required = false, defaultValue = "1") int currentPage
+			, HttpServletRequest req){
 		addAttribute(req);
 		
-		ProdVO detailCondition = new ProdVO();
-		PopulateUtils.populate(detailCondition, req.getParameterMap());
-		
-		String pageParam = req.getParameter("page");
-		int currentPage = 1;
-		if(StringUtils.isNumeric(pageParam)) {
-			currentPage = Integer.parseInt(pageParam);
-		}
-		PaginationInfo<ProdVO> paging = new PaginationInfo<>(3,2);
-		paging.setCurrentPage(currentPage);
-		paging.setDetailCondition(detailCondition);
-		
-		service.retrieveProdList(paging);
-		
-		paging.setRenderer(new BootstrapPaginationRenderer());
-		
-		req.setAttribute("paging", paging);
-		
+		listData(detailCondition, currentPage, req);
 		
 		return "prod/prodList";
 	}
 	
 	@RequestMapping("/prod/ajax/prodListUI.do")
-	public String uiController(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public String uiController(HttpServletRequest req){
 		addAttribute(req);
 		
 		return "prod/prodListUI";
@@ -65,15 +53,11 @@ public class ProdListController{
 	}
 	
 	@RequestMapping("/prod/ajax/prodListData.do")
-	protected String listData(HttpServletRequest req){
-		ProdVO detailCondition = new ProdVO();
-		PopulateUtils.populate(detailCondition, req.getParameterMap());
-		
-		String pageParam = req.getParameter("page");
-		int currentPage = 1;
-		if(StringUtils.isNumeric(pageParam)) {
-			currentPage = Integer.parseInt(pageParam);
-		}
+	public String listData(
+		@ModelAttribute("detailCondition") ProdVO detailCondition
+		, @RequestParam(value = "page", required = false, defaultValue = "1") int currentPage
+		, HttpServletRequest req
+	){
 		PaginationInfo<ProdVO> paging = new PaginationInfo<>(3,2);
 		paging.setCurrentPage(currentPage);
 		paging.setDetailCondition(detailCondition);

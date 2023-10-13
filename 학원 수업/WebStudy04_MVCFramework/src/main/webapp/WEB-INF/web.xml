@@ -71,7 +71,9 @@
 		<url-pattern>*.do</url-pattern>
 		<url-pattern>/index.do</url-pattern>
 		<url-pattern>/mypage</url-pattern>
-		
+		<url-pattern>/adrs/view</url-pattern>
+		<url-pattern>/adrs/address</url-pattern>
+		<url-pattern>/adrs/address/*</url-pattern>
 	</servlet-mapping>
 </web-app>
 

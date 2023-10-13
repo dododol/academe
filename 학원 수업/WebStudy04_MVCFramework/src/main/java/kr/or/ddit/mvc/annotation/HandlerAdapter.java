@@ -6,8 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.omg.CORBA.portable.InvokeHandler;
-
 /**
  * HandlerMapping 으로 검색한 커맨드 핸들러를 직접 실행하는 전략 객체.
  *
@@ -20,7 +18,7 @@ public interface HandlerAdapter {
 	 * @param resp
 	 * @return
 	 */
-	public String invokeHandler(
+	public String invokeHandler(	
 			RequestMappingInfo mappingInfo, 
 			HttpServletRequest req, 
 			HttpServletResponse resp

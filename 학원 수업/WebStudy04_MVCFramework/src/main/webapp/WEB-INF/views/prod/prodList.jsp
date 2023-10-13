@@ -94,9 +94,9 @@ $("select[name=prodLgu]").on("change", function(event){
 		$options.show();
 	}
 });
-$(":input[name=prodLgu]").val("${paging.detailCondition.prodLgu}").trigger("change");
-$(":input[name=prodBuyer]").val("${paging.detailCondition.prodBuyer}");
-$(":input[name=prodName]").val("${paging.detailCondition.prodName}");
+$(":input[name=prodLgu]").val("${detailCondition.prodLgu}").trigger("change");
+$(":input[name=prodBuyer]").val("${detailCondition.prodBuyer}");
+$(":input[name=prodName]").val("${detailCondition.prodName}");
 function fn_paging(page){
 	searchForm.page.value = page;
 	searchForm.requestSubmit();

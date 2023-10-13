@@ -5,7 +5,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -60,7 +59,7 @@ public class RequestMappingHandlerMapping implements HandlerMapping {
 		RequestMethod method = RequestMethod.valueOf(req.getMethod().toUpperCase()); 
 		RequestMappingCondition mappingCondition = new RequestMappingCondition(uri, method);
 		RequestMappingInfo mappingInfo = handlerMap.get(mappingCondition);
-		if(mappingInfo == null) {
+		if(mappingInfo==null) {
 			uri = req.getServletPath();
 			mappingCondition = new RequestMappingCondition(uri, method);
 			mappingInfo = handlerMap.get(mappingCondition);

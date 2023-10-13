@@ -1,14 +1,13 @@
 package kr.or.ddit.mvc.annotation.resolvers;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Parameter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.ddit.utils.PopulationUtils;
+import kr.or.ddit.utils.PopulateUtils;
 
 public class ModelAttributeMethodProcessor implements HandlerMethodArgumentResolver {
 
@@ -27,7 +26,7 @@ public class ModelAttributeMethodProcessor implements HandlerMethodArgumentResol
 			Object commandObject = commandObjectType.newInstance();
 			req.setAttribute(attrName, commandObject);
 			
-			PopulationUtils.populate(commandObject, req.getParameterMap());
+			PopulateUtils.populate(commandObject, req.getParameterMap());
 			
 			return commandObject;
 		} catch (Exception e) {
