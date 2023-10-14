@@ -19,6 +19,7 @@ public class BeanNameViewResolver implements ViewResolver {
 	}
 
 //	ex) xmlView
+//	ex) xmlView
 	@Override
 	public void resolveView(String viewName, HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
