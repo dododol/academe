@@ -31,7 +31,9 @@
 	</c:otherwise>
 </c:choose>
 
-<h4>검색된 메시지 : <spring:message code="hi" arguments="반장" /></h4>
+<H4>검색된 메시지 : <spring:message code="hi" arguments="반장" /> </H4>
+
+
 
 
 

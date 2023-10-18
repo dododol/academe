@@ -4,16 +4,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.junit.jupiter.api.Test;
 
+import kr.or.ddit.AbstractRootContextTest;
 import kr.or.ddit.vo.MemberVO;
 import kr.or.ddit.vo.PaginationInfo;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-class MemberServiceImplTest {
+class MemberServiceImplTest extends AbstractRootContextTest{
 	
-	MemberService service = new MemberServiceImpl();
+	@Inject
+	MemberService service;
 
 	@Test
 	void testCreateMember() {

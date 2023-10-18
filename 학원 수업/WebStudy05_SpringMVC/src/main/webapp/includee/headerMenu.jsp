@@ -22,10 +22,10 @@
     <li class="nav-item text-nowrap">
       <a class="nav-link text-white" href="#">자유게시판</a>
     </li>
-     <li class="nav-item text-nowrap">
+    <li class="nav-item text-nowrap">
       <a class="nav-link text-white" href="?lang=en">영문</a>
     </li>
-     <li class="nav-item text-nowrap">
+    <li class="nav-item text-nowrap">
       <a class="nav-link text-white" href="?lang=ko">한글</a>
     </li>
   </ul>

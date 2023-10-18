@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 class ResourceBundleTest extends AbstractRootContextTest{
 	@Inject
 	private MessageSourceAccessor accessor;
-
+	
 	@Test
 	void test3() {
 		String message = accessor.getMessage("hi", new Object[] {"반장"});
@@ -25,16 +25,17 @@ class ResourceBundleTest extends AbstractRootContextTest{
 	}
 	
 	@Test
-	void tset2() {
+	void test2() {
 		String message = accessor.getMessage("javax.validation.constraints.NotBlank.message", Locale.ENGLISH);
 		log.info("검색된 메시지 : {}", message);
 	}
 	
 	@Test
 	void test() {
-		ResourceBundle bundel = 
+		ResourceBundle bundle = 
 				ResourceBundle.getBundle("org.hibernate.validator.ValidationMessages", Locale.JAPANESE);
-		String message = bundel.getString("javax.validation.constraints.AssertFalse.message");
+		String message = bundle.getString("javax.validation.constraints.AssertFalse.message");
 		log.info("검색된 메시지 : {}", message);
 	}
+
 }

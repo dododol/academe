@@ -2,12 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
     
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>일련번호</th>
-			<th>상품명</th>
+			<th><spring:message code="rownumber" /></th>
+			<th><spring:message code="prod.prodName" /></th>
+			<th><spring:message code="prod.prodLgu" /></th>
+			<th><spring:message code="prod.prodBuyer" /></th>
+			<th><spring:message code="prod.prodPrice" /></th>
+			<th><spring:message code="prod.prodSale" /></th>
 			<th>상품분류명</th>
 			<th>제조사명</th>
 			<th>판매가</th>
@@ -49,12 +54,12 @@
 				${paging.pagingHTML }
 				<div id="searchUI"  class="row g-3 d-flex justify-content-center">
 					<div class="col-auto">
-					<form:select path="detailCondition.prodLgu" class="form-select">
-					<option value>상품분류</option>
-						<c:forEach items="${lprodList }" var="lprod">
-							<form:option label="${lprod.lprodNm }" value="${lprod.lprodGu }" />
-						</c:forEach>
-					</form:select>
+						<form:select path="detailCondition.prodLgu" class="form-select">
+							<option value>상품분류</option>
+							<c:forEach items="${lprodList }" var="lprod">
+								<form:option label="${lprod.lprodNm }" value="${lprod.lprodGu }" />
+							</c:forEach>
+						</form:select>
 					</div>
 					<div class="col-auto">
 						<form:select path="detailCondition.prodBuyer" class="form-select">
@@ -78,9 +83,9 @@
 </table>
 <form:form modelAttribute="detailCondition" id="searchForm" class="border" method="get">
 	<h4>전송 UI</h4>
-	<form:input path="prodLgu" readonly="readonly" placeholder="prodLgu" />
-	<form:input path="prodBuyer" readonly="readonly" placeholder="prodBuyer" />
-	<form:input path="prodName" readonly="readonly" placeholder="prodName" />
+	<form:input path="prodLgu" readonly="readonly" placeholder="prodLgu"/>
+	<form:input path="prodBuyer" readonly="readonly" placeholder="prodBuyer"/>
+	<form:input path="prodName" readonly="readonly" placeholder="prodName"/>
 	<input type="text" name="page" readonly="readonly" placeholder="page"/>
 </form:form>
 <script>
@@ -95,6 +100,7 @@ $("select[name=prodLgu]").on("change", function(event){
 		$options.show();
 	}
 }).trigger("change");
+
 function fn_paging(page){
 	searchForm.page.value = page;
 	searchForm.requestSubmit();

@@ -52,9 +52,9 @@ import lombok.ToString;
 public class MemberVO implements Serializable {
 	
 	private int rnum;
-
 	@NotBlank(groups = {Default.class, DeleteGroup.class})
 	private String memId;
+	
 	@NotBlank(groups = {Default.class, DeleteGroup.class})
 	@Size(min = 4, max = 12, groups = {Default.class, DeleteGroup.class})
 	@ToString.Exclude

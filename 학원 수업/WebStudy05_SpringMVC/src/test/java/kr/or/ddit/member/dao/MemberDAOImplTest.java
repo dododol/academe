@@ -7,16 +7,20 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.junit.jupiter.api.Test;
 
+import kr.or.ddit.AbstractRootContextTest;
 import kr.or.ddit.vo.MemberVO;
 import kr.or.ddit.vo.PaginationInfo;
 import kr.or.ddit.vo.ProdVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-class MemberDAOImplTest {
-	MemberDAO dao = new MemberDAOImpl();
+class MemberDAOImplTest extends AbstractRootContextTest{
+	@Inject
+	MemberDAO dao;
 
 	@Test
 	void testSelectMember() {

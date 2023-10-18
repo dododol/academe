@@ -18,7 +18,6 @@ public class AuthenticationCheckInterceptor implements HandlerInterceptor{
 			throws Exception {
 		Principal principal = request.getUserPrincipal();
 		boolean pass = principal!=null;
-		
 		if(!pass) {
 			response.sendRedirect(request.getContextPath() + loginPage);
 		}

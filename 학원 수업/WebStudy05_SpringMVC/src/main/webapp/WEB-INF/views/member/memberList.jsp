@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>    
 <table class="table table-bordered">
 	<thead class="table-light">
 		<tr>
-			<th><spring:message code="member.rnum"/></th>
+			<th><spring:message code="rownumber"/></th>
 			<th><spring:message code="member.memName"/></th>
 			<th><spring:message code="member.memHp"/></th>
 			<th><spring:message code="member.memMail"/></th>
@@ -43,9 +43,9 @@
 				<div id="searchUI"  class="row g-3 d-flex justify-content-center">
 					<div class="col-auto">
 						<form:select path="simpleCondition.searchType" class="form-select">
-							<form:option label="전체"  value="" />
-							<form:option label="이름" value="name" />
-							<form:option label="지역" value="address" />
+							<form:option label="전체" value="" />
+							<form:option value="name" label="이름" />
+							<form:option value="address" label="지역" />
 						</form:select>
 					</div>
 					<div class="col-auto">
@@ -59,7 +59,7 @@
 		</tr>
 	</tfoot>
 </table>
-<form:form modelAttribute="simpleCondition" id="searchForm" class="border">
+<form:form modelAttribute="simpleCondition" method="get" id="searchForm" class="border">
 	<h4>전송 UI</h4>
 	<form:input path="searchType" readonly="readonly" placeholder="searchType"/>
 	<form:input path="searchWord" readonly="readonly" placeholder="searchWord"/>
@@ -67,7 +67,7 @@
 </form:form>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -85,8 +85,6 @@
 </div>
 
 <script>
-// 	$(":input[name=searchType]").val("${simpleCondition.searchType}");
-// 	$(":input[name=searchWord]").val("${simpleCondition.searchWord}");
 	function fn_paging(page){
 		searchForm.page.value = page;
 		searchForm.requestSubmit();

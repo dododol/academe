@@ -15,6 +15,8 @@ import kr.or.ddit.member.service.MemberService;
 import kr.or.ddit.validate.grouphint.InsertGroup;
 import kr.or.ddit.vo.MemberVO;
 
+
+
 @Controller
 public class MemberInsertController {
 	@Inject

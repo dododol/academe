@@ -10,85 +10,85 @@
     
 	<table class="table table-bordered">
 		<tr>
-			<th><label for="memId"><spring:message code="member.memId"/></th>
+			<th><spring:message code="member.memId" /></th>
 			<td>${member.memId }</td>
 		</tr>
 		<tr>
-			<th><label for="memPass"><spring:message code="member.memPass"/></label></th>
+			<th><spring:message code="member.memPass" /></th>
 			<td>${member.memPass }</td>
 		</tr>
 		<tr>
-			<th><label for="memImage"><spring:message code="member.memImage"/></label></th>
-			<td>	
-				<img src="data:image/*;base64,${member.memImgBase64 }"/>
-			</td>
+			<th><spring:message code="member.memImage" /></th>
+			<td><c:if test="${not empty member.memImg }">
+					<img src="data:image/*;base64,${member.memImgBase64 }" />
+				</c:if></td>
 		</tr>
 		<tr>
-			<th><label for="memName"><spring:message code="member.memName"/></label></th>
+			<th><spring:message code="member.memName" /></th>
 			<td>${member.memName }</td>
 		</tr>
 		<tr>
-			<th><label for="memRegno1"><spring:message code="member.memRegno1"/></label></th>
+			<th><spring:message code="member.memRegno1" /></th>
 			<td>${member.memRegno1 }</td>
 		</tr>
 		<tr>
-			<th><label for="memRegno2"><spring:message code="member.memRegno2"/></label></th>
+			<th><spring:message code="member.memRegno2" /></th>
 			<td>${member.memRegno2 }</td>
 		</tr>
 		<tr>
-			<th><label for="memBir"><spring:message code="member.memBir"/></label></th>
+			<th><spring:message code="member.memBir" /></th>
 			<td>${member.memBir }</td>
 		</tr>
 		<tr>
-			<th><label for="memZip"><spring:message code="member.memZip"/></label></th>
+			<th><spring:message code="member.memZip" /></th>
 			<td>${member.memZip }</td>
 		</tr>
 		<tr>
-			<th><label for="memAdd1"><spring:message code="member.memAdd1"/></label></th>
+			<th><spring:message code="member.memAdd1" /></th>
 			<td>${member.memAdd1 }</td>
 		</tr>
 		<tr>
-			<th><label for="memAdd2"><spring:message code="member.memAdd2"/></label></th>
+			<th><spring:message code="member.memAdd2" /></th>
 			<td>${member.memAdd2 }</td>
 		</tr>
 		<tr>
-			<th><label for="memHometel"><spring:message code="member.memHometel"/></label></th>
+			<th><spring:message code="member.memHometel" /></th>
 			<td>${member.memHometel }</td>
 		</tr>
 		<tr>
-			<th><label for="memComtel"><spring:message code="member.memComtel"/></label></th>
+			<th><spring:message code="member.memComtel" /></th>
 			<td>${member.memComtel }</td>
 		</tr>
 		<tr>
-			<th><label for="memHp"><spring:message code="member.memHp"/></label></th>
+			<th><spring:message code="member.memHp" /></th>
 			<td>${member.memHp }</td>
 		</tr>
 		<tr>
-			<th><label for="memMail"><spring:message code="member.memMail"/></label></th>
+			<th><spring:message code="member.memMail" /></th>
 			<td>${member.memMail }</td>
 		</tr>
 		<tr>
-			<th><label for="memJob"><spring:message code="member.memJob"/></label></th>
+			<th><spring:message code="member.memJob" /></th>
 			<td>${member.memJob }</td>
 		</tr>
 		<tr>
-			<th><label for="memLike"><spring:message code="member.memLike"/></label></th>
+			<th><spring:message code="member.memLike" /></th>
 			<td>${member.memLike }</td>
 		</tr>
 		<tr>
-			<th><label for="memMemorial"><spring:message code="member.memMemorial"/></label></th>
+			<th><spring:message code="member.memMemorial" /></th>
 			<td>${member.memMemorial }</td>
 		</tr>
 		<tr>
-			<th><label for="memMemorialday"><spring:message code="member.memMemorialday"/></label></th>
+			<th><spring:message code="member.memMemorialday" /></th>
 			<td>${member.memMemorialday }</td>
 		</tr>
 		<tr>
-			<th><label for="memMileage"><spring:message code="member.memMileage"/></label></th>
+			<th><spring:message code="member.memMileage" /></th>
 			<td>${member.memMileage }</td>
 		</tr>
 		<tr>
-			<th><label for="memDelete"><spring:message code="member.memDelete"/></label></th>
+			<th><spring:message code="member.memDelete" /></th>
 			<td>${member.memDelete }</td>
 		</tr>
 		<tr>

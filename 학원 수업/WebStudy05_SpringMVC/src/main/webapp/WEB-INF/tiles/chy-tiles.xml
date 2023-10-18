@@ -21,11 +21,14 @@
 	<definition name="member/*" extends="abstractDef">
 		<put-attribute name="content" value="/WEB-INF/views/member/{1}.jsp" />
 	</definition>
-	<definition name="prod/*" extends="abstractDef">
+	<definition name="prod/*" extends="abstractDef" preparer="">
 		<put-attribute name="content" value="/WEB-INF/views/prod/{1}.jsp" />
 	</definition>
+	<definition name="buyer/*" extends="abstractDef" preparer="buyerViewPreparer">
+		<put-attribute name="content" value="/WEB-INF/views/buyer/{1}.jsp" />
+	</definition>
 	
-	<definition name="adrs/adrsView" extends="abstractDef">
+	<definition name="adrs/adrsView" extends="abstractDef" >
 		<put-attribute name="content" value="/WEB-INF/views/adrs/adrsView.jsp" />
 	</definition>
 	

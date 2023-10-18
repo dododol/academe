@@ -12,4 +12,11 @@ public interface BuyerDAO {
 	 * @return
 	 */
 	public BuyerVO selectBuyer(String buyerId);
+	
+	/**
+	 * 제조사 등록
+	 * @param buyer
+	 * @return
+	 */
+	public int insertBuyer(BuyerVO buyer);
 }
