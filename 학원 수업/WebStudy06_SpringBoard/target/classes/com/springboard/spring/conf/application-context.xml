@@ -14,5 +14,5 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	<util:properties id="appInfo" location="classpath:com/springboard/appinfo.properties"/>
+	<util:properties id="appInfo" location="classpath:com/springboard/appInfo.properties"/>
 </beans>
