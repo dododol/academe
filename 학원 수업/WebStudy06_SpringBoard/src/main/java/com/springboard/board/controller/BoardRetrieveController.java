@@ -1,12 +1,53 @@
 package com.springboard.board.controller;
 
-/**
- * C : /board/boardInsert.do
- * R : /board/boardList.do?page=2, /board/boardView.do?what=23
- * U : /board/boardUpdate.do
- * D : /board/boardDelete.do
- * 
- */
-public class BoardRetrieveController {
+import javax.inject.Inject;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.springboard.board.service.BoardService;
+import com.springboard.board.vo.FreeBoardVO;
+
+/**
+ * 	C : /board/boardInsert.do
+ * 	  GET(POST) /board/new 	
+ *  R : /board/boardList.do?page=2, /board/boardView.do?what=23
+ *    GET /board?page=2,  /board/23
+ *  U : /board/boardUpdate.do
+ *    GET /board/23/edit,  PUT /board/23/edit
+ *  D : /board/boardDelete.do
+ *    DELETE /board/23
+ *
+ */
+@Controller
+@RequestMapping("/board")
+public class BoardRetrieveController {
+	@Inject
+	private BoardService service;
+	
+	@GetMapping("{boNo}")
+	public String boardView(@PathVariable int boNo, Model model) {
+		FreeBoardVO board = service.retrieveBoard(boNo);
+		model.addAttribute("board", board);
+		return "board/boardView";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

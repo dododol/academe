@@ -1,0 +1,72 @@
+package com.springboard.board.service;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import com.springboard.board.BoardNotFoundException;
+import com.springboard.board.dao.AttatchDAO;
+import com.springboard.board.dao.BoardDAO;
+import com.springboard.board.vo.AttatchVO;
+import com.springboard.board.vo.FreeBoardVO;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class BoardServiceImpl implements BoardService {
+	
+	private final BoardDAO boardDAO;
+	private final AttatchDAO attatchDAO;
+	
+	@Value("#{appInfo.boFiles}")
+	private Resource boFiles;
+	
+	private void processBoFiles(FreeBoardVO board) {
+		List<AttatchVO> attatchList = board.getAttatchList();
+		if(attatchList != null) {
+			attatchList.forEach((atch)->{
+				try {
+					atch.setBoNo(board.getBoNo());
+					attatchDAO.insertAttatch(atch);
+					atch.saveTo(boFiles.getFile());					
+				}catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			});
+		}
+	}
+
+	@Override
+	public void createBoard(FreeBoardVO board) {
+		boardDAO.insertBoard(board);
+		processBoFiles(board);
+	}
+
+	@Override
+	public FreeBoardVO retrieveBoard(int boNo) {
+		FreeBoardVO board = boardDAO.selectBoard(boNo);
+		if(board==null)
+			throw new BoardNotFoundException(HttpStatus.NOT_FOUND, String.format("%d 해당 게시글이 없음.", boNo));
+		return board;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

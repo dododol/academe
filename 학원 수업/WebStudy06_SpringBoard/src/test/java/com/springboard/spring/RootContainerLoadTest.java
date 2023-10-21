@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
@@ -20,9 +20,10 @@ class RootContainerLoadTest {
 	@Resource(name = "dataSource")
 	private DataSource dataSource;
 	@Autowired
-	private SqlSessionFactory sqlSession;
+	private SqlSessionTemplate sqlSession;
 	@Inject
 	private MessageSourceAccessor accessor;
+	
 	
 	@Test
 	void test() {
@@ -31,4 +32,15 @@ class RootContainerLoadTest {
 		log.info("accessor : {}", accessor);
 		log.info("hi message : {}", accessor.getMessage("hi"));
 	}
+
 }
+
+
+
+
+
+
+
+
+
+

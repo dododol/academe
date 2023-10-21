@@ -9,7 +9,7 @@ public interface BoardService {
 	/**
 	 * 게시글 상세조회
 	 * @param boNo
-	 * @return 존재하지 않으면, {@link BoardNotFoundException} 발생, 동시에 404 응답 전송
+	 * @return 존재하지 않으면, {@link BoardNotFoundException} 발생, 동시에 404 응답 전송.
 	 */
 	public FreeBoardVO retrieveBoard(int boNo);
 }
