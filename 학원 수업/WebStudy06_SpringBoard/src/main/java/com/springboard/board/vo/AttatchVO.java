@@ -16,10 +16,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "attNo")
 @NoArgsConstructor
 public class AttatchVO implements Serializable{
-	
 	private MultipartFile boFile;
-	
-
 	public AttatchVO(MultipartFile boFile) {
 		super();
 		this.boFile = boFile;
@@ -37,24 +34,12 @@ public class AttatchVO implements Serializable{
 	private long attFilesize; // 1024000000
 	private String attFancysize; // 1GB
 	private Integer attDownload;
-
+	
 	public void saveTo(File saveFolder) throws IllegalStateException, IOException {
-		if(boFile != null)
+		if(boFile!=null)
 			boFile.transferTo(new File(saveFolder, attSavename));
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

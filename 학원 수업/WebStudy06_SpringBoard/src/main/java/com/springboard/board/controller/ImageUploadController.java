@@ -29,16 +29,32 @@ public class ImageUploadController {
 			String saveName = UUID.randomUUID().toString();
 			File saveFolder = boardImages.getFile();
 			File saveFile = new File(saveFolder, saveName);
-			upload.transferTo(saveFile);
+			upload.transferTo(saveFile); // upload 완료
 			
-			String url =  req.getContextPath() + boardImagesUrl + "/" + saveName;
-			model.addAttribute("uploaded",1);
+			String url = req.getContextPath() + boardImagesUrl + "/" + saveName;
+			model.addAttribute("uploaded", 1);
 			model.addAttribute("fileName", upload.getOriginalFilename());
-			model.addAttribute("url",url);
-		} else {
+			model.addAttribute("url", url);
+		}else {
 			model.addAttribute("uploaded", 0);
-			model.addAttribute("error", Collections.singletonMap("message", "업로드된 파일 없음"));
+			model.addAttribute("error", Collections.singletonMap("message", "업로드된 파일 없음."));
 		}
 		return "jsonView";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

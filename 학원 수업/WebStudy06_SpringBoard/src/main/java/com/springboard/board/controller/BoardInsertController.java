@@ -2,6 +2,7 @@ package com.springboard.board.controller;
 
 import javax.inject.Inject;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -25,8 +26,10 @@ public class BoardInsertController {
 	private BoardService service;
 	
 	@ModelAttribute("newBoard")
-	public FreeBoardVO board() {
-		return new FreeBoardVO();
+	public FreeBoardVO board(Authentication authentication) {
+		FreeBoardVO board = new FreeBoardVO();
+		board.setBoWriter(authentication.getName());
+		return board;
 	}
 	
 	@GetMapping
@@ -38,7 +41,7 @@ public class BoardInsertController {
 	public String boardInsert(
 		@Validated(InsertGroup.class) @ModelAttribute("newBoard") FreeBoardVO board
 		, BindingResult errors
-		,RedirectAttributes redirectAttributes
+		, RedirectAttributes redirectAttributes
 		, SessionStatus sessionStatus
 	) {
 		String viewName = null;
@@ -47,8 +50,8 @@ public class BoardInsertController {
 			sessionStatus.setComplete();
 			viewName = "redirect:/board/"+board.getBoNo();
 		}else {
-			String attName = BindingResult.MODEL_KEY_PREFIX+"newBoard";
-			redirectAttributes.addFlashAttribute(attName, errors);
+			String attrName = BindingResult.MODEL_KEY_PREFIX+"newBoard";
+			redirectAttributes.addFlashAttribute(attrName, errors);
 			viewName = "redirect:/board/new"; // redirect 후 get 요청
 		}
 		return viewName;

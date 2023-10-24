@@ -9,4 +9,6 @@ public interface AttatchDAO {
 	public int insertAttatch(AttatchVO attatch);
 	public AttatchVO selectAttatch(int attNo);
 	public int deleteAttatch(int attNo);
+	
+	public int incrementDowncount(int attNo);
 }
