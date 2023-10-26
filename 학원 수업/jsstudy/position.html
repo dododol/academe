@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+<style>
+    /* 레이아웃 구성시에는 꼭 border를 넣어서 눈에 보이게*/
+    div {
+        position:relative;  /* default? */
+        border: 1px solid black;
+    }
+
+    #huk {
+        position: fixed;
+        top: 100px;
+        width: 100vw;
+        background-color: blueviolet;
+    }
+    /* 부모 relative, 자식 absolute 꼭 알아야함*/
+    #wrapper {
+        position: relative;
+    }
+
+    h1 {
+        position: absolute;
+        background-color: black;
+        color: white;
+    }
+</style> 
+<body>
+
+    <div>김</div>
+    <div id="huk">태</div>
+    <div>형</div>
+    <div id="wrapper">
+        <h1 style="top: 30px;">고기짬뽕&옛날탕수육1</h1>
+        <h1 style="top: 60px;">고기짬뽕&옛날탕수육2</h1>
+        <h1 style="top: 90px;">고기짬뽕&옛날탕수육3</h1>
+        <h1 style="top: 120px;">고기짬뽕&옛날탕수육4</h1>
+    </div>
+</body>

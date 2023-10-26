@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<h1 id="na">난 최고의 프로그래머</h1>
+<script>
+
+const na = document.querySelector("#na");
+    //na.style.backgroundColor ="blue";
+    //na.style.color="white";
+    na.style["background-color"] = "blue";
+    na.style["color"] = "white";
+
+
+
+// JSON 열심히 해서 유명해진 사람 제이슨 스타뎀!
+
+/*
+let test = {
+    name : "태형",
+    nick : "잘생김"
+    msg : function() {
+        alert(this.name);
+    }
+}
+*/
+
+/*
+let test = {}; // 빈 객체 생성
+test.name = "태형";
+test.nick = "잘";
+test.msg = function() {
+    alert(this.name);
+}
+*/
+
+/*
+let name = "fbi";
+let test = {
+    name : "메롱"   // 객체의 키값은 자동으로 문자열 처리
+}
+*/
+
+// 배열식(연관배열이라고도 함) 접근법(꼭 알아야함 !)
+let name="superman";
+let test = {
+    ["name"] : "원더우먼"   // 동적으로 키값 할당이 가능해짐
+}
+
+console.log("체크 : ", test);
+
+
+</script>
