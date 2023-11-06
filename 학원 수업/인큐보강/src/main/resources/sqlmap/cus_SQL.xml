@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.CusMapper">
+
+	<insert id="createPost" parameterType="kr.or.ddit.vo.CusVO">
+	
+	INSERT INTO CUS(CUS_NO,CUS_NM,ADDR,HP)
+	VALUES(#{cusNo},#{cusNm},#{addr},#{hp})
+	
+	</insert>
+
+	<select id="detail" parameterType="cusVO" resultType="cusVO">
+		SELECT	CUS_NO, CUS_NM, ADDR, HP
+		FROM	CUS
+		WHERE	CUS_NO = #{cusNo}
+	</select>
+
+	<update id="updatePost" parameterType="cusVO">
+		UPDATE  CUS
+		SET     CUS_NM = #{cusNm}, ADDR = #{addr}, HP = #{hp}
+		WHERE   CUS_NO = #{cusNo}
+	</update>
+	
+	<delete id="deletePost" parameterType="cusVO">
+		DELETE	FROM CUS
+		WHERE	CUS_NO = #{cusNo}
+	</delete>
+	
+	<select id="list" parameterType="hashMap" resultType="cusVO">
+		SELECT CUS_NO, CUS_NM, ADDR, HP
+		FROM CUS
+		ORDER BY CUS_NO
+	</select>
+
+</mapper>

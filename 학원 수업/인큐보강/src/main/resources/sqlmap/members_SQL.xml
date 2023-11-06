@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.MembersMapper">
+
+	<insert id="createPost" parameterType="membersVO">
+<!-- 		<selectKey resultType="String" order="BEFORE" keyProperty="memId"> -->
+		
+<!-- 		</selectKey> -->
+	
+	INSERT INTO MEMBERS(MEM_ID, MEM_NAME, MEM_HP)
+	VALUES(#{memId}, #{memName}, #{memHp})
+	
+	</insert>
+
+	<!-- 파라미터 : MembersVO(memId=a011, memName=null, memHp=null) -->
+	<select id="detail" parameterType="membersVO" resultType="membersVO">
+		SELECT MEM_ID, MEM_NAME, MEM_HP
+		FROM   MEMBERS
+		WHERE  MEM_ID = #{memId}
+	</select>
+	
+	<update id="updatePost" parameterType="membersVO">
+		UPDATE MEMBERS
+		SET    MEM_NAME = #{memName}, MEM_HP = #{memHp}
+		WHERE  MEM_ID   = #{memId}
+	</update>
+	
+	<delete id="deletePost" parameterType="membersVO">
+		DELETE FROM MEMBERS
+		WHERE   MEM_ID = #{memId}
+	</delete>
+	
+	<!-- public List<MembersVO> list(Map<String, Object> map); -->
+	<select id="list" parameterType="hashMap" resultType="membersVO">
+		SELECT MEM_ID, MEM_NAME, MEM_HP 
+		FROM   MEMBERS 
+		ORDER BY MEM_NAME
+	</select>
+</mapper>

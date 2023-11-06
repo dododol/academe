@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.LprodMapper">
+	
+	<!-- 상품분류 등록
+	파라미터 lproddVO[lprodId=0,lprodGu=P701,lprodNm=호스팅]
+	받을그릇 lproddVO[lprodId=10,lprodGu=P701,lprodNm=호스팅]
+	 -->
+	<insert id="createPost" parameterType="lprodVO">
+		<selectKey resultType="int" order="BEFORE" keyProperty="lprodId">
+			SELECT NVL(MAX(LPROD_ID),0) + 1 FROM LPROD
+		</selectKey>
+		
+		INSERT INTO LPROD(LPROD_ID, LPROD_GU, LPROD_NM)
+		VALUES(#{lprodId}, #{lprodGu}, #{lprodNm})
+	
+	</insert>
+	<!-- 
+	파라미터 : lprodVO[lprodId=0,lprodGu=P502,lprodNm=null]
+	결과 : lprodVO[lprodId=10,lprodGu=P502,lprodNm=해조류]
+	 -->
+	<select id="detail" parameterType="lprodVO" resultType="lprodVO">
+		SELECT LPROD_ID, LPROD_GU, LPROD_NM
+		FROM   LPROD
+		WHERE  LPROD_GU = #{lprodGu}
+	</select>
+	
+	<!-- 
+   LPROD테이블 수정
+   lprodVO[lprodId=10,lprodGu=P502,lprodNm=해조류2] 
+    -->
+	<update id="updatePost" parameterType="lprodVO">
+		UPDATE  LPROD
+		SET     LPROD_ID = #{lprodId}, LPROD_NM = #{lprodNm}
+		WHERE   LPROD_GU = #{lprodGu}
+	</update>
+	
+	<!-- 
+   LPROD테이블 삭제
+   lprodVO[lprodId=10,lprodGu=P502,lprodNm=해조류2] 
+    -->
+	<delete id="deletePost" parameterType="lprodVO">
+		DELETE FROM LPROD
+		WHERE   LPROD_GU = #{lprodGu}
+	</delete>
+</mapper>
