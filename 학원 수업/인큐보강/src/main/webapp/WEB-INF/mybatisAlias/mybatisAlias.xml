@@ -17,5 +17,7 @@
 		<typeAlias type="kr.or.ddit.vo.LprodVO" alias="lprodVO" />
 		<typeAlias type="kr.or.ddit.vo.MembersVO" alias="membersVO" />
 		<typeAlias type="kr.or.ddit.vo.CusVO" alias="cusVO" />
+		<typeAlias type="kr.or.ddit.vo.UsersVO" alias="usersVO" />
+		<typeAlias type="kr.or.ddit.vo.CusInfoVO" alias="cusInfoVO" />
 	</typeAliases>
 </configuration>

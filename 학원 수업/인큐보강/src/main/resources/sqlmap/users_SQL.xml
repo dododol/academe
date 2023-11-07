@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.UsersMapper">
+	
+	<insert id="createPost" parameterType="usersVO">
+		INSERT INTO USERS(USERNAME, PASSWORD, ENABLED)
+		VALUES(#{username}, #{password}, #{enabled})
+	</insert>
+
+	<select id="detail" parameterType="usersVO" resultType="usersVO">
+		SELECT USERNAME, PASSWORD, ENABLED
+		FROM USERS
+		WHERE USERNAME = #{username}
+	</select>
+	
+	<update id="updatePost" parameterType="usersVO">
+		UPDATE	USERS
+		SET		PASSWORD = #{password}, ENABLED = #{enabled}
+		WHERE	USERNAME = #{username}
+	</update>
+	
+	<delete id="deletePost" parameterType="usersVO">
+		DELETE	FROM USERS
+		WHERE	USERNAME = #{username}
+	</delete>
+	
+	<select id="list" parameterType="hashMap" resultType="usersVO">
+		SELECT USERNAME, PASSWORD, ENABLED
+		FROM USERS
+		ORDER BY USERNAME
+	</select>
+</mapper>
