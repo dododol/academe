@@ -1,5 +1,8 @@
 package kr.or.ddit.service;
 
+import java.util.List;
+import java.util.Map;
+
 import kr.or.ddit.vo.LprodVO;
 
 public interface LprodService {
@@ -15,5 +18,7 @@ public interface LprodService {
 	
 	// 삭제
 	public int deletePost(LprodVO lprodVO);
+
+	public List<LprodVO> list(Map<String, String> map);
 
 }

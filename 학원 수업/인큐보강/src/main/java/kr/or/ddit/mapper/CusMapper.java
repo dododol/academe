@@ -16,5 +16,5 @@ public interface CusMapper {
 	
 	public int deletePost(CusVO cusVO);
 
-	public List<MembersVO> list(Map<String, Object> map);
+	public List<CusVO> list(Map<String, Object> map);
 }

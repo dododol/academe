@@ -42,19 +42,19 @@
 		 			list<MembersVO>
 		 -->
 		 <!-- row : membersVO 1행 -->
-		<c:forEach var="cusVO" items="${data}" varStatus="stat">
+		<c:forEach var="cusInfoVO" items="${data}" varStatus="stat">
 			<tr>
 				<td>${stat.count}</td>
-				<td><a href="/cus/detail?cusNo=${cusVO.cusNo}">${cusVO.cusNo}</a></td>
-				<td>${cusVO.cusNm}</td>
-				<td>${cusVO.addr}</td>
-				<td>${cusVO.hp}></td>
+				<td><a href="/cusInfo/detail?cusNo=${cusInfoVO.cusNo}">${cusInfoVO.cusNo}</a></td>
+				<td>${cusInfoVO.cusNm}</td>
+				<td>${cusInfoVO.addr}</td>
+				<td>${cusInfoVO.hp}></td>
 			</tr>
 		</c:forEach>
 		</tbody>
 	</table>
 	<p>
-		<a href="/cus/create">고객 등록</a>
+		<a href="/cusInfo/create">고객 등록</a>
 	</p>
 </body>
 </html>

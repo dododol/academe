@@ -107,7 +107,7 @@ public class CusController {
 		map.put("keyword", keyword);
 		map.put("currentPage", currentPage);
 		
-		List<MembersVO> data = this.cusService.list(map);
+		List<CusVO> data = this.cusService.list(map);
 		log.info("list->data : " + data);
 		
 		model.addAttribute("data", data);

@@ -43,4 +43,41 @@
 		DELETE FROM LPROD
 		WHERE   LPROD_GU = #{lprodGu}
 	</delete>
+	
+	<!-- 
+    List<LprodVO> list(Map<String, String> map)
+  	상품코드 검색   {keyword=P2, gubun=lprodGu}
+  	상품분류명 검색{keyword=컴퓨터, gubun=lprodNm}
+     -->
+     <select id="list" parameterType="hashMap" resultType="lprodVO">
+		SELECT LPROD_ID, LPROD_GU, LPROD_NM
+		FROM   LPROD
+		WHERE  1 = 1
+		<if test="gubun=='lprodNm'">
+		   AND    LPROD_NM LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="gubun=='lprodGu'">
+		   AND    LPROD_GU LIKE '%' || #{keyword} || '%'
+		</if>
+     </select>
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

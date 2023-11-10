@@ -39,7 +39,7 @@ public class CusServiceImpl implements CusService {
 	}
 
 	@Override
-	public List<MembersVO> list(Map<String, Object> map) {
+	public List<CusVO> list(Map<String, Object> map) {
 		return this.cusmapper.list(map);
 	}
 }

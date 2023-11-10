@@ -1,5 +1,8 @@
 package kr.or.ddit.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -35,5 +38,10 @@ public class LprodServiceImpl implements LprodService {
 	@Override
 	public int deletePost(LprodVO lprodVO) {
 		return this.lprodmapper.deletePost(lprodVO);
+	}
+
+	@Override
+	public List<LprodVO> list(Map<String, String> map) {
+		return this.lprodmapper.list(map);
 	}
 }
