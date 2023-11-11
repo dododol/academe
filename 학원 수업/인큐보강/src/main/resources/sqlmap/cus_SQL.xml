@@ -3,10 +3,8 @@
 <mapper namespace="kr.or.ddit.mapper.CusMapper">
 
 	<insert id="createPost" parameterType="kr.or.ddit.vo.CusVO">
-	
-	INSERT INTO CUS(CUS_NO,CUS_NM,ADDR,HP)
-	VALUES(#{cusNo},#{cusNm},#{addr},#{hp})
-	
+		INSERT INTO CUS(CUS_NO,CUS_NM,ADDR,HP)
+		VALUES(#{cusNo},#{cusNm},#{addr},#{hp})
 	</insert>
 
 	<select id="detail" parameterType="cusVO" resultType="cusVO">

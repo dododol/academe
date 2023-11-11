@@ -15,9 +15,19 @@
 		WHERE	CUS_NO = #{cusNo}
 	</select>
 
+	<!-- //{cusNo=a003&cusNm=수빈이&addr=맨해튼&hp=010-111-2222} -->
 	<update id="updatePost" parameterType="cusInfoVO">
 		UPDATE  CUS_INFO
-		SET     CUS_NM = #{cusNm}, ADDR = #{addr}, HP = #{hp}
+		SET     REG_DATE = SYSDATE
+				<if test="cusNm!=null and cusNm!=''">
+				, CUS_NM = #{cusNm}
+				</if>
+				<if test="addr!=null and addr!=''">
+				, ADDR = #{addr}
+				</if>
+				<if test="hp!=null and hp!=''">
+				, HP = #{hp}
+				</if>
 		WHERE   CUS_NO = #{cusNo}
 	</update>
 	

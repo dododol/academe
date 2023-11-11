@@ -1,5 +1,8 @@
 package kr.or.ddit.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import kr.or.ddit.vo.LprodVO;
 
 public interface LprodMapper {
@@ -15,5 +18,7 @@ public interface LprodMapper {
 	
 	// <delete id="deletePost" parameterType="lprodVO">
 	public int deletePost(LprodVO lprodVO);
+
+	public List<LprodVO> list(Map<String, String> map);
 
 }
