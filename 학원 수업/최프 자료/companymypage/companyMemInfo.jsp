@@ -17,7 +17,7 @@
                     <li class="only  selected"><a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'main', '')">
                             <svg>
                                 <use xlink:href="#svg_my_15"></use>
-                            </svg> <span class="txt">기업정보123</span>
+                            </svg> <span class="txt">기업정보</span>
                         </a></li>
                     <li class="only"><a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'mag', '')">
                             <svg>
