@@ -96,7 +96,7 @@ public class QnAController {
 		    return viewName;
 	}
 	
-	//1:1문의 등록폼
+	//1:1문의 등록폼(1)
 	@GetMapping("/qna/create")
 	public String create() {
 		//forwarding
