@@ -60,7 +60,7 @@ public interface QnAService {
 	
 	
 	/**
-	 * 댓글 등록
+	 * 댓글 등록()
 	 * @param qnAReplyVO
 	 */
 	public int createPost(QnAReplyVO qnAReplyVO);
