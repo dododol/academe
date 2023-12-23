@@ -103,7 +103,7 @@ public class QnAController {
 		return "users/notice/usersQuestionForm";
 	}
 	
-	//1:1문의 등록폼
+	//1:1문의 등록폼(2)
 	@PostMapping("/qna/createQnaPost")
 	public String createQnaPost(@SessionAttribute("authId") String memId,
 			QnAVO qnaVO) {
