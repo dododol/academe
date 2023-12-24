@@ -49,7 +49,7 @@ public class FrBoardController {
 		
 	}
 	
-	//자유게시판 글작성 폼
+	//자유게시판 글작성 폼(1)
 	/*
 	 요청URI : /frBoardList/create
 	 파라미터 : 
