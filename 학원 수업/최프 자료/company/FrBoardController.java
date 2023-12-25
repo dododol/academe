@@ -61,7 +61,7 @@ public class FrBoardController {
 		return "users/board/boardForm";
 	}
 	
-	//자유게시판 글작성 실행
+	//자유게시판 글작성 실행(1)
 	/*
 	 요청URI : /frBoardList/createPost
 	 파라미터 : {frbTitle=제목2,frbWrite=내용23}
