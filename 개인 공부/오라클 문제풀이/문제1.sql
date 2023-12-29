@@ -127,7 +127,7 @@ SELECT * FROM BOOK WHERE BOOKNAME LIKE '%축구%' AND PRICE>=20000;
 SELECT * FROM BOOK ORDER BY BOOKNAME;
 
 --2 출판사 순으로 검색하되 같은 출판사이면 도서명 순으로 도서정보 검색
-
+SELECT * FROM BOOK ORDER BY PUBLISHER ,BOOKNAME;
 
 --3 도서 가격 순으로 검색하되 같은 가격이면 도서명 순으로 검색
 
