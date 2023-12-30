@@ -130,7 +130,7 @@ SELECT * FROM BOOK ORDER BY BOOKNAME;
 SELECT * FROM BOOK ORDER BY PUBLISHER ,BOOKNAME;
 
 --3 도서 가격 순으로 검색하되 같은 가격이면 도서명 순으로 검색
-
+SELECT * FROM BOOK ORDER BY PRICE, BOOKNAME;
 
 --4 도서를 가격의 내림차순으로 검색
 
