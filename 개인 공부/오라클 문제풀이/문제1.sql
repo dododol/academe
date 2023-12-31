@@ -136,7 +136,7 @@ SELECT * FROM BOOK ORDER BY PRICE, BOOKNAME;
 SELECT * FROM BOOK ORDER BY PRICE DESC;
 
 --5 도서를 가격의 내림차순으로 검색하되 같은 가격인 도서는 출판사명 순으로 도서정보
-
+SELECT * FROM BOOK ORDER BY PRICE DESC, PUBLISHER;
 
 --6 고객이 주문한 도서의 판매액을 구하세요
 
