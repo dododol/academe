@@ -36,7 +36,8 @@ public class YearEx {
 //			days = 31; break;
 //		}
 //		System.out.println("입력하신 " + month + "월의 일수는 " + days + "일 입니다.");
-		
+
+
 		
 		//4. if - else 문으로 월의 일수를 체크하기
 		System.out.println("월 입력 : ");
