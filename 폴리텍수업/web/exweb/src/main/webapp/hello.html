@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello</title>
+</head>
+<body>
+	<h1>요청을 보내는 방식</h1>
+	<h2>1.웹브라우저 주소창에 직접 입력 (GET 방식)</h2>
+	<h2>2.링크(a) 엘리먼트를 클릭 (GET 방식)</h2>
+	<a href="http://localhost:8000/exweb/hello.do?id=James">요청링크</a>
+	<a href="/exweb/hello.do?id=James">요청링크</a>
+	<a href="hello.do?id=James">요청링크</a>
+	<a href="./hello.do?id=James">요청링크</a> <!-- 	./ ⇒ 현재디렉토리 -->
+	<a href="../exweb/hello.do?id=James">요청링크</a><!-- 	../ ⇒ 부모디렉토리 -->
+	<h2>3.폼(form) 엘리먼트를 전송(submit)</h2>
+<!-- 	type="submit"인 input 요소를 클릭하면, -->
+<!-- 	input 요소를 감싸고 있는 form 요소의 action 속성에 -->
+<!-- 	지정한 주소로 요청을 전송 -->
+<!-- 	form 요소 내부의 입력요소들의 값을 파라미터로 자동 포함 -->
+<!-- 	form 요소의 method 속성으로 요청방식 지정 가능 -->
+	<h3>3-1. GET 방식 요청 전송</h3>
+	<form action="/exweb/hello.do">
+ 		<input type="text" name="id" value="James">	<!--입력할 수 있는 창 만드는 코드(type="text") -->
+		<input type="submit">
+	</form>
+	<h3>3-2. POST 방식 요청 전송</h3> <!-- form태그에 속성을 하나 더 추가 (method="post")-->
+	<form action="/exweb/hello.do" method="post">	<!-- method 속성으로 요청방식을 post로 요청 -->
+ 		<input type="text" name="id" value="James">	<!--입력할 수 있는 창 만드는 코드(type="text") -->
+		<input type="submit">
+	</form>
+<!-- submit 버튼을 클릭하면, -->
+<!-- 입력한 금액(달러)를 원으로 변환한 금액이 -->
+<!-- 브라우저 화면에 출력되도록 ToWonServlet클래스를 구현 -->
+<!-- 1$ == 1330원 -->
+	<h1>원달러변환</h1>
+	<form action="/exweb/d2w.do" method="post">	<!-- method 속성으로 요청방식을 post로 요청 -->
+ 		<input type="number" name="usd" value="0">달러	<!--입력할 수 있는 창 만드는 코드(type="text") -->
+		<input type="submit" value="변환">	<!-- value로 클릭박스 이름 변경 -->
+	</form>
+	
+	<h1>계산기</h1>
+	<form action="/exweb/calc.do" method="get">	
+ 		X : <input type="number" name="x" value="0">
+		<select name="op" >
+			<option value="+" >+</option>
+			<option value="-" >-</option>
+			<option value="*" >*</option>
+			<option value="/" >/</option>
+			<option value="%" >%</option>
+		</select>
+ 		Y : <input type="number" name="y" value="0">
+		<input type="submit" value="계산">
+	</form>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

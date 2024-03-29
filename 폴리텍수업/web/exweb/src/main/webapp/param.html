@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파라미터 전송 테스트</title>
+</head>
+<body>
+	<h1>파라미터 전송 테스트</h1>
+	<form action="/exweb/param.do" method="get">
+		망곰test1 : 
+		
+		<input type="radio" name="mangom" value="1" id="m1" >
+		<label for="m1">뿡망곰</label> <!-- label의 for로 id를 연결해 주면 글자를 눌러도 체크됨 -->
+		
+		<input type="radio" name="mangom" value="2" id="m2" >
+		<label for="m2">해냄망곰</label> 
+		
+		<input type="radio" name="mangom" value="3" id="m3" checked="checked">
+		<label for="m3">따봉망곰</label> 
+		
+		<input type="radio" name="mangom" value="4" id="m4" >
+		<label for="m4">뿌앵망곰</label> 
+		
+		<input type="radio" name="mangom" value="5" id="m5" >
+		<label for="m5">맛있어망곰</label> 
+		
+		<br><br><br>
+		춘식 : 
+		
+		<input type="checkbox" name="chunsik" value="6" id="m6" >
+		<label for="m6">멍춘식</label> <!-- label의 for로 id를 연결해 주면 글자를 눌러도 체크됨 -->
+		
+		<input type="checkbox" name="chunsik" value="7" id="m7" >
+		<label for="m7">하트춘식</label> 
+		
+		<input type="checkbox" name="chunsik" value="8" id="m8" >
+		<label for="m8">뱃살춘식</label> 
+		
+		<br><br><br>
+		<input type="submit" value="전송">
+	</form>
+	<h1>회원추가</h1>	
+	<form action="/exweb/member/add.do" method="post">
+		아이디 : <input type="text" name="memId">		<br>
+		비밀번호 : <input type="password" name="memPass">	<br>
+		이름 : <input type="text" name="memName">		<br>
+		포인트 : <input type="number" name="memPoint">	<br>
+		<input type="submit">
+	</form>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
