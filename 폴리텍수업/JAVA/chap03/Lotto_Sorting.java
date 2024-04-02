@@ -1,6 +1,6 @@
 package chap03;
 
-public class Lotto {
+public class Lotto_Sorting {
 
 	public static void main(String[] args) {
 		
@@ -22,10 +22,11 @@ public class Lotto {
 //			System.out.print(lotto[i] + " ");
 		
 		//3. 배열의 값 출력 (for-iterating 반복문)
+		System.out.println("정렬 전 ==================== ");
 		for(int num : lotto)
 			System.out.print(num + " ");
 	
-		System.out.println("===================================");
+		System.out.println(">>");
 		
 		//4. 로또값 중 최대값 출력 / 최대값이 있던 인덱스 출력
 		int max = lotto[0];	//0번 index 값이 가장 크다고 가정
@@ -37,6 +38,50 @@ public class Lotto {
 			}
 		}
 		System.out.println("최대값 : " + max + " 최대값 인덱스 : " + max_index);
+	
+		// 선택정렬 알고리즘
+		// 단계별 바뀔 수 있는 곳을 ***을 표시해보세요!
+		for(int i=0; i<lotto.length; i++) {
+			
+			// 1. 최소값이 있는 방 번호 찾기
+			int min_index = i;							// ***
+			for(int j = i+1; j < lotto.length; j++) {		// ***
+				if(lotto[min_index] > lotto[j])  {
+					min_index = j;
+				}
+			}
+			
+			// 2. 최소값이 있는 방과 데이터 교환하기
+			int temp = lotto[min_index];
+			lotto[min_index] = lotto[i];				// ***
+			lotto[i] = temp;							// ***
+		}
+
+		//3. 배열의 값 출력 (for-iterating 반복문)
+		System.out.println("정렬 전 ==================== ");
+		for(int num : lotto)
+			System.out.print(num + " ");
+		
+		System.out.println(">>");
+
+	
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
