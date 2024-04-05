@@ -36,14 +36,6 @@ public class MemListServlet extends HttpServlet{
 		out.println("	<a href='" + req.getContextPath() + "/member/addform.do'>회원추가</a><br>	");
 		
 		
-		try {
-			Class.forName("oracle.jdbc.OracleDriver");	// 지정한 클래스를 메모리에 로드
-			
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}	
-		
 		String url="jdbc:oracle:thin:@//localhost:1521/xe";	//데이터베이스 주소
 		String user="com";		//데이터베이스 아이디
 		String password="COM01";		//데이터베이스 비밀번호

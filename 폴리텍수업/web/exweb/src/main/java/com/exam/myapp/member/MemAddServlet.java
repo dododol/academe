@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,21 +18,13 @@ public class MemAddServlet extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		try {
-			Class.forName("oracle.jdbc.OracleDriver");	// 지정한 클래스를 메모리에 로드
-			
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}	
+
 		
 		String url="jdbc:oracle:thin:@//localhost:1521/xe";	//데이터베이스 주소
 		String user="com";		//데이터베이스 아이디
 		String password="COM01";		//데이터베이스 비밀번호
 		
-		req.setCharacterEncoding("UTF-8");
+//		req.setCharacterEncoding("UTF-8");
 		String memId = req.getParameter("memId");
 		String memPass = req.getParameter("memPass");
 		String memName = req.getParameter("memName");
@@ -58,9 +51,43 @@ public class MemAddServlet extends HttpServlet{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+		
+		// 다른 서블릿을 실행하는 방법
+		//(1) 리디렉션
 		//웹브라우저에게 지정한 주소로 이동(요청전송)하라는
 		//명령을 담은 응답 메시지를 전송
 		resp.sendRedirect(req.getContextPath() + "/member/list.do");
 		
+		//(2) 포워드, 인클루드
+		//서블릿에서 서버(톰캣)에게 요청을 보내서 다른 서블릿을 실행
+		//(서버 내에서 이동하므로, 클라이언트(브라우저)는 알지 못함)
+//		RequestDispatcher rd = req.getRequestDispatcher("/member/list.do");
+//		rd.forward(req, resp);	// 다른 서블릿을 실행하여 응답을 전송하도록 
+//		rd.include(req, resp);	// 다른 서블릿을 실행하여 응답을 출력한 후
+		//현재 서블릿으로 돌아와서 응답 출력을 계속하도록
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
