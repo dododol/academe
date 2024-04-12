@@ -49,16 +49,16 @@
 <!--   		일반적으로 서블릿의 주소로 요청을 받았을 때 생성 -->
 <!--   </servlet> -->
   
-  <listener>
-  	<listener-class>com.exam.myapp.comm.MyListener</listener-class>
-  </listener>
-  
-<!--   서블릿컨텍스트의 초기화 파라미터 설정 -->
-  <context-param>
-  	<param-name>cn</param-name>
-  	<param-value>oracle.jdbc.OracleDriver</param-value>
-  </context-param>
-  
+	<listener>
+		<listener-class>com.exam.myapp.comm.MyListener</listener-class>
+	</listener>
+	 
+	<!--   서블릿컨텍스트의 초기화 파라미터 설정 -->
+	<context-param>
+		<param-name>cn</param-name>
+		<param-value>oracle.jdbc.OracleDriver</param-value>
+	</context-param>
+	  
   
   
 </web-app>
