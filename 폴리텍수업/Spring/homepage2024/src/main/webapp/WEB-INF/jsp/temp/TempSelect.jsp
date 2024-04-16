@@ -14,7 +14,18 @@
 
 ${result.tempId} : ${result.tempVal}
 <br>
-http://localhost:2024/temp/select.do?tempId=1
+<c:url var="uptUrl" value="/temp/tempRegist.do">
+	<c:param name="tempId" value="${result.tempId}" />
+</c:url>
+<a href="${uptUrl}">수정</a>
+
+<c:url var="delUrl" value="/temp/delete.do">
+	<c:param name="tempId" value="${result.tempId}" />
+</c:url>
+<a href="${delUrl}" class="btn-del">삭제</a>
+
+<a href="/temp/selectList.do">목록</a>
+
 
 </body>
 </html>

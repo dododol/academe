@@ -21,4 +21,34 @@ public class TempDAO extends EgovAbstractMapper{
 		return selectList("tempDAO.selectTempList",vo);
 	}
 	
+	//임시데이터 목록 수
+	public int selectTempListCnt(TempVO vo) throws Exception {
+		return selectOne("tempDAO.selectTempListCnt", vo);
+	}
+	
+	//임시데이터 등록
+	public void insertTemp(TempVO vo) throws Exception {
+		insert("tempDAO.insertTemp",vo);
+	}
+	
+	//임시데이터 수정
+	public void updateTemp(TempVO vo) throws Exception {
+		update("tempDAO.updateTemp", vo);
+	}
+	
+	//임시데이터 삭제
+	public void deleteTemp(TempVO vo) throws Exception {
+		delete("tempDAO.deleteTemp",vo);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
