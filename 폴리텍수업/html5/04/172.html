@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form fieldset {
+            width:500px;
+            margin-top:20px;
+        }
+        legend {
+            font-size:18px;
+            font-weight:700;
+        }
+        .reg {   /*.은 클래스 선택자 / 여러번 사용*/
+            font-size:14px;
+            width:110px;
+            color:#390;
+            font-weight:bold;
+            float:left;
+            text-align:right;
+            margin-right:10px;
+        }
+        form ul li {
+            list-style:none;
+            margin:15px 0; /* 상하 15px, 좌우:0 */
+            font-size:14px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>수강 신청인</legend>
+            <ul>
+                <li>
+                    <label for="id" class="reg" autofocus placeholder="8자리만 입력" maxlength="8">학번</label>
+                    <input type="text" id="id" autofocus>
+                </li>
+                <li>
+                    <label for="name" class="reg" autofocus>이름</label>
+                    <input type="text" id="name">
+                </li>
+                <li>
+                    <label for="class" class="reg">학과</label>
+                    <select id="class">
+                        <optgroup label="공과대학">
+                            <option value="archi">건축공학과</option>
+                            <option value="mechanic">기계공학과</option>
+                            <option value="indust">산업공학과</option>
+                            <option value="elec">전기전자공학과</option>
+                            <option value="computer">컴퓨터공학과</option>
+                            <option value="chemical">화학공학과</option>
+                        </optgroup>
+                        <optgroup label="인문대학">
+                            <option value="history">사학과</option>
+                            <option value="lang">어문학부</option>
+                            <option value="philo">철학</option>
+                        </optgroup>
+                    </select>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>
