@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	
+	/* <link href="style2.css" rel="stylesheet" type="text/css"> */
+	<style tye="text/css">
+		@import url("style2.css");
+	</style>
+ </head>
+ <body>
+	<img src="images/sydney.png" alt="시드니 오페라 하우스">
+	<h1>세계 3대 미항</h1>
+	<ul>
+		<li>시드니(Sydney), 호주</li>
+		<li>리우데자네이루(Rio de Janeiro), 브라질</li>
+		<li>나폴리(Naples), 이탈리아</li>
+	</ul>
+ </body>
+</html>
