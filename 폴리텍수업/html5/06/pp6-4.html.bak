@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		.big-line { line-height:2; }
+		.small-line { line-height:0.7; }
+	</style>
+ </head>
+ <body>
+	<p>블루베리의 대표적인 기능은</p>
+	<p class="small-line">블루베리의 대표적인 기능은</p>
+ </body>
+</html>
