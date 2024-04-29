@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		.grad{
+			background:#ff0000;
+			background:linear-gradient(45deg, #ff0000, #ffffff);
+		}
+	</style>
+ </head>
+ <body>
+	<div class="grad"></div>
+ </body>
+</html>
