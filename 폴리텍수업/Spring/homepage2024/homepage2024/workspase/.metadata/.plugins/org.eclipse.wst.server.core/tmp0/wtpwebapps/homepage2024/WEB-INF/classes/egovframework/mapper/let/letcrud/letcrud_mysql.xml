@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="letcrudDAO">
+	
+	<resultMap  id="letcrud" type="egovframework.let.letcrud.service.LetcrudVO">
+		<result property="crudId" column="CRUD_ID" />
+		<result property="crudSj" column="CRUD_SJ" />
+		<result property="crudCn" column="CRUD_CN" />
+		<result property="userNm" column="USER_NM" />
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" />
+	</resultMap>
+	
+	<select id="selectLetcrudList" resultType="egovMap">
+		SELECT
+			CRUD_ID
+			, CRUD_SJ
+			, CRUD_CN
+			, USER_NM
+			, DATE_FORMAT(FRST_REGIST_PNTTM, '%Y-%m-%d') AS FRST_REGIST_PNTTM
+		FROM letcrud
+		ORDER BY CRUD_ID DESC
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	</select>
+	
+	<select id="selectLetcrudListCnt" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*) CNT
+		FROM letcrud
+	</select>
+	
+	<select id="selectLetcrud" resultType="egovframework.let.letcrud.service.LetcrudVO">
+		SELECT 
+            CRUD_ID
+            , CRUD_SJ
+            , CRUD_CN
+            , USER_NM
+            , DATE_FORMAT(FRST_REGIST_PNTTM, '%Y-%m-%d') AS FRST_REGIST_PNTTM
+        FROM letcrud
+            WHERE CRUD_ID = #{crudId}
+	</select>
+	
+	<insert id="insertLetcrud" parameterType="egovframework.let.letcrud.service.LetcrudVO">
+		INSERT INTO letcrud (
+			CRUD_ID
+			, CRUD_SJ
+			, CRUD_CN
+			, USER_NM
+			, FRST_REGIST_PNTTM
+		)VALUES (
+			#{crudId}
+			, #{crudSj}
+			, #{crudCn}
+			, #{userNm}
+			, NOW()
+		)
+	</insert>
+	
+	<update id="letcrudDAO.updateLetcrud" parameterType="egovframework.let.letcrud.service.LetcrudVO">
+		UPDATE letcrud SET
+			CRUD_CN = #{crudCn}
+			, CRUD_SJ = #{crudSj}
+			, USER_NM = #{userNm}
+			, FRST_REGIST_PNTTM = NOW()
+		WHERE CRUD_ID = #{crudId}
+	</update>
+	
+	<delete id="letcrudDAO.deleteLetcrud" parameterType="egovframework.let.letcrud.service.LetcrudVO">
+		DELETE FROM letcrud
+		WHERE CRUD_ID = #{crudId}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

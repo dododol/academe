@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="egovframework.let.cop.com.service.EgovTemplateManageService"/>
+    <fullyQualifiedTypeName name="org.egovframe.rte.fdl.cmmn.EgovAbstractServiceImpl"/>
+    <fullyQualifiedTypeName name="egovframework.let.temp.service.TempService"/>
+    <fullyQualifiedTypeName name="com.ibm.icu.text.Normalizer.Mode"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.egovframe.rte.psl.dataaccess.util.EgovMap"/>
+    <fullyQualifiedTypeName name="org.antlr.grammar.v3.ANTLRParser.exceptionGroup_return"/>
+    <fullyQualifiedTypeName name="org.egovframe.rte.fdl.idgnr.EgovIdGnrService"/>
+    <fullyQualifiedTypeName name="egovframework.let.temp.service.TempVO"/>
+    <fullyQualifiedTypeName name="egovframework.let.temp3.service.Temp3Service"/>
+    <fullyQualifiedTypeName name="egovframework.let.temp3.service.Temp3VO"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.egovframe.rte.psl.dataaccess.EgovAbstractMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.egovframe.rte.fdl.idgnr.impl.EgovSequenceIdGnrServiceImpl"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="javax.annotation.Resource"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="egovframework.com.cmm.ComDefaultVO"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.ModelMap"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
+    <fullyQualifiedTypeName name="egovframework.com.cmm.LoginVO"/>
+    <fullyQualifiedTypeName name="egovframework.com.cmm.util.EgovUserDetailsHelper"/>
+    <fullyQualifiedTypeName name="egovframework.let.board.service.BoardVO"/>
+    <fullyQualifiedTypeName name="org.egovframe.rte.fdl.string.EgovStringUtil"/>
+</qualifiedTypeNameHistroy>
