@@ -5,13 +5,14 @@ import java.io.Serializable;
 import egovframework.com.cmm.ComDefaultVO;
 
 public class TempVO extends ComDefaultVO implements Serializable{
-
+	
 	//임시데이터ID
 	private String tempId;
 	
 	//임시데이터값
 	private String tempVal;
 
+	//Getter and Setter(Shift + Alt + s)
 	public String getTempId() {
 		return tempId;
 	}
@@ -27,7 +28,4 @@ public class TempVO extends ComDefaultVO implements Serializable{
 	public void setTempVal(String tempVal) {
 		this.tempVal = tempVal;
 	}
-	
-	
-	
 }

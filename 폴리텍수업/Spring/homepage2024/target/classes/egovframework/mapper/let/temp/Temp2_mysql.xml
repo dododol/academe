@@ -2,70 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="temp2DAO">
-	
 	<resultMap id="temp" type="egovframework.let.temp.service.TempVO">
 		<result property="tempId" column="TEMP_ID"/>
 		<result property="tempVal" column="TEMP_VAL"/>
 	</resultMap>
-	
-	<select id="temp2DAO.selectTemp" resultMap="temp">		<!-- Map = 위의 Map과 연동 -->
+	<select id="temp2DAO.selectTemp" resultMap="temp">
 		SELECT 
-		TEMP_ID
-		,	TEMP_VAL
-		FROM lettemp2
-		WHERE TEMP_ID = #{tempId}
-	</select>
-	
-	<select id="temp2DAO.selectTempList" resultType="egovMap">	<!-- type = class로 보냄 -->
-		SELECT 
-		TEMP_ID
-		,	TEMP_VAL
-		FROM lettemp2
-		ORDER BY TEMP_ID DESC 
-	</select>
-	
-	<select id="temp2DAO.selectTempListCnt" resultType="java.lang.Integer">	<!--  -->
-		SELECT 
-			COUNT(*) CNT
-		FROM lettemp2 
-	</select>
-
-	<insert id="temp2DAO.insertTemp" parameterType="egovframework.let.temp.service.TempVO">
-		INSERT INTO lettemp2(
 			TEMP_ID
-			, TEMP_VAL 
-		) VALUES (
+			, TEMP_VAL
+		FROM LETTEMP2
+			WHERE TEMP_ID = #{tempId}
+	</select>
+	<select id="temp2DAO.selectTempList" resultType="egovMap">
+		SELECT 
+			TEMP_ID
+			, TEMP_VAL
+		FROM LETTEMP2
+			ORDER BY TEMP_ID DESC
+	</select>
+	<select id="temp2DAO.selectTempListCnt" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*) CNT
+		FROM LETTEMP2
+	</select>
+	<insert id="temp2DAO.insertTemp" parameterType="egovframework.let.temp.service.TempVO">
+		INSERT INTO LETTEMP2(
+			TEMP_ID
+			, TEMP_VAL
+		) VALUES(
 			#{tempId}
 			, #{tempVal}
 		)
 	</insert>
-	
 	<update id="temp2DAO.updateTemp" parameterType="egovframework.let.temp.service.TempVO">
-		UPDATE lettemp2 SET
-			TEMP_VAL = #{tempVal}
+		UPDATE LETTEMP2 
+			SET TEMP_VAL = #{tempVal} 
 		WHERE TEMP_ID = #{tempId}
 	</update>
-	
 	<delete id="temp2DAO.deleteTemp" parameterType="egovframework.let.temp.service.TempVO">
-		DELETE FROM lettemp2
+		DELETE 
+			FROM LETTEMP2 
 		WHERE TEMP_ID = #{tempId}
 	</delete>
-	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
