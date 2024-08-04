@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.ac.kopo.bookshop.model.Book;
-import kr.ac.kopo.bookshop.service.BookService;
+import kr.ac.kopo.bookshop.model.Customer;
+import kr.ac.kopo.bookshop.service.CustomerService;
 
 @Controller
-@RequestMapping("/book")
-public class BookController {
-	final String path = "book/";
+@RequestMapping("/customer")
+public class CustomerController {
+	final String path = "customer/";
 	
 	@Autowired
-	BookService service;
+	CustomerService service;
 	
 	@GetMapping("/list")
 	String list(Model model) {
-		List<Book> list = service.list();
+		List<Customer> list = service.list();
 		
 		model.addAttribute("list", list);
 		
@@ -36,31 +36,31 @@ public class BookController {
 	}
 	
 	@PostMapping("/add")
-	String add(Book item) {
+	String add(Customer item) {
 		service.add(item);
 		
-		return path + "redirect:list";
+		return "redirect:list";
 	}
 	
-	@GetMapping("/delete/{bookid}")
-	String delete(@PathVariable Long bookid) {
-		service.delete(bookid);
+	@GetMapping("/delete/{custid}")
+	String delete(@PathVariable Long custid) {
+		service.delete(custid);
 		
 		return "redirect:../list";
 	}
 	
-	@GetMapping("/update/{bookid}")
-	String update(@PathVariable Long bookid, Model model) {
-		Book item = service.item(bookid);
+	@GetMapping("/update/{custid}")
+	String update(@PathVariable Long custid, Model model) {
+		Customer item = service.item(custid);
 		
 		model.addAttribute("item", item);
 		
 		return path + "update";
 	}
 	
-	@PostMapping("/update/{bookid}")
-	String update(@PathVariable Long bookid, Book item) {
-		item.setBookid(bookid);
+	@PostMapping("/update/{custid}")
+	String update(@PathVariable Long custid, Customer item) {
+		item.setCustid(custid);
 		
 		service.update(item);
 		
@@ -68,18 +68,3 @@ public class BookController {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
