@@ -31,4 +31,12 @@ public class MemberRepository { //Repository class는 DB쪽과 연관이 있다.
     public void delete(Long id) {
         sql.delete("Member.delete", id);
     }
+
+    public MemberDTO findByMemberEmail(String loginEmail) {
+        return sql.selectOne("Member.findByMemberEmail", loginEmail);
+    }
+
+    public int update(MemberDTO memberDTO) {
+        return sql.update("Member.update", memberDTO);
+    }
 }

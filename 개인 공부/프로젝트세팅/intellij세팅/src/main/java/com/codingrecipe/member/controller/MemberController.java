@@ -79,4 +79,15 @@ public class MemberController {
         model.addAttribute("member", memberDTO);
         return "update";
     }
+
+    // 수정 처리
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO) {
+        boolean result = memberService.update(memberDTO);
+        if (result) {
+            return "redirect:/member?id=" + memberDTO.getId();
+        } else {
+            return "index";
+        }
+    }
 }
